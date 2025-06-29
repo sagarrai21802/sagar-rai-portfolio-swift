@@ -1,4 +1,3 @@
-
 import { Mail, Linkedin, Github, MapPin } from 'lucide-react';
 
 const Contact = () => {
@@ -10,7 +9,7 @@ const Contact = () => {
         </h2>
         
         <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-          I'm actively seeking iOS development opportunities worldwide, especially in New Zealand. 
+          I'm actively seeking iOS development opportunities worldwide. 
           Let's discuss how I can contribute to your team!
         </p>
         
@@ -49,7 +48,7 @@ const Contact = () => {
         
         <div className="flex items-center justify-center space-x-2 text-gray-400">
           <MapPin className="w-5 h-5" />
-          <span>Open to relocate globally • Especially interested in New Zealand 🇳🇿</span>
+          <span>Open to relocate globally • Ready for new opportunities worldwide 🌍</span>
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-800">

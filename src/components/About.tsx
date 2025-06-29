@@ -15,9 +15,7 @@ const About = () => {
             I spend my days (and many nights!) diving deep into Swift and UIKit, turning ideas into elegant, 
             functional mobile experiences. What drives me? The thrill of solving real-world problems with clean, 
             efficient code and creating interfaces that just <em>feel right</em>. 
-            My heart is set on taking my skills global — especially to the stunning landscapes of{' '}
-            <span className="font-semibold text-purple-600 dark:text-purple-400">New Zealand</span>, 
-            where I dream of contributing to innovative tech teams.
+            I'm excited to take my skills to the global stage and contribute to innovative tech teams worldwide.
           </p>
           
           <div className="mt-8 flex justify-center">
