@@ -34,9 +34,9 @@ const Header = () => {
         <div className="flex justify-center space-x-6 mb-12 animate-fade-in-up animation-delay-400">
           <a
             href="mailto:sagarrai9893@gmail.com"
-            className="flex items-center space-x-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-lg animated-button"
+            className="flex items-center space-x-2 px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 social-icon"
           >
-            <Mail className="w-5 h-5" />
+            <Mail className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
             <span>Email</span>
           </a>
           <a
