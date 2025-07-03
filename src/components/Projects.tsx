@@ -20,7 +20,7 @@ const Projects = () => {
   return (
     <section className="py-20 px-4 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
+        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 animate-fade-in">
           Featured Projects
         </h2>
         
@@ -28,10 +28,11 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover-scale"
+              className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 project-card animate-fade-in-up`}
+              style={{ animationDelay: `${index * 200}ms` }}
             >
-              <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                <div className="text-white text-6xl font-bold opacity-20">
+              <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center transition-transform duration-300 hover:scale-105`}>
+                <div className="text-white text-6xl font-bold opacity-20 hover:opacity-30 transition-opacity duration-300">
                   {index === 0 ? '?' : '🎵'}
                 </div>
               </div>
@@ -49,7 +50,7 @@ const Projects = () => {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm hover:scale-105 transition-transform duration-200"
                     >
                       {tech}
                     </span>
@@ -60,14 +61,14 @@ const Projects = () => {
           ))}
         </div>
         
-        <div className="text-center">
+        <div className="text-center animate-fade-in-up animation-delay-600">
           <a
             href="https://github.com/sagarrai21802"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:shadow-lg transition-all duration-300 hover-scale"
+            className="inline-flex items-center space-x-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 animated-button"
           >
-            <Github className="w-5 h-5" />
+            <Github className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
             <span className="font-medium">View More on GitHub</span>
           </a>
         </div>

@@ -1,13 +1,13 @@
 
 const About = () => {
   return (
-    <section className="py-20 px-4 bg-white dark:bg-gray-900">
+    <section id="about" className="py-20 px-4 bg-white dark:bg-gray-900">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
+        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 animate-fade-in">
           About Me
         </h2>
         
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-blue-900 rounded-2xl p-8 md:p-12 shadow-xl">
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-blue-900 rounded-2xl p-8 md:p-12 shadow-xl animate-slide-in-left">
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed text-center">
             Hey there! I'm <span className="font-semibold text-blue-600 dark:text-blue-400">Sagar</span>, 
             and I'm absolutely passionate about crafting beautiful iOS apps that people love to use. 
@@ -19,7 +19,7 @@ const About = () => {
           </p>
           
           <div className="mt-8 flex justify-center">
-            <div className="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-700 rounded-full shadow-md">
+            <div className="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-700 rounded-full shadow-md hover:scale-105 transition-transform duration-200">
               <span className="text-green-500 text-lg mr-2">🌟</span>
               <span className="text-gray-700 dark:text-gray-300 font-medium">Ready for My Next Adventure</span>
             </div>
