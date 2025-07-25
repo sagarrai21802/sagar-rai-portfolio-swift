@@ -11,7 +11,7 @@ import Contact from '@/components/Contact';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-background transition-colors duration-500">
       <ThemeToggle />
       <Header />
       <About />

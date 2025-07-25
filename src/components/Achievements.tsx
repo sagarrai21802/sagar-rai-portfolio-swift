@@ -22,27 +22,28 @@ const Achievements = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
+    <section className="py-24 px-4 bg-elegant-gray dark:bg-elegant-gray">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 tracking-tight animate-fade-in">
           Key Achievements
         </h2>
         
-        <div className="grid md:grid-cols-3 gap-8">
-          {achievements.map((achievement) => (
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+          {achievements.map((achievement, index) => (
             <div
               key={achievement.title}
-              className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale text-center"
+              className="bg-card border border-border rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-lg transition-all duration-500 hover-scale text-center backdrop-blur-sm animate-fade-in-up"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r ${achievement.color} flex items-center justify-center text-2xl`}>
+              <div className={`w-20 h-20 mx-auto mb-8 rounded-3xl bg-gradient-to-r ${achievement.color} flex items-center justify-center text-3xl shadow-lg`}>
                 {achievement.icon}
               </div>
               
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4">
                 {achievement.title}
               </h3>
               
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed font-body">
                 {achievement.description}
               </p>
             </div>

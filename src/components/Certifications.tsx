@@ -34,29 +34,30 @@ const Certifications = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
+    <section className="py-24 px-4 bg-background">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 tracking-tight animate-fade-in">
           Certifications
         </h2>
         
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {certifications.map((cert) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {certifications.map((cert, index) => (
             <div
               key={cert.title}
-              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale border border-gray-100 dark:border-gray-700"
+              className="bg-card border border-border rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-500 hover-scale backdrop-blur-sm animate-fade-in-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className={`w-3 h-12 ${cert.color} rounded-full mb-4`}></div>
+              <div className={`w-4 h-16 ${cert.color} rounded-full mb-6 shadow-sm`}></div>
               
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-lg md:text-xl font-display font-bold text-foreground mb-3">
                 {cert.title}
               </h3>
               
-              <p className="text-gray-600 dark:text-gray-400 mb-1">
+              <p className="text-muted-foreground mb-2 font-body">
                 {cert.issuer}
               </p>
               
-              <p className="text-sm text-gray-500 dark:text-gray-500">
+              <p className="text-sm text-muted-foreground/70 font-medium">
                 {cert.date}
               </p>
             </div>

@@ -18,39 +18,41 @@ const Projects = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 animate-fade-in">
+    <section className="py-24 px-4 bg-background">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 animate-fade-in tracking-tight">
           Featured Projects
         </h2>
         
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 project-card animate-fade-in-up`}
+              className={`bg-card border border-border rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] project-card animate-fade-in-up backdrop-blur-sm`}
               style={{ animationDelay: `${index * 200}ms` }}
             >
-              <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center transition-transform duration-300 hover:scale-105`}>
-                <div className="text-white text-6xl font-bold opacity-20 hover:opacity-30 transition-opacity duration-300">
+              <div className={`h-56 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
+                <div className="text-white text-6xl font-bold opacity-15 hover:opacity-25 transition-opacity duration-300 relative z-10">
                   {index === 0 ? '?' : '🎵'}
                 </div>
+                <div className="absolute inset-0 bg-black/10"></div>
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              <div className="p-6 md:p-8">
+                <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed font-body">
                   {project.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech) => (
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech, techIndex) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm hover:scale-105 transition-transform duration-200"
+                      className="px-4 py-2 bg-elegant-gray dark:bg-elegant-gray text-foreground rounded-full text-sm font-medium hover:scale-105 transition-all duration-300 border border-border/50 hover:bg-primary/5"
+                      style={{ animationDelay: `${(index * 200) + (techIndex * 50)}ms` }}
                     >
                       {tech}
                     </span>
@@ -66,10 +68,10 @@ const Projects = () => {
             href="https://github.com/sagarrai21802"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 animated-button"
+            className="inline-flex items-center space-x-3 px-8 py-4 bg-primary text-primary-foreground rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 animated-button font-medium"
           >
             <Github className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
-            <span className="font-medium">View More on GitHub</span>
+            <span>View More on GitHub</span>
           </a>
         </div>
       </div>
