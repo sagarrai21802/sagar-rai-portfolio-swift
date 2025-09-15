@@ -1,59 +1,55 @@
-
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Programming Languages",
-      skills: ["Swift", "Core Java"],
-      color: "from-orange-400 to-red-500"
+      title: "Frameworks & Languages",
+      skills: ["UIKit", "SwiftUI", "Swift", "Java"],
+      icon: "💻"
     },
     {
-      title: "Databases & Tools",
-      skills: ["MySQL", "Git", "GitHub"],
-      color: "from-green-400 to-blue-500"
+      title: "Databases",
+      skills: ["MySQL", "SQLite", "Core Data", "User Defaults", "Realm"],
+      icon: "🗃️"
     },
     {
-      title: "Development Tools",
-      skills: ["Xcode", "VS Code"],
-      color: "from-purple-400 to-pink-500"
+      title: "Developer Tools",
+      skills: ["Xcode", "VS Code", "Git", "GitHub", "Postman", "BitBucket"],
+      icon: "🛠️"
     },
     {
-      title: "Core Concepts",
-      skills: ["DSA", "OOPS", "Software Engineering", "Computer Fundamentals"],
-      color: "from-blue-400 to-indigo-500"
+      title: "Core Skills",
+      skills: ["DSA", "OOPS", "Application Architecture Design", "Problem Solving"],
+      icon: "🧠"
     }
   ];
 
   return (
     <section className="py-24 px-4 bg-elegant-gray dark:bg-elegant-gray">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 tracking-tight animate-fade-in">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 tracking-tight fade-in">
           Technical Skills
         </h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
-              className="bg-card border border-border rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-500 hover-scale backdrop-blur-sm animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="bg-card border border-border rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-lg transition-all duration-500 hover-scale backdrop-blur-sm scale-in"
             >
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${category.color} flex items-center justify-center mb-6 shadow-md`}>
-                <span className="text-white font-bold text-xl">{index + 1}</span>
+              <div className="text-center mb-8">
+                <div className="text-4xl mb-4">{category.icon}</div>
+                <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-6">
+                  {category.title}
+                </h3>
               </div>
               
-              <h3 className="text-xl font-display font-semibold text-foreground mb-6">
-                {category.title}
-              </h3>
-              
-              <div className="space-y-3">
+              <div className="flex flex-wrap gap-3 justify-center">
                 {category.skills.map((skill, skillIndex) => (
-                  <div
+                  <span
                     key={skill}
-                    className="px-4 py-3 bg-elegant-light dark:bg-elegant-gray rounded-xl text-sm font-medium text-foreground hover:bg-primary/5 transition-colors duration-300 border border-border/50"
-                    style={{ animationDelay: `${(index * 100) + (skillIndex * 50)}ms` }}
+                    className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium hover:bg-primary/20 transition-all duration-300 hover:scale-105 border border-primary/20"
                   >
                     {skill}
-                  </div>
+                  </span>
                 ))}
               </div>
             </div>

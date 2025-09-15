@@ -13,7 +13,7 @@ const Header = () => {
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] dark:opacity-[0.05]"></div>
       
       <div className="text-center z-10 px-4 max-w-6xl mx-auto">
-        <div className="mb-12 animate-bounce-in">
+        <div className="mb-12 scale-in">
           <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden shadow-2xl ring-4 ring-white/20 backdrop-blur-sm hover:scale-105 transition-all duration-500 hover:ring-white/40">
             <img 
               src="/lovable-uploads/c9190dca-57cc-4899-80dc-fe52e2f2a8f3.png" 
@@ -23,15 +23,15 @@ const Header = () => {
           </div>
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-display font-bold text-foreground mb-6 animate-fade-in-up tracking-tight">
+        <h1 className="text-5xl md:text-7xl font-display font-bold text-foreground mb-6 fade-in tracking-tight">
           Sagar Rai
         </h1>
         
-        <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200 font-body font-light">
+        <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed fade-in font-body font-light">
           iOS Developer | Final Year CSE Student | Passionate about Clean UI & Smart Code
         </p>
         
-        <div className="flex justify-center space-x-4 md:space-x-6 mb-16 animate-fade-in-up animation-delay-400">
+        <div className="flex justify-center space-x-4 md:space-x-6 mb-16 scale-in">
           <a
             href="mailto:sagarrai9893@gmail.com"
             className="flex items-center space-x-2 px-6 py-3 bg-card border border-border text-foreground rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 social-icon backdrop-blur-sm"

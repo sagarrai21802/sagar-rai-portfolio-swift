@@ -24,7 +24,7 @@ const Achievements = () => {
   return (
     <section className="py-24 px-4 bg-elegant-gray dark:bg-elegant-gray">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 tracking-tight animate-fade-in">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 tracking-tight fade-in">
           Key Achievements
         </h2>
         
@@ -32,8 +32,7 @@ const Achievements = () => {
           {achievements.map((achievement, index) => (
             <div
               key={achievement.title}
-              className="bg-card border border-border rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-lg transition-all duration-500 hover-scale text-center backdrop-blur-sm animate-fade-in-up"
-              style={{ animationDelay: `${index * 150}ms` }}
+              className="bg-card border border-border rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-lg transition-all duration-500 hover-scale text-center backdrop-blur-sm scale-in"
             >
               <div className={`w-20 h-20 mx-auto mb-8 rounded-3xl bg-gradient-to-r ${achievement.color} flex items-center justify-center text-3xl shadow-lg`}>
                 {achievement.icon}

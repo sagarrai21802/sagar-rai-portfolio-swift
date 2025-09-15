@@ -4,23 +4,25 @@ import { Github } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
-      title: "Quizzler: Interactive MCQ Quiz App",
-      description: "Built with Swift & UIKit using MVC architecture. Features dynamic question logic, animated UI, and comprehensive score tracking system.",
-      tech: ["Swift", "UIKit", "MVC"],
-      gradient: "from-blue-500 to-purple-600"
+      title: "Todoey: iOS Task Management App",
+      description: "Built with Swift & UIKit using MVC architecture. Implemented 5+ data persistence methods (Realm, Core Data, SQLite, File Manager, Keychain) ensuring 100% data integrity across sessions. Improved task management efficiency by 30% via optimised UI flows.",
+      tech: ["Swift", "UIKit", "Realm", "Core Data", "SQLite", "MVC"],
+      gradient: "from-blue-500 to-purple-600",
+      achievements: "30% efficiency improvement, 100% data integrity"
     },
     {
-      title: "Xylophone: Colourful Music App",
-      description: "Built with Swift & AVFoundation. Features responsive sound playback with animated keypress UI for an engaging musical experience.",
-      tech: ["Swift", "AVFoundation", "UI Animation"],
-      gradient: "from-green-500 to-teal-600"
+      title: "Hacker News: Real-time iOS News Feed App",
+      description: "Built with Swift & SwiftUI using MVVM architecture. Integrated Hacker News API with URLSession & JSONDecoder delivering <200ms data fetch latency. Developed SwiftUI adaptive UI supporting iOS 15–18 with 40% faster data loading.",
+      tech: ["Swift", "SwiftUI", "URLSession", "JSON Decoding", "MVVM"],
+      gradient: "from-green-500 to-teal-600",
+      achievements: "<200ms latency, 40% faster loading"
     }
   ];
 
   return (
     <section className="py-24 px-4 bg-background">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 animate-fade-in tracking-tight">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 fade-in tracking-tight">
           Featured Projects
         </h2>
         
@@ -28,12 +30,11 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className={`bg-card border border-border rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] project-card animate-fade-in-up backdrop-blur-sm`}
-              style={{ animationDelay: `${index * 200}ms` }}
+              className={`bg-card border border-border rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] project-card scale-in backdrop-blur-sm`}
             >
               <div className={`h-56 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
                 <div className="text-white text-6xl font-bold opacity-15 hover:opacity-25 transition-opacity duration-300 relative z-10">
-                  {index === 0 ? '?' : '🎵'}
+                  {index === 0 ? '📱' : '📰'}
                 </div>
                 <div className="absolute inset-0 bg-black/10"></div>
               </div>
@@ -43,16 +44,23 @@ const Projects = () => {
                   {project.title}
                 </h3>
                 
-                <p className="text-muted-foreground mb-6 leading-relaxed font-body">
+                <p className="text-muted-foreground mb-4 leading-relaxed font-body">
                   {project.description}
                 </p>
+                
+                {project.achievements && (
+                  <div className="mb-6 p-3 bg-primary/10 rounded-xl border border-primary/20">
+                    <p className="text-primary text-sm font-medium">
+                      🎯 {project.achievements}
+                    </p>
+                  </div>
+                )}
                 
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, techIndex) => (
                     <span
                       key={tech}
                       className="px-4 py-2 bg-elegant-gray dark:bg-elegant-gray text-foreground rounded-full text-sm font-medium hover:scale-105 transition-all duration-300 border border-border/50 hover:bg-primary/5"
-                      style={{ animationDelay: `${(index * 200) + (techIndex * 50)}ms` }}
                     >
                       {tech}
                     </span>
