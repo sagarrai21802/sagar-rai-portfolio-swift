@@ -13,16 +13,45 @@ const About = () => {
         <div ref={cardReveal.ref as any} className={`bg-card border border-border rounded-3xl p-8 md:p-16 shadow-lg hover:shadow-xl transition-all duration-500 backdrop-blur-sm reveal-left ${cardReveal.isVisible ? 'is-visible' : ''}`}>
           <div className="max-w-4xl mx-auto">
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-body">
-              I'm an <span className="text-primary font-semibold">iOS Developer</span> skilled in Swift, UIKit, and SwiftUI with hands-on experience in building apps using MVVM/MVC and REST APIs. Currently pursuing B.Tech in Computer Science and Engineering at Bansal College Of Engineering, Mandideep.
-            </p>
-            
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-body">
-              I have delivered real-world projects like Todoey and Hacker News, showcasing my expertise in mobile app development. With <span className="text-primary font-semibold">300+ DSA questions solved</span>, I bring strong problem-solving skills to build scalable, maintainable mobile applications.
+              As a dedicated <span className="text-primary font-semibold">iOS Developer</span> with expertise in Swift, UIKit, and SwiftUI, I specialize in creating robust, user-centric mobile applications. My experience encompasses full-stack iOS development, from concept to deployment, utilizing modern architectures like MVVM and MVC, alongside seamless integration of REST APIs and advanced frameworks.
             </p>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-body">
-              Currently working as an <span className="text-primary font-semibold">iOS Developer Intern at Brandsmashers Tech, Bhopal</span>, where I contribute to iOS builds in React Native projects, focusing on UI fixes and live deployment while applying industry-standard practices.
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-body">
+              Throughout my journey, I've successfully developed and deployed multiple iOS applications, including Todoey (a comprehensive task management app with multi-persistence support), Hacker News (a real-time news feed with optimized API handling), and SIRA (an AI-powered marketing platform converting complex SaaS web experiences into native iOS apps with real-time content generation). My strong problem-solving skills enable me to craft scalable, maintainable solutions that perform under real-world conditions.
             </p>
+
+            <div className="mb-8">
+              <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">Key Achievements</h3>
+              <ul className="space-y-4 text-lg md:text-xl text-muted-foreground leading-relaxed font-body">
+                <li className="flex items-start">
+                  <span className="text-primary mr-3">•</span>
+                  <span>Developed and launched 3+ production-ready iOS apps with 1000+ downloads</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-3">•</span>
+                  <span>Optimized API performance resulting in 35% faster response times</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-3">•</span>
+                  <span>Reduced UI crashes by 60% through comprehensive debugging and testing</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-3">•</span>
+                  <span>Implemented adaptive UI components for seamless iPhone and iPad experiences</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-3">•</span>
+                  <span>Integrated AI-powered features for real-time content generation in marketing apps</span>
+                </li>
+              </ul>
+            </div>
+
+            <div id="experience">
+              <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">Professional Experience</h3>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-body">
+                During my <span className="text-primary font-semibold">iOS Developer Internship at Brandsmashers Tech, Bhopal (July - November 2025)</span>, I tackled critical production challenges including resolving build failures and dependency conflicts that restored full CI/CD functionality. I optimized data flows and API integrations, achieving 35% faster response times, and diagnosed UI crashes to reduce them by 60%. Additionally, I refined adaptive UI components across iPhone and iPad, ensuring consistent user experiences and successful live deployments.
+              </p>
+            </div>
           </div>
         </div>
       </div>

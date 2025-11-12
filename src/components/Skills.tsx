@@ -1,19 +1,29 @@
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Frameworks & Languages",
-      skills: ["UIKit", "SwiftUI", "Swift", "Java"],
-      icon: "💻"
+      title: "Languages & Core iOS",
+      skills: ["Swift", "SwiftUI", "UIKit", "Auto Layout", "Storyboards", "Core Animation", "Structured Concurrency"],
+      icon: "📱"
     },
     {
-      title: "Databases",
-      skills: ["MySQL", "SQLite", "Core Data", "User Defaults", "Realm"],
-      icon: "🗃️"
+      title: "Frameworks & Libraries",
+      skills: ["Foundation", "AVFoundation", "CoreLocation", "CoreData", "UserNotifications", "CoreML"],
+      icon: "🔧"
     },
     {
-      title: "Developer Tools",
-      skills: ["Xcode", "VS Code", "Git", "GitHub", "Postman", "BitBucket"],
-      icon: "🛠️"
+      title: "Data & APIs",
+      skills: ["RESTful APIs", "GraphQL", "JSON Parsing", "MVVM", "URLSession", "Alamofire", "Firebase"],
+      icon: "📡"
+    },
+    {
+      title: "Persistence",
+      skills: ["Core Data", "Realm", "UserDefaults", "SQLite"],
+      icon: "💾"
+    },
+    {
+      title: "Tools & Deployment",
+      skills: ["Xcode", "TestFlight", "Git", "GitHub", "Sentry", "BitBucket", "Instruments", "StoreKit", "XCTest", "UI Testing", "App Store Deployment", "In-App Purchases"],
+      icon: "🚀"
     },
     {
       title: "Core Skills",

@@ -1,8 +1,11 @@
 
-import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
+import { Github, Linkedin, Mail, ChevronDown, Briefcase } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useReveal } from '@/hooks/useReveal';
 
 const Header = () => {
+  const navigate = useNavigate();
+
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
     aboutSection?.scrollIntoView({ behavior: 'smooth' });
@@ -13,58 +16,84 @@ const Header = () => {
   const buttonsReveal = useReveal();
 
   return (
-    <header className="min-h-screen flex items-center justify-center bg-gradient-to-br from-elegant-light to-elegant-gray dark:from-elegant-light dark:to-elegant-gray relative overflow-hidden">
+    <header className="min-h-screen pt-16 flex flex-col bg-gradient-to-br from-elegant-light to-elegant-gray dark:from-elegant-light dark:to-elegant-gray relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] dark:opacity-[0.05]"></div>
-      
-      <div className="text-center z-10 px-4 max-w-6xl mx-auto">
-        <div className="mb-12 scale-in">
-          <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden shadow-2xl ring-4 ring-white/20 backdrop-blur-sm hover:scale-105 transition-all duration-500 hover:ring-white/40">
-            <img 
-              src="/lovable-uploads/c9190dca-57cc-4899-80dc-fe52e2f2a8f3.png" 
-              alt="Sagar Rai"
-              className="w-full h-full object-cover"
-            />
+
+      <div className="flex-1 flex items-center justify-center animate-fade-in">
+        <div className="text-center z-10 px-4 max-w-6xl mx-auto">
+          <div className="mb-12 scale-in">
+            <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden shadow-2xl ring-4 ring-white/20 backdrop-blur-sm hover:scale-105 transition-all duration-500 hover:ring-white/40">
+              <img
+                src="/lovable-uploads/80469C0F-FE49-454B-811B-08306F9C73DB_1_105_c.jpeg"
+                alt="Sagar Rai"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <h1 ref={titleReveal.ref as any} className={`text-5xl md:text-7xl font-display font-bold text-foreground mb-6 tracking-tight reveal ${titleReveal.isVisible ? 'is-visible' : ''}`}>
+            Sagar Rai
+          </h1>
+
+          <p ref={subtitleReveal.ref as any} className={`text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed font-body font-light reveal ${subtitleReveal.isVisible ? 'is-visible' : ''}`}>
+            iOS Developer | Final Year CSE Student | Passionate about Clean UI & Smart Code
+          </p>
+
+          <div className="flex justify-center space-x-8 md:space-x-12 mb-12">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-1">3+</div>
+              <div className="text-sm md:text-base text-muted-foreground font-medium">Apps Developed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-1">1000+</div>
+              <div className="text-sm md:text-base text-muted-foreground font-medium">Downloads</div>
+            </div>
+        
+          </div>
+
+          <div ref={buttonsReveal.ref as any} className={`flex justify-center space-x-4 md:space-x-6 mb-8 reveal ${buttonsReveal.isVisible ? 'is-visible' : ''}`}>
+            <a
+              href="mailto:sagarrai9893@gmail.com"
+              className="flex items-center space-x-2 px-6 py-3 bg-card border border-border text-foreground rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 social-icon backdrop-blur-sm"
+            >
+              <Mail className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
+              <span className="font-medium">Email</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/sagar-rai-ios"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 px-6 py-3 bg-card border border-border text-foreground rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 social-icon backdrop-blur-sm"
+            >
+              <Linkedin className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
+              <span className="font-medium">LinkedIn</span>
+            </a>
+            <a
+              href="https://github.com/sagarrai21802"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 px-6 py-3 bg-card border border-border text-foreground rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 social-icon backdrop-blur-sm"
+            >
+              <Github className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
+              <span className="font-medium">GitHub</span>
+            </a>
+          </div>
+
+          <div className="flex justify-center">
+            <button
+              onClick={() => navigate('/experience')}
+              className="flex items-center space-x-2 px-6 py-3 bg-card border border-border text-foreground rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 social-icon backdrop-blur-sm"
+            >
+              <Briefcase className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
+              <span className="font-medium">View Experience</span>
+            </button>
           </div>
         </div>
-        
-        <h1 ref={titleReveal.ref as any} className={`text-5xl md:text-7xl font-display font-bold text-foreground mb-6 tracking-tight reveal ${titleReveal.isVisible ? 'is-visible' : ''}`}>
-          Sagar Rai
-        </h1>
-        
-        <p ref={subtitleReveal.ref as any} className={`text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed font-body font-light reveal ${subtitleReveal.isVisible ? 'is-visible' : ''}`}>
-          iOS Developer | Final Year CSE Student | Passionate about Clean UI & Smart Code
-        </p>
-        
-        <div ref={buttonsReveal.ref as any} className={`flex justify-center space-x-4 md:space-x-6 mb-16 reveal ${buttonsReveal.isVisible ? 'is-visible' : ''}`}>
-          <a
-            href="mailto:sagarrai9893@gmail.com"
-            className="flex items-center space-x-2 px-6 py-3 bg-card border border-border text-foreground rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 social-icon backdrop-blur-sm"
-          >
-            <Mail className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
-            <span className="font-medium">Email</span>
-          </a>
-          <a
-            href="https://linkedin.com/in/sagar-rai-ios"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-2 px-6 py-3 bg-card border border-border text-foreground rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 social-icon backdrop-blur-sm"
-          >
-            <Linkedin className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
-            <span className="font-medium">LinkedIn</span>
-          </a>
-          <a
-            href="https://github.com/sagarrai21802"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-2 px-6 py-3 bg-card border border-border text-foreground rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 social-icon backdrop-blur-sm"
-          >
-            <Github className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
-            <span className="font-medium">GitHub</span>
-          </a>
-        </div>
-        
-        <div 
+      </div>
+
+      <div className="pb-8 flex justify-center">
+        <div
           className="cursor-pointer hover:scale-110 transition-transform duration-300 group"
           onClick={scrollToAbout}
         >

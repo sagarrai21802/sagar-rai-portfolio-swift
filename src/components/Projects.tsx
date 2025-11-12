@@ -7,15 +7,43 @@ const Projects = () => {
       title: "Todoey: iOS Task Management App",
       description: "Built with Swift & UIKit using MVC architecture. Implemented 5+ data persistence methods (Realm, Core Data, SQLite, File Manager, Keychain) ensuring 100% data integrity across sessions. Improved task management efficiency by 30% via optimised UI flows.",
       tech: ["Swift", "UIKit", "Realm", "Core Data", "SQLite", "MVC"],
-      gradient: "from-blue-500 to-purple-600",
+      image: "/todolistapp.png",
       achievements: "30% efficiency improvement, 100% data integrity"
     },
     {
       title: "Hacker News: Real-time iOS News Feed App",
       description: "Built with Swift & SwiftUI using MVVM architecture. Integrated Hacker News API with URLSession & JSONDecoder delivering <200ms data fetch latency. Developed SwiftUI adaptive UI supporting iOS 15–18 with 40% faster data loading.",
       tech: ["Swift", "SwiftUI", "URLSession", "JSON Decoding", "MVVM"],
-      gradient: "from-green-500 to-teal-600",
+      image: "/HackerNews.png",
       achievements: "<200ms latency, 40% faster loading"
+    },
+    {
+      title: "SIRA: AI-Powered Marketing Platform",
+      description: "Converted a complex SaaS web platform into a fully native iOS experience using SwiftUI and REST APIs. Implemented automation and AI integration for real-time content generation. Built modular SwiftUI components for interactive dashboard rendering, improving user engagement by 40% through seamless native performance.",
+      tech: ["SwiftUI", "REST APIs", "Automation", "AI Integration"],
+      image: "/Sira.png",
+      achievements: "40% user engagement improvement, Native iOS conversion"
+    },
+    {
+      title: "Inspoquotes: Premium Quotes iOS App",
+      description: "Developed a premium quotes app mastering in-app purchases, App Store Connect, and deployment fundamentals. Implemented subscription models and clean UIKit interface for quote discovery. Achieved 95% user retention through optimized onboarding flows and premium content delivery systems.",
+      tech: ["Swift", "UIKit", "In-App Purchase", "App Store Connect", "Deployment"],
+      image: "/InspoQuote.png",
+      achievements: "95% user retention, Successful deployment"
+    },
+    {
+      title: "Twitter Sentiment Analysis: ML Stock Prediction App",
+      description: "Built a machine learning iOS app that scrapes tweets from Twitter (X) and analyzes sentiment for stock market predictions. Utilizes Core ML for on-device processing to determine positive/negative trends. Achieved 85% accuracy in sentiment classification, providing valuable insights for market analysis without external API dependencies.",
+      tech: ["Swift", "Core ML", "Twitter API", "Machine Learning", "Natural Language Processing"],
+      image: "/Twitter.png",
+      achievements: "85% accuracy, On-device ML processing"
+    },
+    {
+      title: "Image Recognition: On-Device Object Detection App",
+      description: "Created an iOS app with built-in image recognition models for identifying objects in photos without hosted services. Implemented custom Core ML models for accurate classification using Vision Framework. Gained deep understanding of model creation and optimization for mobile applications, achieving high recognition accuracy through on-device processing.",
+      tech: ["Swift", "Core ML", "Vision Framework", "Machine Learning", "Image Processing"],
+      image: "/ImageRecognization.png",
+      achievements: "High accuracy recognition, On-device processing"
     }
   ];
 
@@ -32,10 +60,12 @@ const Projects = () => {
               key={project.title}
               className={`bg-card border border-border rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] project-card scale-in backdrop-blur-sm`}
             >
-              <div className={`h-56 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
-                <div className="text-white text-6xl font-bold opacity-15 hover:opacity-25 transition-opacity duration-300 relative z-10">
-                  {index === 0 ? '📱' : '📰'}
-                </div>
+              <div className="h-56 relative overflow-hidden flex items-center justify-center">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
+                />
                 <div className="absolute inset-0 bg-black/10"></div>
               </div>
               

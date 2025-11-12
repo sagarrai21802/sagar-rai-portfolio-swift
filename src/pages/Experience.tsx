@@ -1,16 +1,16 @@
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Check } from 'lucide-react';
 
 const Experience = () => {
   const experience = {
     position: "iOS Developer Intern",
     company: "Brandsmashers Tech",
     location: "Bhopal",
-    period: "Jul 2024 – Present",
+    period: "Jul 2024 – Nov 2025",
     responsibilities: [
-      "Contributed to iOS builds in a React Native project, focusing on UI fixes and live deployment",
-      "Collaborated using Git, debugging features, and applying Agile workflows",
-      "Strengthened skills in version control, design flow, and industry-standard practices",
-      "Handling a Real-Time client project"
+      "Resolved recurring build and dependency issues that blocked deployment; performed root-cause analysis, refactored configuration files, and stabilised pipelines — restoring full production functionality and improving CI/CD reliability by 100%.",
+      "Optimised data flow and REST API integrations suffering from performance delays; restructured URLSession tasks and implemented async/await concurrency — resulting in 35% faster response handling and smoother UI state transitions.",
+      "Diagnosed frequent UI thread crashes and unsafe memory access; introduced concurrency-safe data binding and view model refactors — reducing crash frequency by 60% and improving overall user experience.",
+      "Refined SwiftUI and UIKit components for consistent adaptive layouts across iPhone and iPad; collaborated with design and backend teams under Agile sprints to ensure visual consistency and reliable API integration."
     ]
   };
 
@@ -53,7 +53,7 @@ const Experience = () => {
                   <ul className="space-y-3">
                     {experience.responsibilities.map((responsibility, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                        <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                         <span className="text-muted-foreground leading-relaxed">{responsibility}</span>
                       </li>
                     ))}
