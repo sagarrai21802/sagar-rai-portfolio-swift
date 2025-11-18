@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/Projects";
+import ProjectDetail from "./pages/ProjectDetail";
 import Experience from "./pages/Experience";
 import SkillsPage from "./pages/Skills";
 import EducationPage from "./pages/Education";
@@ -22,6 +23,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/:projectId" element={<ProjectDetail />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/skills" element={<SkillsPage />} />
         <Route path="/education" element={<EducationPage />} />
