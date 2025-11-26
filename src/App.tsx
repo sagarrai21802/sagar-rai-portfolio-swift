@@ -8,6 +8,8 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
+import OpenSource from "./components/OpenSource";
+import OpenSourceDetail from "./pages/OpenSourceDetail";
 import Experience from "./pages/Experience";
 import SkillsPage from "./pages/Skills";
 import EducationPage from "./pages/Education";
@@ -24,6 +26,8 @@ const AppContent = () => {
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/:projectId" element={<ProjectDetail />} />
+        <Route path="/open-source" element={<OpenSource />} />
+        <Route path="/open-source/:contributionId" element={<OpenSourceDetail />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/skills" element={<SkillsPage />} />
         <Route path="/education" element={<EducationPage />} />
