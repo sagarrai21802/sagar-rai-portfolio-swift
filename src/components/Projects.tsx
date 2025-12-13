@@ -34,7 +34,7 @@ const Projects = () => {
       description: "Built a revolutionary single-platform solution that empowers multiple users simultaneously with one-click LinkedIn posting. Simply share your idea and Dobbie refines it with perfect hooks, professional formatting, and engaging content—then posts directly to LinkedIn. Eliminates hours of content brainstorming and writing, transforming raw ideas into polished, viral-ready posts in seconds.",
       tech: ["SwiftUI", "AI Integration", "REST APIs", "Content Generation", "Social Media Automation"],
       image: "/Dobbie.png",
-      video: "/as.mp4",
+      video: "https://drive.google.com/file/d/1_qBQ5u7UnlH3kkvBs9iJDQk6gd4w-gWl/view?usp=sharing",
       showVideo: showVideo['Dobbie'] || false,
       achievements: "One-click posting, AI content refinement, Multi-user support"
     },
@@ -206,19 +206,32 @@ const Projects = () => {
                 : 'opacity-0 scale-95'
             }`}
           >
-            <video
-              src={project.video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full"
-              style={{ 
-                objectFit: 'cover',
-                width: '100%',
-                height: '100%'
-              }}
-            />
+            {project.video.startsWith('http') ? (
+              <div className="w-full h-full flex items-center justify-center bg-black/20">
+                <a
+                  href={project.video}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                >
+                  View Demo Video
+                </a>
+              </div>
+            ) : (
+              <video
+                src={project.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full"
+                style={{
+                  objectFit: 'cover',
+                  width: '100%',
+                  height: '100%'
+                }}
+              />
+            )}
           </div>
         </div>
       );

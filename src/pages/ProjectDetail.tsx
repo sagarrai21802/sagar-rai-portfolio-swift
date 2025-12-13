@@ -13,7 +13,7 @@ const ProjectDetail = () => {
       longDescription: "Dobbie is a groundbreaking AI-powered platform that transforms the way professionals create and share LinkedIn content. Built to serve multiple users simultaneously, it eliminates the hours typically spent brainstorming, writing, and perfecting social media posts.\n\nThe platform leverages advanced AI to understand your raw ideas and transform them into polished, viral-ready LinkedIn posts complete with attention-grabbing hooks, professional formatting, and engaging calls-to-action. Whether you're a busy entrepreneur, content creator, or professional looking to build your personal brand, Dobbie handles the heavy lifting.\n\nWith just one click, users can post their refined content directly to LinkedIn—no copy-pasting, no switching between apps, no stress. The platform's intelligent content engine understands LinkedIn's algorithm preferences and optimizes posts for maximum engagement and reach.\n\nKey innovations include multi-user support allowing teams to collaborate on content, AI-driven hook generation that captures attention in the first line, and seamless LinkedIn API integration for frictionless posting. The result is a 10x improvement in content creation speed while maintaining or exceeding the quality of manually crafted posts.",
       tech: ["SwiftUI", "AI Integration", "REST APIs", "Content Generation", "Social Media Automation", "LinkedIn API"],
       image: "/Dobbie.png",
-      video: "/as.mp4",
+      video: "https://drive.google.com/file/d/1_qBQ5u7UnlH3kkvBs9iJDQk6gd4w-gWl/view?usp=sharing",
       achievements: "One-click posting, AI content refinement, Multi-user support",
       features: [
         "One-click LinkedIn posting",
@@ -269,15 +269,28 @@ const ProjectDetail = () => {
                 allowFullScreen
               />
             ) : project.video ? (
-              <video
-                src={project.video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-                controls
-              />
+              project.video.startsWith('http') ? (
+                <div className="w-full h-full flex items-center justify-center bg-black/20">
+                  <a
+                    href={project.video}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium text-lg"
+                  >
+                    View Demo Video
+                  </a>
+                </div>
+              ) : (
+                <video
+                  src={project.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                  controls
+                />
+              )
             ) : project.image ? (
               <img
                 src={project.image}
