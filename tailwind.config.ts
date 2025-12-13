@@ -149,6 +149,28 @@ export default {
 					'50%': {
 						boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)'
 					}
+				},
+				'scroll-wheel': {
+					'0%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						opacity: '0.5',
+						transform: 'translateY(8px)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'translateY(8px)'
+					}
+				},
+				'bounce-slow': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(6px)'
+					}
 				}
 			},
 			animation: {
@@ -158,7 +180,9 @@ export default {
 				'fade-in-up': 'fade-in-up 0.8s ease-out',
 				'slide-in-left': 'slide-in-left 0.8s ease-out',
 				'bounce-in': 'bounce-in 0.8s ease-out',
-				'glow': 'glow 2s ease-in-out infinite'
+				'glow': 'glow 2s ease-in-out infinite',
+				'scroll-wheel': 'scroll-wheel 1.5s ease-in-out infinite',
+				'bounce-slow': 'bounce-slow 1.5s ease-in-out infinite'
 			},
 			animationDelay: {
 				'200': '200ms',

@@ -26,23 +26,29 @@ const OpenSource = () => {
   const contributions = [
     {
       id: 'alamofire',
-      title: "Alamofire: AFError.url Property Enhancement",
-      description: "Enhanced the AFError.url property to correctly extract failingURL from URLError instances in sessionTaskFailed cases. Added comprehensive test coverage and resolved issue #3965 for reliable error handling and logging.",
+      title: "Alamofire",
+      subtitle: "AFError.url Property Enhancement",
+      description: "Improved AFError.url accuracy, fixing failing-URL reporting for millions of developers. Enhanced error handling capabilities for reliable debugging and logging in production environments.",
       tech: ["Swift", "Alamofire", "Error Handling", "Unit Testing"],
       image: "/opensource.png",
       video: "/Alomofire.mov",
       showVideo: showVideo['alamofire'] || false,
-      achievements: "Fixed URL extraction bug, Added test coverage"
+      achievements: "Fixed URL extraction bug affecting millions of users",
+      stars: "40k+",
+      impact: "Global Developer Community"
     },
     {
       id: 'kingfisher',
-      title: "Kingfisher: Failure Image Configuration Fix",
-      description: "Fixed the .onFailureImage modifier configuration application issue where image transformations were incorrectly applied to failure images. Ensured clean separation between success and failure image rendering while maintaining backward compatibility.",
+      title: "Kingfisher",
+      subtitle: "Failure Image Configuration Fix",
+      description: "Restored default attributes, stabilizing image rendering for every active library user. Ensured clean separation between success and failure image rendering while maintaining backward compatibility.",
       tech: ["Swift", "SwiftUI", "Kingfisher", "Image Processing"],
       image: "/opensource2.png",
       video: "/Kingfisher.mov",
       showVideo: showVideo['kingfisher'] || false,
-      achievements: "Fixed configuration bug, Maintained backward compatibility"
+      achievements: "Stabilized rendering for all active users",
+      stars: "22k+",
+      impact: "iOS Image Loading Library"
     }
   ];
 
@@ -157,9 +163,19 @@ const OpenSource = () => {
               </div>
 
               <div className="p-6 md:p-8">
-                <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4">
-                  {contribution.title}
-                </h3>
+                <div className="flex items-start justify-between mb-2">
+                  <h3 className="text-xl md:text-2xl font-display font-bold text-foreground">
+                    {contribution.title}
+                  </h3>
+                  <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                    <span className="text-yellow-500">⭐</span>
+                    {contribution.stars}
+                  </div>
+                </div>
+                
+                <p className="text-primary font-semibold mb-3">
+                  {contribution.subtitle}
+                </p>
 
                 <p className="text-muted-foreground mb-4 leading-relaxed font-body">
                   {contribution.description}
@@ -172,16 +188,21 @@ const OpenSource = () => {
                     </p>
                   </div>
                 )}
-
-                <div className="flex flex-wrap gap-2">
-                  {contribution.tech.map((tech, techIndex) => (
-                    <span
-                      key={tech}
-                      className="px-4 py-2 bg-elegant-gray dark:bg-elegant-gray text-foreground rounded-full text-sm font-medium hover:scale-105 transition-all duration-300 border border-border/50 hover:bg-primary/5"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap gap-2">
+                    {contribution.tech.slice(0, 3).map((tech, techIndex) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1.5 bg-elegant-gray dark:bg-elegant-gray text-foreground rounded-full text-xs font-medium border border-border/50"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="text-xs text-muted-foreground">
+                    {contribution.impact}
+                  </span>
                 </div>
               </div>
             </div>

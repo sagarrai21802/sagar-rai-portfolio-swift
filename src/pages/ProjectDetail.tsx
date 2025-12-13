@@ -7,6 +7,73 @@ const ProjectDetail = () => {
 
   const projects = [
     {
+      id: 'dobbie',
+      title: "Dobbie: AI-Powered LinkedIn Content Platform",
+      description: "Built a revolutionary single-platform solution that empowers multiple users simultaneously with one-click LinkedIn posting. Simply share your idea and Dobbie refines it with perfect hooks, professional formatting, and engaging content—then posts directly to LinkedIn.",
+      longDescription: "Dobbie is a groundbreaking AI-powered platform that transforms the way professionals create and share LinkedIn content. Built to serve multiple users simultaneously, it eliminates the hours typically spent brainstorming, writing, and perfecting social media posts.\n\nThe platform leverages advanced AI to understand your raw ideas and transform them into polished, viral-ready LinkedIn posts complete with attention-grabbing hooks, professional formatting, and engaging calls-to-action. Whether you're a busy entrepreneur, content creator, or professional looking to build your personal brand, Dobbie handles the heavy lifting.\n\nWith just one click, users can post their refined content directly to LinkedIn—no copy-pasting, no switching between apps, no stress. The platform's intelligent content engine understands LinkedIn's algorithm preferences and optimizes posts for maximum engagement and reach.\n\nKey innovations include multi-user support allowing teams to collaborate on content, AI-driven hook generation that captures attention in the first line, and seamless LinkedIn API integration for frictionless posting. The result is a 10x improvement in content creation speed while maintaining or exceeding the quality of manually crafted posts.",
+      tech: ["SwiftUI", "AI Integration", "REST APIs", "Content Generation", "Social Media Automation", "LinkedIn API"],
+      image: "/Dobbie.png",
+      video: "/as.mp4",
+      achievements: "One-click posting, AI content refinement, Multi-user support",
+      features: [
+        "One-click LinkedIn posting",
+        "AI-powered content refinement",
+        "Perfect hook generation",
+        "Multi-user collaboration support",
+        "Professional formatting automation",
+        "Real-time content preview",
+        "Engagement optimization algorithms",
+        "Seamless LinkedIn API integration"
+      ],
+      github: "https://github.com/sagarrai21802/dobbie",
+      liveDemo: null
+    },
+    {
+      id: 'visionassist',
+      title: "VisionAssist: AI-Powered Accessibility Extension",
+      description: "Built a browser extension for Kaggle DeepMind Hackathon that empowers visually impaired users by reading web pages aloud and describing all visual content. Acts as a digital assistant that makes the web accessible to everyone.",
+      longDescription: "VisionAssist is a groundbreaking browser extension developed for the Kaggle DeepMind Hackathon, designed to make the web accessible to visually impaired and blind users. The extension serves as a digital support companion that reads entire web pages aloud and provides detailed descriptions of visual content.\n\nThe project was created with the mission to serve people with disabilities and make a meaningful difference in their daily lives. By leveraging AI and text-to-speech technologies, VisionAssist transforms how blind users interact with the internet, giving them independence in navigating websites, reading articles, and understanding visual content.\n\nKey features include intelligent page parsing that identifies and prioritizes content, natural-sounding voice synthesis for comfortable listening, and AI-powered image description that explains photos, graphics, and visual elements. The extension seamlessly integrates into the browsing experience, activating with simple keyboard shortcuts for accessibility.\n\nThis project represents the intersection of technology and social impact—demonstrating how AI can be harnessed to create inclusive digital experiences and break down barriers for users with visual impairments.",
+      tech: ["JavaScript", "Chrome Extension", "AI/ML", "Text-to-Speech", "Accessibility", "DeepMind API", "Web APIs"],
+      image: null,
+      video: "https://www.youtube.com/embed/Pup5lBzltIU",
+      isYouTube: true,
+      achievements: "Kaggle DeepMind Hackathon, Full page description, Accessibility impact",
+      features: [
+        "Full web page reading aloud",
+        "AI-powered image descriptions",
+        "Natural text-to-speech synthesis",
+        "Keyboard shortcut accessibility",
+        "Intelligent content prioritization",
+        "Seamless browser integration",
+        "Multi-language support",
+        "Customizable reading speed"
+      ],
+      github: "https://github.com/sagarrai21802/VisionAssist.git",
+      liveDemo: "https://youtu.be/Pup5lBzltIU?si=miXn_N8PrzzHaHPs"
+    },
+    {
+      id: 'keyboard-extension',
+      title: "AI Keyboard: Grok-Powered iOS Keyboard Extension",
+      description: "Built a custom iOS keyboard extension that enhances user responses using the Grok API. Overcame significant iOS restrictions on API calls from keyboard extensions and the 30MB data transfer limit.",
+      longDescription: "AI Keyboard is an innovative iOS keyboard extension that brings the power of Grok AI directly to your fingertips. The extension enhances user responses in real-time, helping craft better messages, emails, and content across any app on iPhone.\n\nThis project presented unique technical challenges that required deep expertise in iOS development. Keyboard extensions operate within Apple's strict sandbox environment, which severely limits network access and API calls. Additionally, iOS imposes a 30MB memory limit on keyboard extensions, making it challenging to integrate AI capabilities that typically require more resources.\n\nThe solution involved creative architectural decisions: implementing efficient data streaming, optimizing API request handling to work within sandbox restrictions, and developing a lightweight communication layer between the keyboard extension and the main app. These challenges pushed the boundaries of what's possible with iOS keyboard extensions.\n\nThe result is a seamless AI-powered typing experience that enhances responses, suggests improvements, and helps users communicate more effectively—all from within their keyboard.",
+      tech: ["Swift", "iOS Keyboard Extension", "Grok API", "REST APIs", "App Extension", "iOS Sandbox", "App Groups"],
+      image: null,
+      video: null,
+      achievements: "Grok API integration, iOS restrictions overcome, Real-time AI enhancement",
+      features: [
+        "Real-time AI response enhancement",
+        "Grok API integration",
+        "Works across all iOS apps",
+        "Lightweight 30MB optimized design",
+        "iOS sandbox restriction workarounds",
+        "Seamless keyboard experience",
+        "Smart suggestion system",
+        "Privacy-focused architecture"
+      ],
+      github: "https://github.com/sagarrai21802/KeyboardExtention.git",
+      liveDemo: null
+    },
+    {
       id: 'todoey',
       title: "Todoey: iOS Task Management App",
       description: "Built with Swift & UIKit using MVC architecture. Implemented 5+ data persistence methods (Realm, Core Data, SQLite, File Manager, Keychain) ensuring 100% data integrity across sessions. Improved task management efficiency by 30% via optimised UI flows.",
@@ -192,7 +259,16 @@ const ProjectDetail = () => {
         {/* Media Section */}
         <div className="mb-12">
           <div className="rounded-3xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 h-96">
-            {project.video ? (
+            {project.isYouTube && project.video ? (
+              <iframe
+                src={project.video}
+                title={project.title}
+                className="w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : project.video ? (
               <video
                 src={project.video}
                 autoPlay
@@ -202,12 +278,16 @@ const ProjectDetail = () => {
                 className="w-full h-full object-cover"
                 controls
               />
-            ) : (
+            ) : project.image ? (
               <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-full object-contain"
               />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="text-6xl">🚀</div>
+              </div>
             )}
           </div>
         </div>

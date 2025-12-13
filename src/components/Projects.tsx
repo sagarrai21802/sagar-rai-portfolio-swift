@@ -9,6 +9,10 @@ const Projects = () => {
   useEffect(() => {
     const timeouts: {[key: string]: NodeJS.Timeout} = {};
     
+    timeouts['Dobbie'] = setTimeout(() => {
+      setShowVideo(prev => ({ ...prev, 'Dobbie': true }));
+    }, 1000);
+
     // Set timeout for specific projects to show video after 1 second
     timeouts['Todoey'] = setTimeout(() => {
       setShowVideo(prev => ({ ...prev, 'Todoey': true }));
@@ -24,6 +28,37 @@ const Projects = () => {
   }, []);
 
   const projects = [
+    {
+      id: 'dobbie',
+      title: "Dobbie: AI-Powered LinkedIn Content Platform",
+      description: "Built a revolutionary single-platform solution that empowers multiple users simultaneously with one-click LinkedIn posting. Simply share your idea and Dobbie refines it with perfect hooks, professional formatting, and engaging content—then posts directly to LinkedIn. Eliminates hours of content brainstorming and writing, transforming raw ideas into polished, viral-ready posts in seconds.",
+      tech: ["SwiftUI", "AI Integration", "REST APIs", "Content Generation", "Social Media Automation"],
+      image: "/Dobbie.png",
+      video: "/as.mp4",
+      showVideo: showVideo['Dobbie'] || false,
+      achievements: "One-click posting, AI content refinement, Multi-user support"
+    },
+    {
+      id: 'visionassist',
+      title: "VisionAssist: AI-Powered Accessibility Extension",
+      description: "Built a browser extension for Kaggle DeepMind Hackathon that empowers visually impaired users by reading web pages aloud and describing all visual content. Acts as a digital assistant that makes the web accessible to everyone, transforming how blind users interact with online content.",
+      tech: ["JavaScript", "Chrome Extension", "AI/ML", "Text-to-Speech", "Accessibility", "DeepMind API"],
+      image: null,
+      video: "https://www.youtube.com/embed/Pup5lBzltIU",
+      showVideo: true,
+      isYouTube: true,
+      achievements: "Kaggle DeepMind Hackathon, Full page description, Accessibility impact"
+    },
+    {
+      id: 'keyboard-extension',
+      title: "AI Keyboard: Grok-Powered iOS Keyboard Extension",
+      description: "Built a custom iOS keyboard extension that enhances user responses using the Grok API. Overcame significant iOS restrictions on API calls from keyboard extensions and the 30MB data transfer limit—challenges that required deep understanding of iOS sandbox limitations and creative architectural solutions.",
+      tech: ["Swift", "iOS Keyboard Extension", "Grok API", "REST APIs", "App Extension", "iOS Sandbox"],
+      image: null,
+      video: null,
+      showVideo: false,
+      achievements: "Grok API integration, iOS restrictions overcome, Real-time AI enhancement"
+    },
     {
       id: 'todoey',
       title: "Todoey: iOS Task Management App",
@@ -116,6 +151,20 @@ const Projects = () => {
         }, 100);
       }
     }, [project.showVideo, isTransitioning]);
+
+    // YouTube embed
+    if (project.isYouTube && project.video) {
+      return (
+        <iframe
+          src={project.video}
+          title={project.title}
+          className="w-full h-full"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      );
+    }
 
     if (!project.image && project.video) {
       // Bitcoin project - show only video
