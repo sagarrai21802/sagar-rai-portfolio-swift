@@ -9,7 +9,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [isLoaded, setIsLoaded] = useState(false);
   const [typedText, setTypedText] = useState('');
-  const fullText = "iOS Developer | Building Scalable Apps for Millions";
+  const fullText = "Software Developer | Building Scalable Apps for Millions";
   const { parallax } = useMouseParallax(1);
 
   useEffect(() => {
