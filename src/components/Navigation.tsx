@@ -38,9 +38,8 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.path ? 'text-primary' : 'text-muted-foreground'
-                }`}
+                className={`nav-link-animated text-sm font-medium transition-colors hover:text-primary ${location.pathname === item.path ? 'text-primary' : 'text-muted-foreground'
+                  }`}
               >
                 {item.name}
               </Link>
@@ -85,16 +84,15 @@ const Navigation = () => {
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                    location.pathname === item.path
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${location.pathname === item.path
                       ? 'text-primary bg-primary/10'
                       : 'text-muted-foreground hover:text-primary hover:bg-muted'
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              
+
               {/* Mobile Social Links */}
               <div className="flex items-center space-x-4 px-3 py-2">
                 {socialLinks.map(({ icon: Icon, href, label }) => (

@@ -122,7 +122,7 @@ const Header = () => {
               >
                 <a
                   href="mailto:sagarrai9893@gmail.com"
-                  className="group flex items-center gap-2 px-5 py-3 bg-primary text-primary-foreground rounded-full hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 font-medium"
+                  className="group button-glow flex items-center gap-2 px-5 py-3 bg-primary text-primary-foreground rounded-full hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 font-medium"
                 >
                   <Mail className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
                   <span>Get in Touch</span>

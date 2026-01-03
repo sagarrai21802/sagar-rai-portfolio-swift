@@ -280,9 +280,9 @@ const Projects = () => {
             <div
               key={project.id}
               onClick={() => handleProjectClick(project.id)}
-              className={`bg-card border border-border rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] project-card scale-in backdrop-blur-sm cursor-pointer`}
+              className={`stagger-item card-lift bg-card border border-border rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 project-card backdrop-blur-sm cursor-pointer`}
             >
-              <div className="h-80 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+              <div className="h-80 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 image-zoom">
                 <MediaComponent project={project} />
                 <div className="absolute inset-0 bg-black/5 dark:bg-black/10"></div>
               </div>
