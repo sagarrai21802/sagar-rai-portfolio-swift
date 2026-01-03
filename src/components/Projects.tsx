@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 
 const Projects = () => {
   const navigate = useNavigate();
-  const [showVideo, setShowVideo] = useState<{[key: string]: boolean}>({});
+  const [showVideo, setShowVideo] = useState<{ [key: string]: boolean }>({});
 
   useEffect(() => {
-    const timeouts: {[key: string]: NodeJS.Timeout} = {};
-    
+    const timeouts: { [key: string]: NodeJS.Timeout } = {};
+
     timeouts['Dobbie'] = setTimeout(() => {
       setShowVideo(prev => ({ ...prev, 'Dobbie': true }));
     }, 1000);
@@ -48,6 +48,27 @@ const Projects = () => {
       showVideo: true,
       isYouTube: true,
       achievements: "Kaggle DeepMind Hackathon, Full page description, Accessibility impact"
+    },
+    {
+      id: 'ticket-booking',
+      title: "Ticket Booking System: Full-Stack Java Application",
+      description: "Built an end-to-end ticket booking system featuring a robust Java backend with RESTful APIs, database management, and secure authentication. Implements complete booking workflow with seat selection, payment processing, and ticket generation. Demonstrates mastery in Java backend architecture, Spring Boot, and enterprise-level application development.",
+      tech: ["Java", "Spring Boot", "REST APIs", "MySQL", "JWT Auth", "Maven"],
+      image: null,
+      video: null,
+      showVideo: false,
+      achievements: "Full-stack Java, RESTful architecture, Enterprise-grade backend"
+    },
+    {
+      id: 'sira-website',
+      title: "SIRA Website: AI Digital Marketing Agent",
+      description: "Built a comprehensive AI-powered digital marketing platform that serves as your intelligent marketing agent. Automates content creation, campaign management, and marketing strategies using advanced AI integration. Features a modern web interface for seamless marketing automation and real-time analytics.",
+      tech: ["React", "TypeScript", "AI Integration", "Vercel", "REST APIs", "Marketing Automation"],
+      image: null,
+      video: null,
+      showVideo: false,
+      liveUrl: "https://siraaaaaaa.vercel.app",
+      achievements: "Live platform, AI-powered marketing, Full automation"
     },
     {
       id: 'keyboard-extension',
@@ -185,12 +206,11 @@ const Projects = () => {
       // Projects with fade transition
       return (
         <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-          <div 
-            className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-              fadeState === 'image' 
-                ? 'opacity-100 scale-100' 
-                : 'opacity-0 scale-95'
-            }`}
+          <div
+            className={`absolute inset-0 transition-all duration-700 ease-in-out ${fadeState === 'image'
+              ? 'opacity-100 scale-100'
+              : 'opacity-0 scale-95'
+              }`}
           >
             <img
               src={project.image}
@@ -199,12 +219,11 @@ const Projects = () => {
               style={{ objectFit: 'contain' }}
             />
           </div>
-          <div 
-            className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-              fadeState === 'video' 
-                ? 'opacity-100 scale-100' 
-                : 'opacity-0 scale-95'
-            }`}
+          <div
+            className={`absolute inset-0 transition-all duration-700 ease-in-out ${fadeState === 'video'
+              ? 'opacity-100 scale-100'
+              : 'opacity-0 scale-95'
+              }`}
           >
             {project.video.startsWith('http') ? (
               <div className="w-full h-full flex items-center justify-center bg-black/20">
@@ -255,7 +274,7 @@ const Projects = () => {
         <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 fade-in tracking-tight">
           Featured Projects
         </h2>
-        
+
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
           {projects.map((project, index) => (
             <div
@@ -267,16 +286,16 @@ const Projects = () => {
                 <MediaComponent project={project} />
                 <div className="absolute inset-0 bg-black/5 dark:bg-black/10"></div>
               </div>
-              
+
               <div className="p-6 md:p-8">
                 <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4">
                   {project.title}
                 </h3>
-                
+
                 <p className="text-muted-foreground mb-4 leading-relaxed font-body">
                   {project.description}
                 </p>
-                
+
                 {project.achievements && (
                   <div className="mb-6 p-3 bg-primary/10 rounded-xl border border-primary/20">
                     <p className="text-primary text-sm font-medium">
@@ -284,7 +303,7 @@ const Projects = () => {
                     </p>
                   </div>
                 )}
-                
+
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, techIndex) => (
                     <span
@@ -299,7 +318,7 @@ const Projects = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center animate-fade-in-up animation-delay-600">
           <a
             href="https://github.com/sagarrai21802"

@@ -52,6 +52,50 @@ const ProjectDetail = () => {
       liveDemo: "https://youtu.be/Pup5lBzltIU?si=miXn_N8PrzzHaHPs"
     },
     {
+      id: 'ticket-booking',
+      title: "Ticket Booking System: Full-Stack Java Application",
+      description: "Built an end-to-end ticket booking system featuring a robust Java backend with RESTful APIs, database management, and secure authentication. Implements complete booking workflow with seat selection, payment processing, and ticket generation.",
+      longDescription: "The Ticket Booking System is a comprehensive full-stack application that showcases mastery in Java backend development and enterprise-level architecture. This project demonstrates the ability to build production-ready systems that handle real-world business requirements.\n\nThe backend is built using Spring Boot, leveraging its powerful ecosystem for creating RESTful APIs, managing database operations, and implementing secure authentication. The application follows industry best practices including layered architecture, dependency injection, and proper separation of concerns.\n\nKey technical achievements include implementing JWT-based authentication for secure user sessions, designing a normalized MySQL database schema for efficient data management, and creating a complete booking workflow that handles seat selection, availability checking, payment processing, and ticket generation.\n\nThe system demonstrates proficiency in core Java concepts, Spring Framework, database design, and API development—essential skills for backend engineering roles. The modular architecture ensures the codebase is maintainable, testable, and scalable.",
+      tech: ["Java", "Spring Boot", "REST APIs", "MySQL", "JWT Auth", "Maven", "Hibernate"],
+      image: null,
+      video: null,
+      achievements: "Full-stack Java, RESTful architecture, Enterprise-grade backend",
+      features: [
+        "Complete booking workflow",
+        "Seat selection and availability",
+        "JWT-based authentication",
+        "Payment processing integration",
+        "Ticket generation system",
+        "Admin dashboard",
+        "RESTful API design",
+        "Database optimization"
+      ],
+      github: "https://github.com/sagarrai21802/ticket-booking",
+      liveDemo: null
+    },
+    {
+      id: 'sira-website',
+      title: "SIRA Website: AI Digital Marketing Agent",
+      description: "Built a comprehensive AI-powered digital marketing platform that serves as your intelligent marketing agent. Automates content creation, campaign management, and marketing strategies using advanced AI integration.",
+      longDescription: "SIRA Website is a cutting-edge AI-powered digital marketing platform designed to revolutionize how businesses approach their marketing efforts. The platform serves as an intelligent marketing agent that automates content creation, campaign management, and strategy optimization.\n\nBuilt with modern web technologies, SIRA leverages advanced AI integration to understand brand voice, target audience, and marketing goals. The platform then generates tailored content, suggests campaign strategies, and provides actionable insights to maximize marketing ROI.\n\nKey features include automated content generation for social media, email campaigns, and blog posts; intelligent scheduling and posting automation; comprehensive analytics dashboard for tracking performance; and AI-driven recommendations for campaign optimization.\n\nThe platform demonstrates expertise in frontend development with React and TypeScript, API integration for AI services, and deployment with Vercel for optimal performance and reliability. SIRA represents the future of marketing—where AI works alongside marketers to achieve better results with less effort.",
+      tech: ["React", "TypeScript", "AI Integration", "Vercel", "REST APIs", "Marketing Automation"],
+      image: null,
+      video: null,
+      achievements: "Live platform, AI-powered marketing, Full automation",
+      features: [
+        "AI-powered content generation",
+        "Automated campaign management",
+        "Social media scheduling",
+        "Marketing analytics dashboard",
+        "Brand voice customization",
+        "Multi-platform publishing",
+        "Performance optimization",
+        "Real-time insights"
+      ],
+      github: "https://github.com/sagarrai21802/sira-website",
+      liveDemo: "https://siraaaaaaa.vercel.app"
+    },
+    {
       id: 'keyboard-extension',
       title: "AI Keyboard: Grok-Powered iOS Keyboard Extension",
       description: "Built a custom iOS keyboard extension that enhances user responses using the Grok API. Overcame significant iOS restrictions on API calls from keyboard extensions and the 30MB data transfer limit.",

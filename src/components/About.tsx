@@ -52,9 +52,8 @@ const About = () => {
           {stats.map((stat, index) => (
             <div
               key={stat.label}
-              className={`relative bg-card border border-border rounded-2xl p-6 text-center transition-all duration-700 hover:shadow-lg hover:border-primary/30 ${
-                visibleStats.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
+              className={`relative bg-card border border-border rounded-2xl p-6 text-center transition-all duration-700 hover:shadow-lg hover:border-primary/30 ${visibleStats.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
             >
               <div className={`w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
                 <stat.icon className="w-6 h-6 text-white" />
@@ -64,11 +63,11 @@ const About = () => {
             </div>
           ))}
         </div>
-        
+
         <div ref={cardReveal.ref as any} className={`bg-card border border-border rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-xl transition-all duration-500 backdrop-blur-sm reveal-left ${cardReveal.isVisible ? 'is-visible' : ''}`}>
           <div className="max-w-4xl mx-auto">
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-body">
-              As a dedicated <span className="text-primary font-semibold">iOS Developer</span> at GrowthPurple Tech, I specialize in building globally-targeted, million-user products using SwiftUI, Express.js, and distributed services. My expertise spans full-stack iOS development with a focus on system design, structured concurrency, and performance optimization.
+              As a dedicated <span className="text-primary font-semibold">Software Developer Intern</span> at GrowthPurple Tech, I specialize in building globally-targeted, million-user products using SwiftUI, Java, and distributed services. My expertise spans full-stack development with iOS frontend and Java backend, focusing on system design, structured concurrency, and performance optimization.
             </p>
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-body">
@@ -89,13 +88,13 @@ const About = () => {
                       Active
                     </span>
                   </div>
-                  <p className="text-sm text-muted-foreground">iOS Developer Intern | Nov 2025 – Present</p>
+                  <p className="text-sm text-muted-foreground">Software Developer Intern | Nov 2025 – Present</p>
                 </div>
               </div>
               <p className="text-muted-foreground">
                 Engineering system-design driven data flows with Redis-backed caching, supporting 1M+ concurrent sessions through fault-tolerant processing and latency-controlled routing.
               </p>
-              <button 
+              <button
                 onClick={() => navigate('/experience')}
                 className="mt-4 inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300 font-medium"
               >
@@ -115,7 +114,7 @@ const About = () => {
                   { text: 'Contributed to libraries with 60k+ combined stars', highlight: '60k+' },
                   { text: 'Saved ₹4.2L annually through optimization', highlight: '₹4.2L' },
                 ].map((achievement, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="flex items-start gap-3 p-4 bg-primary/5 rounded-xl border border-primary/10 hover:border-primary/30 transition-colors duration-300"
                   >

@@ -46,43 +46,26 @@ const Header = () => {
     <header className="min-h-screen pt-16 flex flex-col bg-gradient-to-br from-elegant-light via-background to-elegant-gray dark:from-elegant-light dark:via-background dark:to-elegant-gray relative overflow-hidden">
       {/* Animated background elements with parallax */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div 
-          className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse transition-transform duration-300 ease-out" 
-          style={{ 
+        <div
+          className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse transition-transform duration-300 ease-out"
+          style={{
             animationDuration: '4s',
-            transform: `translate(${parallax.x * 0.8}px, ${parallax.y * 0.8}px)` 
-          }} 
+            transform: `translate(${parallax.x * 0.8}px, ${parallax.y * 0.8}px)`
+          }}
         />
-        <div 
-          className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse transition-transform duration-300 ease-out" 
-          style={{ 
-            animationDuration: '6s', 
+        <div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse transition-transform duration-300 ease-out"
+          style={{
+            animationDuration: '6s',
             animationDelay: '1s',
-            transform: `translate(${parallax.x * -0.6}px, ${parallax.y * -0.6}px)` 
-          }} 
+            transform: `translate(${parallax.x * -0.6}px, ${parallax.y * -0.6}px)`
+          }}
         />
-        <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/3 to-transparent rounded-full transition-transform duration-500 ease-out" 
-          style={{ 
-            transform: `translate(calc(-50% + ${parallax.x * 0.3}px), calc(-50% + ${parallax.y * 0.3}px))` 
-          }} 
-        />
-        {/* Floating particles */}
-        <div 
-          className="absolute top-1/4 right-1/4 w-4 h-4 bg-primary/20 rounded-full transition-transform duration-200 ease-out"
-          style={{ transform: `translate(${parallax.x * 2}px, ${parallax.y * 2}px)` }}
-        />
-        <div 
-          className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-primary/30 rounded-full transition-transform duration-200 ease-out"
-          style={{ transform: `translate(${parallax.x * -1.5}px, ${parallax.y * -1.5}px)` }}
-        />
-        <div 
-          className="absolute top-1/3 left-1/3 w-2 h-2 bg-primary/25 rounded-full transition-transform duration-200 ease-out"
-          style={{ transform: `translate(${parallax.x * 2.5}px, ${parallax.y * 2.5}px)` }}
-        />
-        <div 
-          className="absolute bottom-1/4 right-1/3 w-3 h-3 bg-primary/20 rounded-full transition-transform duration-200 ease-out"
-          style={{ transform: `translate(${parallax.x * -2}px, ${parallax.y * -2}px)` }}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/3 to-transparent rounded-full transition-transform duration-500 ease-out"
+          style={{
+            transform: `translate(calc(-50% + ${parallax.x * 0.3}px), calc(-50% + ${parallax.y * 0.3}px))`
+          }}
         />
       </div>
 
@@ -93,12 +76,12 @@ const Header = () => {
         <div className="z-10 px-4 w-full max-w-6xl mx-auto">
           {/* Two-column layout for larger screens */}
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-16">
-            
+
             {/* Left side - Text content */}
             <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
               {/* Name with gradient */}
-              <h1 
-                ref={titleReveal.ref as any} 
+              <h1
+                ref={titleReveal.ref as any}
                 className={`text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-4 tracking-tight reveal ${titleReveal.isVisible ? 'is-visible' : ''}`}
               >
                 <span className="bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
@@ -117,7 +100,7 @@ const Header = () => {
               {/* Stats - horizontal spread */}
               <div className="flex justify-center lg:justify-start gap-6 md:gap-10 mb-10">
                 {stats.map((stat, index) => (
-                  <div 
+                  <div
                     key={stat.label}
                     className={`text-center lg:text-left transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: stat.delay }}
@@ -133,8 +116,8 @@ const Header = () => {
               </div>
 
               {/* Action buttons - spread layout */}
-              <div 
-                ref={buttonsReveal.ref as any} 
+              <div
+                ref={buttonsReveal.ref as any}
                 className={`flex flex-wrap justify-center lg:justify-start gap-3 mb-4 reveal ${buttonsReveal.isVisible ? 'is-visible' : ''}`}
               >
                 <a
@@ -185,32 +168,28 @@ const Header = () => {
             </div>
 
             {/* Right side - Profile Image with 3D tilt effect */}
-            <div 
+            <div
               className={`flex-shrink-0 order-1 lg:order-2 mb-10 lg:mb-0 transition-all duration-1000 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
               style={{ perspective: '1000px' }}
             >
-              <div 
-                className="relative w-48 h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 mx-auto lg:mx-0 transition-transform duration-300 ease-out"
-                style={{ 
-                  transform: `rotateX(${parallax.rotateX * 0.3}deg) rotateY(${parallax.rotateY * 0.3}deg) translateX(${parallax.x * -0.2}px) translateY(${parallax.y * -0.2}px)`,
-                  transformStyle: 'preserve-3d'
-                }}
+              <div
+                className="relative w-48 h-48 md:w-56 md:h-56 lg:w-72 lg:h-72 mx-auto lg:mx-0"
               >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-primary/50 to-primary animate-spin" style={{ animationDuration: '8s' }} />
-              <div className="absolute inset-1 rounded-full bg-background" />
-              <div className="absolute inset-2 rounded-full overflow-hidden shadow-2xl">
-                <img
-                  src="/lovable-uploads/80469C0F-FE49-454B-811B-08306F9C73DB_1_105_c.jpeg"
-                  alt="Sagar Rai"
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              {/* Status indicator */}
-              <div className="absolute bottom-4 right-4 w-6 h-6 bg-green-500 rounded-full border-4 border-background">
-                <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75" />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-primary/50 to-primary animate-spin" style={{ animationDuration: '8s' }} />
+                <div className="absolute inset-1 rounded-full bg-background" />
+                <div className="absolute inset-2 rounded-full overflow-hidden shadow-2xl">
+                  <img
+                    src="/lovable-uploads/80469C0F-FE49-454B-811B-08306F9C73DB_1_105_c.jpeg"
+                    alt="Sagar Rai"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Status indicator */}
+                <div className="absolute bottom-4 right-4 w-6 h-6 bg-green-500 rounded-full border-4 border-background">
+                  <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75" />
+                </div>
               </div>
             </div>
-          </div>
 
           </div>
         </div>
@@ -227,12 +206,12 @@ const Header = () => {
             {/* Scroll wheel - animated */}
             <div className="w-1.5 h-3 bg-current rounded-full animate-scroll-wheel" />
           </div>
-          
+
           {/* Scroll text */}
           <span className="text-xs font-medium tracking-wider uppercase opacity-70 group-hover:opacity-100 transition-opacity">
             Scroll to explore
           </span>
-          
+
           {/* Bouncing chevrons */}
           <div className="flex flex-col items-center -mt-1">
             <ChevronDown className="w-4 h-4 animate-bounce-slow opacity-80" style={{ animationDelay: '0ms' }} />

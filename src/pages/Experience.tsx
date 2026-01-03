@@ -7,7 +7,7 @@ const Experience = () => {
 
   const experiences = [
     {
-      position: "iOS Developer Intern",
+      position: "Software Developer Intern",
       company: "GrowthPurple Tech",
       location: "Remote",
       period: "Nov 2025 – Present",
@@ -24,7 +24,7 @@ const Experience = () => {
       ]
     },
     {
-      position: "iOS Developer Intern",
+      position: "Software Developer Intern",
       company: "BrandSmashers Tech",
       location: "Bhopal",
       period: "Jul 2025 – Nov 2025",
@@ -87,11 +87,10 @@ const Experience = () => {
                 <div
                   key={index}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className={`relative transition-all duration-700 ease-out ${
-                    visibleCards.includes(index)
+                  className={`relative transition-all duration-700 ease-out ${visibleCards.includes(index)
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-8'
-                  }`}
+                    }`}
                 >
                   {/* Timeline dot */}
                   <div className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background transform -translate-x-1/2 z-10 hidden md:block">
@@ -114,16 +113,16 @@ const Experience = () => {
                         <div className="p-3 bg-primary/10 rounded-2xl group-hover:bg-primary/20 transition-colors duration-300">
                           <Building2 className="w-6 h-6 text-primary" />
                         </div>
-                        
+
                         <div className="flex-1">
                           <h2 className="text-xl md:text-2xl font-display font-bold text-foreground mb-1">
                             {experience.position}
                           </h2>
-                          
+
                           <h3 className="text-lg font-semibold text-primary mb-3">
                             {experience.company}
                           </h3>
-                          
+
                           <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
                             <div className="flex items-center gap-1.5">
                               <Calendar className="w-3.5 h-3.5" />
@@ -153,7 +152,7 @@ const Experience = () => {
                           </div>
                         ))}
                       </div>
-                      
+
                       <div className="space-y-3">
                         {experience.responsibilities.map((responsibility, rIndex) => (
                           <div
