@@ -35,14 +35,31 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`nav-link-animated text-sm font-medium transition-colors hover:text-primary ${location.pathname === item.path ? 'text-primary' : 'text-muted-foreground'
-                  }`}
-              >
-                {item.name}
-              </Link>
+              <div key={item.name} className="relative">
+                <Link
+                  to={item.path}
+                  className={`nav-link-animated text-sm font-medium transition-colors hover:text-primary ${location.pathname === item.path ? 'text-primary' : 'text-muted-foreground'
+                    }`}
+                >
+                  {item.name}
+                </Link>
+
+                {/* Bubble tooltip for Projects */}
+                {item.name === 'Projects' && location.pathname === '/' && (
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 animate-bounce-slow z-50">
+                    {/* Arrow pointing up */}
+                    <div className="absolute left-1/2 -translate-x-1/2 -top-2 w-0 h-0 border-l-6 border-r-6 border-b-6 border-l-transparent border-r-transparent border-b-primary/30"></div>
+                    {/* Bubble */}
+                    <div className="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm border border-primary/40 rounded-lg px-3 py-1.5 shadow-lg whitespace-nowrap">
+                      <p className="text-xs font-medium text-foreground flex items-center gap-1.5">
+                        <span>👀</span>
+                        <span>Check out my work!</span>
+                        <span>✨</span>
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
@@ -85,8 +102,8 @@ const Navigation = () => {
                   to={item.path}
                   onClick={() => setIsOpen(false)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${location.pathname === item.path
-                      ? 'text-primary bg-primary/10'
-                      : 'text-muted-foreground hover:text-primary hover:bg-muted'
+                    ? 'text-primary bg-primary/10'
+                    : 'text-muted-foreground hover:text-primary hover:bg-muted'
                     }`}
                 >
                   {item.name}

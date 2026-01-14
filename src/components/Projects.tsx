@@ -34,8 +34,9 @@ const Projects = () => {
       description: "Built a revolutionary single-platform solution that empowers multiple users simultaneously with one-click LinkedIn posting. Simply share your idea and Dobbie refines it with perfect hooks, professional formatting, and engaging content—then posts directly to LinkedIn. Eliminates hours of content brainstorming and writing, transforming raw ideas into polished, viral-ready posts in seconds.",
       tech: ["SwiftUI", "AI Integration", "REST APIs", "Content Generation", "Social Media Automation"],
       image: "/Dobbie.png",
-      video: "https://drive.google.com/file/d/1_qBQ5u7UnlH3kkvBs9iJDQk6gd4w-gWl/view?usp=sharing",
-      showVideo: showVideo['Dobbie'] || false,
+      video: "https://www.youtube.com/embed/Xlt63G4e5Dw",
+      showVideo: true,
+      isYouTube: true,
       achievements: "One-click posting, AI content refinement, Multi-user support"
     },
     {
@@ -55,30 +56,10 @@ const Projects = () => {
       description: "Built an end-to-end ticket booking system featuring a robust Java backend with RESTful APIs, database management, and secure authentication. Implements complete booking workflow with seat selection, payment processing, and ticket generation. Demonstrates mastery in Java backend architecture, Spring Boot, and enterprise-level application development.",
       tech: ["Java", "Spring Boot", "REST APIs", "MySQL", "JWT Auth", "Maven"],
       image: null,
-      video: null,
-      showVideo: false,
+      video: "https://www.youtube.com/embed/eHzD_OHmX7c",
+      showVideo: true,
+      isYouTube: true,
       achievements: "Full-stack Java, RESTful architecture, Enterprise-grade backend"
-    },
-    {
-      id: 'sira-website',
-      title: "SIRA Website: AI Digital Marketing Agent",
-      description: "Built a comprehensive AI-powered digital marketing platform that serves as your intelligent marketing agent. Automates content creation, campaign management, and marketing strategies using advanced AI integration. Features a modern web interface for seamless marketing automation and real-time analytics.",
-      tech: ["React", "TypeScript", "AI Integration", "Vercel", "REST APIs", "Marketing Automation"],
-      image: null,
-      video: null,
-      showVideo: false,
-      liveUrl: "https://siraaaaaaa.vercel.app",
-      achievements: "Live platform, AI-powered marketing, Full automation"
-    },
-    {
-      id: 'keyboard-extension',
-      title: "AI Keyboard: Grok-Powered iOS Keyboard Extension",
-      description: "Built a custom iOS keyboard extension that enhances user responses using the Grok API. Overcame significant iOS restrictions on API calls from keyboard extensions and the 30MB data transfer limit—challenges that required deep understanding of iOS sandbox limitations and creative architectural solutions.",
-      tech: ["Swift", "iOS Keyboard Extension", "Grok API", "REST APIs", "App Extension", "iOS Sandbox"],
-      image: null,
-      video: null,
-      showVideo: false,
-      achievements: "Grok API integration, iOS restrictions overcome, Real-time AI enhancement"
     },
     {
       id: 'todoey',
@@ -109,6 +90,27 @@ const Projects = () => {
       video: "/Bitcoin.mp4",
       showVideo: true, // Always show video for Bitcoin project
       achievements: "Real-time price tracking, Multi-currency support"
+    },
+    {
+      id: 'sira-website',
+      title: "SIRA Website: AI Digital Marketing Agent",
+      description: "Built a comprehensive AI-powered digital marketing platform that serves as your intelligent marketing agent. Automates content creation, campaign management, and marketing strategies using advanced AI integration. Features a modern web interface for seamless marketing automation and real-time analytics.",
+      tech: ["React", "TypeScript", "AI Integration", "Vercel", "REST APIs", "Marketing Automation"],
+      image: null,
+      video: null,
+      showVideo: false,
+      liveUrl: "https://siraaaaaaa.vercel.app",
+      achievements: "Live platform, AI-powered marketing, Full automation"
+    },
+    {
+      id: 'keyboard-extension',
+      title: "AI Keyboard: Grok-Powered iOS Keyboard Extension",
+      description: "Built a custom iOS keyboard extension that enhances user responses using the Grok API. Overcame significant iOS restrictions on API calls from keyboard extensions and the 30MB data transfer limit—challenges that required deep understanding of iOS sandbox limitations and creative architectural solutions.",
+      tech: ["Swift", "iOS Keyboard Extension", "Grok API", "REST APIs", "App Extension", "iOS Sandbox"],
+      image: null,
+      video: null,
+      showVideo: false,
+      achievements: "Grok API integration, iOS restrictions overcome, Real-time AI enhancement"
     },
     {
       id: 'sira',

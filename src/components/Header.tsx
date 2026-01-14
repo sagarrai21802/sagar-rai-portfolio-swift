@@ -150,12 +150,19 @@ const Header = () => {
               {/* Secondary actions */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                 <button
+                  onClick={() => navigate('/projects')}
+                  className="group flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 text-foreground rounded-full hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:border-primary/60"
+                >
+                  <span className="text-lg">🚀</span>
+                  <span className="font-semibold">View Projects</span>
+                  <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+                </button>
+                <button
                   onClick={() => navigate('/experience')}
                   className="group flex items-center gap-2 px-4 py-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
                 >
                   <Briefcase className="w-4 h-4" />
                   <span className="font-medium">View Experience</span>
-                  <Sparkles className="w-3 h-3 text-primary" />
                 </button>
                 <button
                   onClick={() => navigate('/open-source')}

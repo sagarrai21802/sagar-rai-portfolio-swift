@@ -13,7 +13,8 @@ const ProjectDetail = () => {
       longDescription: "Dobbie is a groundbreaking AI-powered platform that transforms the way professionals create and share LinkedIn content. Built to serve multiple users simultaneously, it eliminates the hours typically spent brainstorming, writing, and perfecting social media posts.\n\nThe platform leverages advanced AI to understand your raw ideas and transform them into polished, viral-ready LinkedIn posts complete with attention-grabbing hooks, professional formatting, and engaging calls-to-action. Whether you're a busy entrepreneur, content creator, or professional looking to build your personal brand, Dobbie handles the heavy lifting.\n\nWith just one click, users can post their refined content directly to LinkedIn—no copy-pasting, no switching between apps, no stress. The platform's intelligent content engine understands LinkedIn's algorithm preferences and optimizes posts for maximum engagement and reach.\n\nKey innovations include multi-user support allowing teams to collaborate on content, AI-driven hook generation that captures attention in the first line, and seamless LinkedIn API integration for frictionless posting. The result is a 10x improvement in content creation speed while maintaining or exceeding the quality of manually crafted posts.",
       tech: ["SwiftUI", "AI Integration", "REST APIs", "Content Generation", "Social Media Automation", "LinkedIn API"],
       image: "/Dobbie.png",
-      video: "https://drive.google.com/file/d/1_qBQ5u7UnlH3kkvBs9iJDQk6gd4w-gWl/view?usp=sharing",
+      video: "https://www.youtube.com/embed/Xlt63G4e5Dw",
+      isYouTube: true,
       achievements: "One-click posting, AI content refinement, Multi-user support",
       features: [
         "One-click LinkedIn posting",
@@ -58,7 +59,8 @@ const ProjectDetail = () => {
       longDescription: "The Ticket Booking System is a comprehensive full-stack application that showcases mastery in Java backend development and enterprise-level architecture. This project demonstrates the ability to build production-ready systems that handle real-world business requirements.\n\nThe backend is built using Spring Boot, leveraging its powerful ecosystem for creating RESTful APIs, managing database operations, and implementing secure authentication. The application follows industry best practices including layered architecture, dependency injection, and proper separation of concerns.\n\nKey technical achievements include implementing JWT-based authentication for secure user sessions, designing a normalized MySQL database schema for efficient data management, and creating a complete booking workflow that handles seat selection, availability checking, payment processing, and ticket generation.\n\nThe system demonstrates proficiency in core Java concepts, Spring Framework, database design, and API development—essential skills for backend engineering roles. The modular architecture ensures the codebase is maintainable, testable, and scalable.",
       tech: ["Java", "Spring Boot", "REST APIs", "MySQL", "JWT Auth", "Maven", "Hibernate"],
       image: null,
-      video: null,
+      video: "https://www.youtube.com/embed/eHzD_OHmX7c",
+      isYouTube: true,
       achievements: "Full-stack Java, RESTful architecture, Enterprise-grade backend",
       features: [
         "Complete booking workflow",
