@@ -2,10 +2,14 @@ import Header from '@/components/Header';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
 
-const Home = () => {
+interface HomeProps {
+  introCompleted?: boolean;
+}
+
+const Home = ({ introCompleted }: HomeProps) => {
   return (
     <>
-      <Header />
+      <Header introCompleted={introCompleted} />
       <About />
       <Footer />
     </>

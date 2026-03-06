@@ -12,45 +12,49 @@ const WORDS = [
     'Java',
     'Thinker',
     'Creator',
-    'Person'
+    'Engineer',
+    'Problem Solver',
+    'Executor',
+    'Human'
 ];
 
 const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(true);
     const [isFadingOut, setIsFadingOut] = useState(false);
+    const [isSlidingUp, setIsSlidingUp] = useState(false);
 
     useEffect(() => {
         if (!isAnimating) return;
 
-        // Show each word for 180ms, then move to next
+        // Show each word for 120ms, then move to next (faster)
         const wordInterval = setInterval(() => {
             setCurrentWordIndex((prev) => {
                 if (prev >= WORDS.length - 1) {
                     clearInterval(wordInterval);
-                    // Start fade out after last word
+                    // Start slide up after last word (Human) - 1.5 seconds
                     setTimeout(() => {
-                        setIsFadingOut(true);
-                        // Complete animation after fade out
+                        setIsSlidingUp(true);
+                        // Complete animation after slide up
                         setTimeout(() => {
                             setIsAnimating(false);
                             onComplete();
                         }, 600);
-                    }, 400);
+                    }, 1500);
                     return prev;
                 }
                 return prev + 1;
             });
-        }, 180);
+        }, 120);
 
         return () => clearInterval(wordInterval);
     }, [isAnimating, onComplete]);
 
-    if (!isAnimating && !isFadingOut) return null;
+    if (!isAnimating && !isSlidingUp) return null;
 
     return (
         <div
-            className={`intro-overlay ${isFadingOut ? 'intro-fade-out' : ''}`}
+            className={`intro-overlay ${isSlidingUp ? 'intro-fade-out' : ''}`}
             style={{
                 position: 'fixed',
                 top: 0,

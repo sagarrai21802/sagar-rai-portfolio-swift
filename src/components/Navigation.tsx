@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +28,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="text-xl font-display font-bold text-foreground hover:text-primary transition-colors">
-            Sagar Rai
+            SR 
           </Link>
 
           {/* Desktop Navigation */}
@@ -49,7 +48,7 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Desktop Social Links & Theme Toggle */}
+          {/* Desktop Social Links */}
           <div className="hidden md:flex items-center space-x-4">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
@@ -63,12 +62,10 @@ const Navigation = () => {
                 <Icon className="w-5 h-5" />
               </a>
             ))}
-            <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4">
-            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-muted-foreground hover:text-primary transition-colors"

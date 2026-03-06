@@ -2,6 +2,8 @@ import { useReveal } from '@/hooks/useReveal';
 import { useEffect, useRef, useState } from 'react';
 import { TrendingUp, Users, Zap, Award, Building2, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import TextReveal from './TextReveal';
+import BlurReveal from './BlurReveal';
 
 const About = () => {
   const navigate = useNavigate();
@@ -39,12 +41,20 @@ const About = () => {
     <section id="about" className="py-24 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 ref={headingReveal.ref as any} className={`text-4xl md:text-5xl font-display font-bold text-foreground mb-4 tracking-tight reveal ${headingReveal.isVisible ? 'is-visible' : ''}`}>
-            About Me
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Building scalable iOS applications that impact millions of users worldwide
-          </p>
+          <TextReveal
+            text="About Me"
+            as="h2"
+            className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 tracking-tight"
+            delay={0}
+            duration={0.8}
+          />
+          <BlurReveal
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            delay={0.2}
+            duration={0.8}
+          >
+            <p>Building scalable iOS applications that impact millions of users worldwide</p>
+          </BlurReveal>
         </div>
 
         {/* Stats Grid */}
@@ -52,19 +62,29 @@ const About = () => {
           {stats.map((stat, index) => (
             <div
               key={stat.label}
-              className={`relative bg-card border border-border rounded-2xl p-6 text-center transition-all duration-700 hover:shadow-lg hover:border-primary/30 ${visibleStats.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              className={`relative bg-card border border-border rounded-2xl p-4 md:p-6 transition-all duration-700 hover:shadow-lg hover:border-primary/30 ${visibleStats.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
             >
-              <div className={`w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
-                <stat.icon className="w-6 h-6 text-white" />
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center flex-shrink-0`}>
+                  <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xl md:text-2xl font-bold text-foreground">{stat.value}</div>
+                  <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
+                </div>
               </div>
-              <div className="text-2xl md:text-3xl font-bold text-foreground mb-1">{stat.value}</div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
             </div>
           ))}
         </div>
 
-        <div ref={cardReveal.ref as any} className={`bg-card border border-border rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-xl transition-all duration-500 backdrop-blur-sm reveal-left ${cardReveal.isVisible ? 'is-visible' : ''}`}>
+        <BlurReveal
+          className="bg-card border border-border rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-xl transition-all duration-500 backdrop-blur-sm"
+          blurIntensity={15}
+          direction="up"
+          delay={0.1}
+          duration={1}
+        >
           <div className="max-w-4xl mx-auto">
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-body">
               As a dedicated <span className="text-primary font-semibold">Software Developer Intern</span> at GrowthPurple Tech, I specialize in building globally-targeted, million-user products using SwiftUI, Java, and distributed services. My expertise spans full-stack development with iOS frontend and Java backend, focusing on system design, structured concurrency, and performance optimization.
@@ -125,7 +145,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
+        </BlurReveal>
       </div>
     </section>
   );

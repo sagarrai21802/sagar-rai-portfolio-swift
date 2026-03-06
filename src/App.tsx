@@ -26,9 +26,11 @@ const AppContent = () => {
     // Show intro on home page every time
     return location.pathname === '/';
   });
+  const [introCompleted, setIntroCompleted] = useState(false);
 
   const handleIntroComplete = () => {
     setShowIntro(false);
+    setIntroCompleted(true);
   };
 
   return (
@@ -37,7 +39,7 @@ const AppContent = () => {
       <Layout>
         <Navigation />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home introCompleted={introCompleted} />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:projectId" element={<ProjectDetail />} />
           <Route path="/open-source" element={<OpenSource />} />

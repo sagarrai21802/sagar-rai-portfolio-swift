@@ -9,6 +9,23 @@ All colors MUST be HSL.
 */
 
 @layer base {
+  /* Import Geist font from public folder */
+  @font-face {
+    font-family: 'Geist';
+    src: url('/geist-font-1.8.0/fonts/Geist/webfonts/Geist[wght].woff2') format('woff2');
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Geist';
+    src: url('/geist-font-1.8.0/fonts/Geist/webfonts/Geist-Italic[wght].woff2') format('woff2');
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: italic;
+  }
+
   :root {
     --background: 0 0% 98%;
     --foreground: 0 0% 13%;
@@ -114,8 +131,19 @@ All colors MUST be HSL.
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
+  ::selection {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  ::-webkit-selection {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Geist', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
@@ -464,6 +492,45 @@ All colors MUST be HSL.
   animation: text-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* Header Image Animation - Full screen to centered */
+@keyframes header-image-expand {
+  from {
+    background-position: center center;
+  }
+  to {
+    background-position: left center;
+  }
+}
+
+.header-image-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url(/PHOTO-2025-09-03-18-48-55.jpeg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header-image-container.image-slide-complete {
+  transform: translateX(50%);
+  background-position: left center;
+}
+
+/* Text reveal animation for header content */
+.header-content {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header-content.content-visible {
+  opacity: 1;
+  transform: translateX(-65px);
+}
+
 /* Button hover glow */
 .button-glow {
   position: relative;
@@ -538,3 +605,184 @@ All colors MUST be HSL.
 .nav-link-animated:hover::after {
   width: 100%;
 }
+
+/* ============================================
+   SPARKLIN-STYLE ANIMATIONS
+   ============================================ */
+
+/* Text Reveal Base Styles */
+.word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Blur Reveal Container */
+.blur-reveal-container {
+  will-change: transform, opacity, filter;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Marquee Container */
+.marquee-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  will-change: transform;
+}
+
+.marquee-item {
+  flex-shrink: 0;
+}
+
+/* Hero Loader Animation */
+@keyframes heroLoader {
+  0% {
+    transform: scale(0.125);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.hero-loader {
+  animation: heroLoader 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Slide Up Animation (for cards) */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(0px, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Two-color text effect for TextReveal */
+.text-primary-color {
+  color: hsl(var(--primary));
+}
+
+/* Scroll-triggered header hide/show */
+.header-hidden {
+  top: -100%;
+  opacity: 0;
+}
+
+.header-visible {
+  top: 0;
+  opacity: 1;
+}
+
+/* Image hover scale effect (like case study cards) */
+.image-scale-hover {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.image-scale-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hardware acceleration helpers */
+.hw-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* ===== STACKED CARD SCROLL ANIMATION ===== */
+
+/* Container for stacked cards effect */
+.stacked-cards-container {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Base styles for all stacked card sections */
+.stacked-card {
+  position: relative;
+  min-height: 100vh;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+/* Card layer - each subsequent card has higher z-index */
+.stacked-card-1 {
+  z-index: 1;
+}
+
+.stacked-card-2 {
+  z-index: 2;
+  margin-top: -100vh;
+}
+
+.stacked-card-3 {
+  z-index: 3;
+  margin-top: -100vh;
+}
+
+/* Add subtle shadow to create depth when cards overlap */
+.stacked-card-2,
+.stacked-card-3 {
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Override component backgrounds to show card backgrounds */
+.stacked-card-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
+.stacked-card-about {
+  background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 100%) !important;
+}
+
+.stacked-card-achievements {
+  background: linear-gradient(180deg, #0a0a1a 0%, #0f0f23 100%) !important;
+}
+
+/* Dark mode support for stacked cards */
+.dark .stacked-card-about {
+  background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 100%) !important;
+}
+
+.dark .stacked-card-achievements {
+  background: linear-gradient(180deg, #050508 0%, #0a0a0f 100%) !important;
+}
+
+/* End of styles */
