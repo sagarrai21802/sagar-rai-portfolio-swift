@@ -62,6 +62,37 @@ const Projects = () => {
       achievements: "Full-stack Java, RESTful architecture, Enterprise-grade backend"
     },
     {
+      id: 'glasscast',
+      title: "GlassCast: Advanced Weather Application",
+      description: "Created an advanced weather application featuring a beautiful glassmorphism design with real-time weather data. Implemented comprehensive weather tracking with hourly and weekly forecasts, interactive weather maps, and severe weather alerts. The app showcases modern iOS development with SwiftUI and integrates multiple weather APIs for accurate data.",
+      tech: ["Swift", "SwiftUI", "Weather APIs", "Glassmorphism UI", "Core Location", "MVVM"],
+      image: null,
+      video: "https://www.loom.com/embed/d50aa1aa7ae14ce782bc62fc56c8606e",
+      showVideo: true,
+      isLoom: true,
+      achievements: "Glassmorphism design, Real-time weather tracking, Interactive forecasts"
+    },
+    {
+      id: 'ocr-autofill',
+      title: "OCR AutoFill Extension: Automated Data Entry Solution",
+      description: "Built a Chrome extension that automatically extracts structured data from JPG documents using OCR and fills 16 predefined text input fields in ASP.NET WebForms pages. Achieved 80% reduction in manual typing time for data entry operators.",
+      tech: ["Chrome Extension", "JavaScript", "Tesseract OCR", "FastAPI", "Python", "Web Scraping"],
+      image: null,
+      video: null,
+      showVideo: false,
+      achievements: "80% typing time reduction, 16-field extraction, WebForms compatibility"
+    },
+    {
+      id: 'echominutes',
+      title: "EchoMinutes: AI-Powered Meeting Summary Extension",
+      description: "Built a Chrome extension that uploads audio from any meeting and generates structured meeting summaries using AI. Extracts key points, action items, decisions, and participants for efficient meeting documentation.",
+      tech: ["Chrome Extension", "JavaScript", "AI/ML", "Audio Processing", "Speech-to-Text", "REST APIs"],
+      image: null,
+      video: null,
+      showVideo: false,
+      achievements: "Automated meeting documentation, AI-powered summaries, Action item extraction"
+    },
+    {
       id: 'todoey',
       title: "Todoey: iOS Task Management App",
       description: "Built with Swift & UIKit using MVC architecture. Implemented 5+ data persistence methods (Realm, Core Data, SQLite, File Manager, Keychain) ensuring 100% data integrity across sessions. Improved task management efficiency by 30% via optimised UI flows.",
@@ -184,6 +215,19 @@ const Projects = () => {
           className="w-full h-full"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      );
+    }
+
+    // Loom embed
+    if (project.isLoom && project.video) {
+      return (
+        <iframe
+          src={project.video}
+          title={project.title}
+          className="w-full h-full"
+          frameBorder="0"
           allowFullScreen
         />
       );

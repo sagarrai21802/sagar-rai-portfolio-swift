@@ -202,30 +202,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Scroll indicator - Animated Mouse */}
-      <div className="pb-12 flex flex-col items-center gap-4">
-        <button
-          onClick={scrollToAbout}
-          className="group flex flex-col items-center gap-3 text-muted-foreground hover:text-foreground transition-all duration-300"
-        >
-          {/* Mouse outline with scroll wheel animation */}
-          <div className="relative w-7 h-12 border-2 border-current rounded-full flex justify-center pt-2 hover:border-primary transition-colors duration-300">
-            {/* Scroll wheel - animated */}
-            <div className="w-1.5 h-3 bg-current rounded-full animate-scroll-wheel" />
-          </div>
 
-          {/* Scroll text */}
-          <span className="text-xs font-medium tracking-wider uppercase opacity-70 group-hover:opacity-100 transition-opacity">
-            Scroll to explore
-          </span>
-
-          {/* Bouncing chevrons */}
-          <div className="flex flex-col items-center -mt-1">
-            <ChevronDown className="w-4 h-4 animate-bounce-slow opacity-80" style={{ animationDelay: '0ms' }} />
-            <ChevronDown className="w-4 h-4 animate-bounce-slow opacity-50 -mt-2" style={{ animationDelay: '150ms' }} />
-          </div>
-        </button>
-      </div>
     </header>
   );
 };

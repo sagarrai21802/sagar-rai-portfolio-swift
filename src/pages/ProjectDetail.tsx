@@ -76,6 +76,73 @@ const ProjectDetail = () => {
       liveDemo: null
     },
     {
+      id: 'glasscast',
+      title: "GlassCast: Advanced Weather Application",
+      description: "Created an advanced weather application featuring a beautiful glassmorphism design with real-time weather data. Implemented comprehensive weather tracking with hourly and weekly forecasts, interactive weather maps, and severe weather alerts.",
+      longDescription: "GlassCast is a sophisticated weather application that demonstrates advanced iOS development skills through its stunning glassmorphism UI design and powerful weather tracking capabilities. This project was created as an assignment for a company that wanted an improved version of a weather app with modern design aesthetics.\n\nThe application features a beautiful frosted glass design language that creates a modern, premium feel. Each weather element is rendered with attention to detail, including animated weather conditions, dynamic backgrounds that reflect current weather, and smooth transitions between different weather states.\n\nThe app integrates multiple weather APIs to provide accurate real-time data, including temperature, humidity, wind speed, UV index, and more. Users can view hourly forecasts for the next 24 hours and weekly forecasts for planning ahead. Severe weather alerts keep users informed about dangerous conditions in their area.\n\nKey technical achievements include implementing Core Location for automatic location detection, creating custom SwiftUI components for the glassmorphism effect, and optimizing API calls for battery efficiency.",
+      tech: ["Swift", "SwiftUI", "Weather APIs", "Glassmorphism UI", "Core Location", "MVVM", "REST APIs"],
+      image: null,
+      video: "https://www.loom.com/embed/d50aa1aa7ae14ce782bc62fc56c8606e",
+      isLoom: true,
+      achievements: "Glassmorphism design, Real-time weather tracking, Interactive forecasts",
+      features: [
+        "Beautiful glassmorphism UI design",
+        "Real-time weather data integration",
+        "Hourly and weekly weather forecasts",
+        "Interactive weather maps",
+        "Severe weather alerts",
+        "Core Location integration",
+        "Animated weather conditions",
+        "Dynamic background themes"
+      ],
+      github: "https://github.com/sagarrai21802/GlassCast.git",
+      liveDemo: null
+    },
+    {
+      id: 'ocr-autofill',
+      title: "OCR AutoFill Extension: Automated Data Entry Solution",
+      description: "Built a Chrome extension that automatically extracts structured data from JPG documents using OCR and fills 16 predefined text input fields in ASP.NET WebForms pages.",
+      longDescription: "OCR AutoFill Extension is a powerful automation tool designed to streamline data entry workflows for operators working with ASP.NET WebForms. This project addresses a common pain point in enterprise environments where manual data entry from scanned documents is time-consuming and prone to errors.\n\nThe solution consists of two main components: a Chrome Extension (Manifest V3) that runs in the browser and a FastAPI backend that handles the OCR processing. When a user navigates to a WebForms page containing a document image, the extension automatically detects the image, sends it to the backend for OCR processing, and populates all 16 predefined fields with the extracted data.\n\nThe backend uses Tesseract OCR for text extraction and implements intelligent field mapping to correctly identify and categorize information such as names, SSN, phone numbers, addresses, bank details, and more. The system achieves 95%+ field accuracy while reducing manual typing time by 80%.\n\nSecurity was a primary concern in this project. The extension never auto-saves or auto-submits data, ensuring that all information remains under user control. No data is persisted or logged, and all processing happens locally through the user's backend.",
+      tech: ["Chrome Extension", "JavaScript", "Tesseract OCR", "FastAPI", "Python", "Web Scraping", "DOM Manipulation"],
+      image: null,
+      video: null,
+      achievements: "80% typing time reduction, 16-field extraction, WebForms compatibility",
+      features: [
+        "Automatic image detection from pages",
+        "Tesseract OCR text extraction",
+        "16-field structured data extraction",
+        "WebForms DOM manipulation",
+        "User notification with confirmation banner",
+        "MutationObserver for partial postbacks",
+        "Manual submission only (no auto-save)",
+        "REST API endpoint for OCR processing"
+      ],
+      github: "https://github.com/sagarrai21802/OCR.git",
+      liveDemo: null
+    },
+    {
+      id: 'echominutes',
+      title: "EchoMinutes: AI-Powered Meeting Summary Extension",
+      description: "Built a Chrome extension that uploads audio from any meeting and generates structured meeting summaries using AI. Extracts key points, action items, decisions, and participants for efficient meeting documentation.",
+      longDescription: "EchoMinutes is an innovative Chrome extension that transforms how professionals document and follow up on meetings. By simply uploading an audio recording of any meeting, the extension leverages AI to generate comprehensive, structured meeting summaries in seconds.\n\nThe extension handles the entire workflow from audio upload to summary generation. Users can upload meeting recordings in various formats, and the AI-powered backend processes the audio using advanced speech-to-text technology. The system then analyzes the transcribed text to identify and extract key information.\n\nKey features include intelligent extraction of action items with assigned owners and deadlines, identification of important decisions made during the meeting, recognition of participants and their roles, highlighting of key discussion points and topics, and generation of follow-up recommendations.\n\nThe project demonstrates expertise in audio processing, natural language processing, and Chrome extension development. The structured output format makes it easy to share meeting notes with team members and ensure nothing falls through the cracks.",
+      tech: ["Chrome Extension", "JavaScript", "AI/ML", "Audio Processing", "Speech-to-Text", "REST APIs", "Natural Language Processing"],
+      image: null,
+      video: null,
+      achievements: "Automated meeting documentation, AI-powered summaries, Action item extraction",
+      features: [
+        "Audio file upload and processing",
+        "AI-powered speech-to-text transcription",
+        "Structured meeting summary generation",
+        "Action items extraction with owners",
+        "Decision tracking and documentation",
+        "Participant identification",
+        "Key points highlighting",
+        "Export and share functionality"
+      ],
+      github: "https://github.com/sagarrai21802/EchoMinutes.git",
+      liveDemo: null
+    },
+    {
       id: 'sira-website',
       title: "SIRA Website: AI Digital Marketing Agent",
       description: "Built a comprehensive AI-powered digital marketing platform that serves as your intelligent marketing agent. Automates content creation, campaign management, and marketing strategies using advanced AI integration.",
@@ -312,6 +379,14 @@ const ProjectDetail = () => {
                 className="w-full h-full"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : project.isLoom && project.video ? (
+              <iframe
+                src={project.video}
+                title={project.title}
+                className="w-full h-full"
+                frameBorder="0"
                 allowFullScreen
               />
             ) : project.video ? (

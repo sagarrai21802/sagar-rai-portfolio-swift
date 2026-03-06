@@ -44,21 +44,7 @@ const Navigation = () => {
                   {item.name}
                 </Link>
 
-                {/* Bubble tooltip for Projects */}
-                {item.name === 'Projects' && location.pathname === '/' && (
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 animate-bounce-slow z-50">
-                    {/* Arrow pointing up */}
-                    <div className="absolute left-1/2 -translate-x-1/2 -top-2 w-0 h-0 border-l-6 border-r-6 border-b-6 border-l-transparent border-r-transparent border-b-primary/30"></div>
-                    {/* Bubble */}
-                    <div className="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm border border-primary/40 rounded-lg px-3 py-1.5 shadow-lg whitespace-nowrap">
-                      <p className="text-xs font-medium text-foreground flex items-center gap-1.5">
-                        <span>👀</span>
-                        <span>Check out my work!</span>
-                        <span>✨</span>
-                      </p>
-                    </div>
-                  </div>
-                )}
+
               </div>
             ))}
           </div>
