@@ -10,6 +10,8 @@ import IntroAnimation from "./components/IntroAnimation";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
+import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
 import OpenSource from "./components/OpenSource";
 import OpenSourceDetail from "./pages/OpenSourceDetail";
 import Experience from "./pages/Experience";
@@ -42,6 +44,8 @@ const AppContent = () => {
           <Route path="/" element={<Home introCompleted={introCompleted} />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:projectId" element={<ProjectDetail />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
           <Route path="/open-source" element={<OpenSource />} />
           <Route path="/open-source/:contributionId" element={<OpenSourceDetail />} />
           <Route path="/experience" element={<Experience />} />
