@@ -55,10 +55,11 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
   const stats = [
     { value: '1M+', label: 'Users Impacted', delay: '0.3s' },
     { value: '2', label: 'Companies', delay: '0.4s' },
+    { value: '50+', label: 'GitHub Repos', delay: '0.5s' },
   ];
 
   return (
-    <header className="min-h-screen pt-16 flex flex-col relative overflow-hidden">
+    <header className="min-h-[100dvh] pt-16 flex flex-col relative overflow-hidden">
       {/* Background image - slides from full screen to centered */}
       <div 
         className={`header-image-container ${imageSlideComplete ? 'image-slide-complete' : ''}`}
@@ -67,7 +68,7 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
       <div className="absolute inset-0 z-0 bg-black/50" />
 
       {/* Rest of the content with relative positioning */}
-      <div className="relative z-10 flex-1 flex items-center justify-start pt-12 md:pt-16 pl-0 lg:pl-12">
+      <div className="relative z-10 flex-1 flex items-center justify-start pt-8 md:pt-16 pl-0 lg:pl-12">
         <div className="z-10 px-4 w-full max-w-6xl mx-auto">
           {/* Two-column layout - text on left, image on right */}
           <div className={`flex flex-col lg:flex-row lg:items-center lg:justify-start lg:gap-16 header-content ${imageSlideComplete ? 'content-visible' : ''}`}>
@@ -78,16 +79,16 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
               <TextReveal
                 text="Sagar Rai"
                 as="h1"
-                className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-4 tracking-tight"
+                className="text-[clamp(2.2rem,11vw,4.75rem)] md:text-6xl lg:text-7xl font-display font-bold mb-4 tracking-tight"
                 delay={0.2}
                 duration={1}
               />
 
               {/* Subtitle with TextReveal - two color effect */}
-              <div className="h-12 md:h-14 mb-8">
+              <div className="min-h-[3rem] md:h-14 mb-8">
                 <TextReveal
                   text={fullText}
-                  className="text-xl md:text-2xl text-white/90 font-body font-light"
+                  className="text-[clamp(1rem,4.2vw,1.5rem)] md:text-2xl text-white/90 font-body font-light"
                   delay={0.5}
                   duration={0.8}
                   twoColor
@@ -95,14 +96,14 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
               </div>
 
               {/* Stats - horizontal spread */}
-              <div className="flex justify-start lg:justify-start gap-8 md:gap-12 mb-8">
+              <div className="flex flex-wrap justify-start lg:justify-start gap-6 md:gap-12 mb-8">
                 {stats.map((stat, index) => (
                   <div
                     key={stat.label}
                     className={`transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: stat.delay }}
                   >
-                    <div className="text-4xl md:text-5xl font-bold text-white mb-1">
+                    <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1">
                       {stat.value}
                     </div>
                     <div className="text-sm text-white/60 font-medium uppercase tracking-wider">
@@ -119,7 +120,7 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
               >
                 <a
                   href="mailto:sagarrai9893@gmail.com"
-                  className="flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-semibold hover:bg-white/90 transition-all duration-300 hover:scale-105"
+                  className="flex items-center gap-2 min-h-11 px-5 sm:px-6 py-3 bg-white text-black rounded-full font-semibold hover:bg-white/90 transition-all duration-300 hover:scale-105 touch-manipulation"
                 >
                   <Mail className="w-4 h-4" />
                   <span>Get in Touch</span>
@@ -128,7 +129,7 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
                   href="https://linkedin.com/in/sagar-rai-ios"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/20 text-white rounded-full font-semibold hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                  className="flex items-center gap-2 min-h-11 px-5 sm:px-6 py-3 bg-white/10 border border-white/20 text-white rounded-full font-semibold hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm touch-manipulation"
                 >
                   <Linkedin className="w-4 h-4" />
                   <span>LinkedIn</span>
@@ -137,7 +138,7 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
                   href="https://github.com/sagarrai21802"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/20 text-white rounded-full font-semibold hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                  className="flex items-center gap-2 min-h-11 px-5 sm:px-6 py-3 bg-white/10 border border-white/20 text-white rounded-full font-semibold hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm touch-manipulation"
                 >
                   <Github className="w-4 h-4" />
                   <span>GitHub</span>

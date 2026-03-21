@@ -83,7 +83,6 @@ const About = () => {
           blurIntensity={15}
           direction="up"
           delay={0.1}
-          duration={1}
         >
           <div className="max-w-4xl mx-auto">
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-body">

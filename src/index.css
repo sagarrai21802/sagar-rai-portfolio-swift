@@ -72,6 +72,12 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Responsive breakpoints */
+    --bp-sm: 480px;
+    --bp-md: 768px;
+    --bp-lg: 1024px;
+    --bp-xl: 1280px;
   }
 
   .dark {
@@ -145,6 +151,14 @@ All colors MUST be HSL.
     @apply bg-background text-foreground antialiased;
     font-family: 'Geist', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 
   h1,
@@ -514,7 +528,7 @@ All colors MUST be HSL.
 }
 
 .header-image-container.image-slide-complete {
-  transform: translateX(50%);
+  transform: none;
   background-position: left center;
 }
 
@@ -528,7 +542,17 @@ All colors MUST be HSL.
 
 .header-content.content-visible {
   opacity: 1;
-  transform: translateX(-65px);
+  transform: translateX(0);
+}
+
+@media (min-width: 1024px) {
+  .header-image-container.image-slide-complete {
+    transform: translateX(50%);
+  }
+
+  .header-content.content-visible {
+    transform: translateX(-65px);
+  }
 }
 
 /* Button hover glow */
@@ -737,7 +761,7 @@ html {
 /* Base styles for all stacked card sections */
 .stacked-card {
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh;
   z-index: 1;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
 }
@@ -749,12 +773,12 @@ html {
 
 .stacked-card-2 {
   z-index: 2;
-  margin-top: -100vh;
+  margin-top: -100dvh;
 }
 
 .stacked-card-3 {
   z-index: 3;
-  margin-top: -100vh;
+  margin-top: -100dvh;
 }
 
 /* Add subtle shadow to create depth when cards overlap */
@@ -783,6 +807,17 @@ html {
 
 .dark .stacked-card-achievements {
   background: linear-gradient(180deg, #050508 0%, #0a0a0f 100%) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* End of styles */

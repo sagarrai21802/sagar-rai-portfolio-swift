@@ -28,7 +28,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="text-xl font-display font-bold text-foreground hover:text-primary transition-colors">
+          <Link to="/" className="inline-flex items-center min-h-11 text-xl font-display font-bold text-foreground hover:text-primary transition-colors">
             SR 
           </Link>
 
@@ -57,7 +57,7 @@ const Navigation = () => {
                 href={href}
                 target={href.startsWith('http') ? '_blank' : undefined}
                 rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="inline-flex items-center justify-center min-h-11 min-w-11 text-muted-foreground hover:text-primary transition-colors touch-manipulation"
                 title={label}
               >
                 <Icon className="w-5 h-5" />
@@ -69,7 +69,9 @@ const Navigation = () => {
           <div className="md:hidden flex items-center space-x-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="inline-flex items-center justify-center min-h-11 min-w-11 text-muted-foreground hover:text-primary transition-colors touch-manipulation"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -85,7 +87,7 @@ const Navigation = () => {
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${location.pathname === item.path
+                  className={`block px-3 py-3 rounded-md text-base font-medium transition-colors ${location.pathname === item.path
                     ? 'text-primary bg-primary/10'
                     : 'text-muted-foreground hover:text-primary hover:bg-muted'
                     }`}
@@ -102,7 +104,7 @@ const Navigation = () => {
                     href={href}
                     target={href.startsWith('http') ? '_blank' : undefined}
                     rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="inline-flex items-center justify-center min-h-11 min-w-11 text-muted-foreground hover:text-primary transition-colors touch-manipulation"
                     title={label}
                   >
                     <Icon className="w-5 h-5" />
