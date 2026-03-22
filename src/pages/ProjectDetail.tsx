@@ -12,7 +12,7 @@ const ProjectDetail = () => {
       description: "Built a revolutionary single-platform solution that empowers multiple users simultaneously with one-click LinkedIn posting. Simply share your idea and Dobbie refines it with perfect hooks, professional formatting, and engaging content—then posts directly to LinkedIn.",
       longDescription: "Dobbie is a groundbreaking AI-powered platform that transforms the way professionals create and share LinkedIn content. Built to serve multiple users simultaneously, it eliminates the hours typically spent brainstorming, writing, and perfecting social media posts.\n\nThe platform leverages advanced AI to understand your raw ideas and transform them into polished, viral-ready LinkedIn posts complete with attention-grabbing hooks, professional formatting, and engaging calls-to-action. Whether you're a busy entrepreneur, content creator, or professional looking to build your personal brand, Dobbie handles the heavy lifting.\n\nWith just one click, users can post their refined content directly to LinkedIn—no copy-pasting, no switching between apps, no stress. The platform's intelligent content engine understands LinkedIn's algorithm preferences and optimizes posts for maximum engagement and reach.\n\nKey innovations include multi-user support allowing teams to collaborate on content, AI-driven hook generation that captures attention in the first line, and seamless LinkedIn API integration for frictionless posting. The result is a 10x improvement in content creation speed while maintaining or exceeding the quality of manually crafted posts.",
       tech: ["SwiftUI", "AI Integration", "REST APIs", "Content Generation", "Social Media Automation", "LinkedIn API"],
-      image: "/Dobbie.png",
+      image: "/dobbie-ios-app-preview.png",
       video: "https://www.youtube.com/embed/Xlt63G4e5Dw",
       isYouTube: true,
       achievements: "One-click posting, AI content refinement, Multi-user support",
@@ -192,7 +192,7 @@ const ProjectDetail = () => {
       description: "Built with Swift & UIKit using MVC architecture. Implemented 5+ data persistence methods (Realm, Core Data, SQLite, File Manager, Keychain) ensuring 100% data integrity across sessions. Improved task management efficiency by 30% via optimised UI flows.",
       longDescription: "Todoey is a comprehensive iOS task management application that demonstrates advanced Swift programming concepts and data persistence techniques. The app features a clean, intuitive interface built with UIKit and follows the Model-View-Controller (MVC) architectural pattern for maintainable code structure.\n\nKey highlights include the implementation of five different data persistence methods, each serving different use cases: Realm for complex relational data, Core Data for object graph management, SQLite for lightweight local storage, File Manager for document-based storage, and Keychain for secure credential storage.\n\nThe app achieved a 30% improvement in task management efficiency through optimized UI flows and responsive design principles. The modular architecture allows for easy feature additions and maintenance.",
       tech: ["Swift", "UIKit", "Realm", "Core Data", "SQLite", "MVC"],
-      image: "/todolistapp.png",
+      image: "/todoey-task-app-ui.png",
       video: "/TodoList.mp4",
       achievements: "30% efficiency improvement, 100% data integrity",
       features: [
@@ -212,7 +212,7 @@ const ProjectDetail = () => {
       description: "Built with Swift & SwiftUI using MVVM architecture. Integrated Hacker News API with URLSession & JSONDecoder delivering <200ms data fetch latency. Developed SwiftUI adaptive UI supporting iOS 15–18 with 40% faster data loading.",
       longDescription: "Hacker News is a modern iOS application that brings the popular tech news aggregator to mobile devices with native performance and intuitive user experience. Built using SwiftUI and the Model-View-ViewModel (MVVM) architectural pattern, the app showcases best practices in reactive programming and API integration.\n\nThe application integrates seamlessly with the Hacker News API, utilizing URLSession for network requests and JSONDecoder for efficient data parsing. The app achieves sub-200ms data fetch latency through optimized caching strategies and background thread processing.\n\nWith adaptive UI components supporting iOS 15-18, the app provides a consistent experience across different device sizes and orientations. The SwiftUI implementation ensures 40% faster data loading compared to traditional approaches.",
       tech: ["Swift", "SwiftUI", "URLSession", "JSON Decoding", "MVVM"],
-      image: "/HackerNews.png",
+      image: "/hackernews-ios-app-ui.png",
       video: "/HackerNews.mp4",
       achievements: "<200ms latency, 40% faster loading",
       features: [
@@ -252,7 +252,7 @@ const ProjectDetail = () => {
       description: "Converted a complex SaaS web platform into a fully native iOS experience using SwiftUI and REST APIs. Implemented automation and AI integration for real-time content generation. Built modular SwiftUI components for interactive dashboard rendering, improving user engagement by 40% through seamless native performance.",
       longDescription: "SIRA represents a significant technological achievement in converting a complex web-based SaaS platform into a native iOS application. This project showcases the ability to handle large-scale application migrations while maintaining feature parity and improving user experience.\n\nThe application leverages SwiftUI's declarative UI paradigm to create an interactive dashboard that dynamically renders content based on user preferences and real-time data. AI integration enables automated content generation and personalized user experiences.\n\nKey technical achievements include modular component architecture, efficient state management, and optimized performance that resulted in a 40% improvement in user engagement compared to the web version.",
       tech: ["SwiftUI", "REST APIs", "Automation", "AI Integration"],
-      image: "/Sira.png",
+      image: "/sira-marketing-platform-ui.png",
       video: null,
       achievements: "40% user engagement improvement, Native iOS conversion",
       features: [
@@ -272,7 +272,7 @@ const ProjectDetail = () => {
       description: "Developed a premium quotes app mastering in-app purchases, App Store Connect, and deployment fundamentals. Implemented subscription models and clean UIKit interface for quote discovery. Achieved 95% user retention through optimized onboarding flows and premium content delivery systems.",
       longDescription: "Inspoquotes is a premium iOS application that delivers inspirational quotes and content to users worldwide. The app demonstrates expertise in App Store Connect, in-app purchases, and monetization strategies while maintaining high user satisfaction.\n\nThe application features a sophisticated subscription model with multiple tiers, enabling users to access premium content and advanced features. The onboarding flow is carefully designed to maximize user engagement and retention.\n\nTechnical implementation includes robust content management, efficient caching strategies, and seamless integration with Apple's payment systems. The UIKit interface provides smooth animations and intuitive navigation.",
       tech: ["Swift", "UIKit", "In-App Purchase", "App Store Connect", "Deployment"],
-      image: "/InspoQuote.png",
+      image: "/inspoquotes-app-ui.png",
       video: null,
       achievements: "95% user retention, Successful deployment",
       features: [
@@ -292,7 +292,7 @@ const ProjectDetail = () => {
       description: "Built a machine learning iOS app that scrapes tweets from Twitter (X) and analyzes sentiment for stock market predictions. Utilizes Core ML for on-device processing to determine positive/negative trends. Achieved 85% accuracy in sentiment classification, providing valuable insights for market analysis without external API dependencies.",
       longDescription: "This innovative iOS application combines social media sentiment analysis with stock market prediction using machine learning. The app demonstrates advanced skills in Core ML integration, natural language processing, and financial data analysis.\n\nThe application processes Twitter/X data to analyze public sentiment around specific stocks and market trends. Using Core ML's on-device processing capabilities, the app maintains user privacy while providing real-time sentiment analysis.\n\nThe machine learning model achieves 85% accuracy in sentiment classification, making it a valuable tool for investors and traders seeking market insights. The app operates without external API dependencies for core ML functionality, ensuring reliability and data privacy.",
       tech: ["Swift", "Core ML", "Twitter API", "Machine Learning", "Natural Language Processing"],
-      image: "/Twitter.png",
+      image: "/twitter-sentiment-ml-ui.png",
       video: null,
       achievements: "85% accuracy, On-device ML processing",
       features: [
@@ -312,7 +312,7 @@ const ProjectDetail = () => {
       description: "Created an iOS app with built-in image recognition models for identifying objects in photos without hosted services. Implemented custom Core ML models for accurate classification using Vision Framework. Gained deep understanding of model creation and optimization for mobile applications, achieving high recognition accuracy through on-device processing.",
       longDescription: "This advanced iOS application showcases expertise in computer vision and machine learning model deployment. The app implements custom Core ML models for real-time object detection and classification, demonstrating deep understanding of mobile ML optimization.\n\nThe application utilizes Apple's Vision Framework to process images and identify objects with high accuracy. Custom model creation and optimization techniques ensure efficient performance on mobile devices without relying on cloud services.\n\nKey achievements include comprehensive understanding of model training, conversion, and deployment processes. The app maintains user privacy by processing all data on-device while delivering accurate object recognition results.",
       tech: ["Swift", "Core ML", "Vision Framework", "Machine Learning", "Image Processing"],
-      image: "/ImageRecognization.png",
+      image: "/image-recognition-app-ui.png",
       video: null,
       achievements: "High accuracy recognition, On-device processing",
       features: [

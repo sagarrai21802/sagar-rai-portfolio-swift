@@ -33,7 +33,7 @@ const Projects = () => {
       title: "Dobbie: AI-Powered LinkedIn Content Platform",
       description: "Built a revolutionary single-platform solution that empowers multiple users simultaneously with one-click LinkedIn posting. Simply share your idea and Dobbie refines it with perfect hooks, professional formatting, and engaging content—then posts directly to LinkedIn. Eliminates hours of content brainstorming and writing, transforming raw ideas into polished, viral-ready posts in seconds.",
       tech: ["SwiftUI", "AI Integration", "REST APIs", "Content Generation", "Social Media Automation"],
-      image: "/Dobbie.png",
+      image: "/dobbie-ios-app-preview.png",
       video: "https://www.youtube.com/embed/Xlt63G4e5Dw",
       showVideo: true,
       isYouTube: true,
@@ -97,7 +97,7 @@ const Projects = () => {
       title: "Todoey: iOS Task Management App",
       description: "Built with Swift & UIKit using MVC architecture. Implemented 5+ data persistence methods (Realm, Core Data, SQLite, File Manager, Keychain) ensuring 100% data integrity across sessions. Improved task management efficiency by 30% via optimised UI flows.",
       tech: ["Swift", "UIKit", "Realm", "Core Data", "SQLite", "MVC"],
-      image: "/todolistapp.png",
+      image: "/todoey-task-app-ui.png",
       video: "/TodoList.mp4",
       showVideo: showVideo['Todoey'] || false,
       achievements: "30% efficiency improvement, 100% data integrity"
@@ -107,7 +107,7 @@ const Projects = () => {
       title: "Hacker News: Real-time iOS News Feed App",
       description: "Built with Swift & SwiftUI using MVVM architecture. Integrated Hacker News API with URLSession & JSONDecoder delivering <200ms data fetch latency. Developed SwiftUI adaptive UI supporting iOS 15–18 with 40% faster data loading.",
       tech: ["Swift", "SwiftUI", "URLSession", "JSON Decoding", "MVVM"],
-      image: "/HackerNews.png",
+      image: "/hackernews-ios-app-ui.png",
       video: "/HackerNews.mp4",
       showVideo: showVideo['HackerNews'] || false,
       achievements: "<200ms latency, 40% faster loading"
@@ -148,7 +148,7 @@ const Projects = () => {
       title: "SIRA: AI-Powered Marketing Platform",
       description: "Converted a complex SaaS web platform into a fully native iOS experience using SwiftUI and REST APIs. Implemented automation and AI integration for real-time content generation. Built modular SwiftUI components for interactive dashboard rendering, improving user engagement by 40% through seamless native performance.",
       tech: ["SwiftUI", "REST APIs", "Automation", "AI Integration"],
-      image: "/Sira.png",
+      image: "/sira-marketing-platform-ui.png",
       video: null,
       showVideo: false,
       achievements: "40% user engagement improvement, Native iOS conversion"
@@ -158,7 +158,7 @@ const Projects = () => {
       title: "Inspoquotes: Premium Quotes iOS App",
       description: "Developed a premium quotes app mastering in-app purchases, App Store Connect, and deployment fundamentals. Implemented subscription models and clean UIKit interface for quote discovery. Achieved 95% user retention through optimized onboarding flows and premium content delivery systems.",
       tech: ["Swift", "UIKit", "In-App Purchase", "App Store Connect", "Deployment"],
-      image: "/InspoQuote.png",
+      image: "/inspoquotes-app-ui.png",
       video: null,
       showVideo: false,
       achievements: "95% user retention, Successful deployment"
@@ -168,7 +168,7 @@ const Projects = () => {
       title: "Twitter Sentiment Analysis: ML Stock Prediction App",
       description: "Built a machine learning iOS app that scrapes tweets from Twitter (X) and analyzes sentiment for stock market predictions. Utilizes Core ML for on-device processing to determine positive/negative trends. Achieved 85% accuracy in sentiment classification, providing valuable insights for market analysis without external API dependencies.",
       tech: ["Swift", "Core ML", "Twitter API", "Machine Learning", "Natural Language Processing"],
-      image: "/Twitter.png",
+      image: "/twitter-sentiment-ml-ui.png",
       video: null,
       showVideo: false,
       achievements: "85% accuracy, On-device ML processing"
@@ -178,7 +178,7 @@ const Projects = () => {
       title: "Image Recognition: On-Device Object Detection App",
       description: "Created an iOS app with built-in image recognition models for identifying objects in photos without hosted services. Implemented custom Core ML models for accurate classification using Vision Framework. Gained deep understanding of model creation and optimization for mobile applications, achieving high recognition accuracy through on-device processing.",
       tech: ["Swift", "Core ML", "Vision Framework", "Machine Learning", "Image Processing"],
-      image: "/ImageRecognization.png",
+      image: "/image-recognition-app-ui.png",
       video: null,
       showVideo: false,
       achievements: "High accuracy recognition, On-device processing"
@@ -260,9 +260,10 @@ const Projects = () => {
           >
             <img
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} - iOS app UI built with SwiftUI`}
               className="w-full h-full object-contain"
               style={{ objectFit: 'contain' }}
+              loading="lazy"
             />
           </div>
           <div
@@ -307,8 +308,9 @@ const Projects = () => {
       <div className="w-full h-full flex items-center justify-center overflow-hidden">
         <img
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} - iOS app UI built with SwiftUI`}
           className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
+          loading="lazy"
         />
       </div>
     );
