@@ -4,6 +4,15 @@ import { Link } from 'react-router-dom';
 const ApplicationsPage = () => {
   const applications = [
     {
+      id: 'whatsapp-scraper',
+      name: 'WhatsApp Scraper Extension',
+      description: 'A Chrome extension that helps scrape WhatsApp contacts from WhatsApp Web. Extract contact information efficiently for business and personal use.',
+      version: '1.0.0',
+      size: '2.1 MB',
+      downloadUrl: '/apps/whatsapp-scraper/whatsapp-scraper-v1.0.0.zip',
+      icon: '/apps/whatsapp-scraper/icon128.png',
+    },
+    {
       id: 'ocr-extension',
       name: 'OCR AutoFill Extension',
       description: 'A Chrome extension that extracts structured text from JPG images using Tesseract OCR and automatically fills 16 predefined text fields in ASP.NET WebForms pages.',

@@ -7,6 +7,25 @@ const ProjectDetail = () => {
 
   const projects = [
     {
+      id: 'kahaniyan',
+      title: "Kahaniyan: Immersive Hindi Story Platform",
+      description: "A beautiful platform where users can read engaging Hindi stories (kahaniyan). Features a curated collection of classic and contemporary tales with elegant reading experience.",
+      longDescription: "Kahaniyan is a beautiful platform designed for readers who love Hindi literature and storytelling. The platform offers an immersive reading experience with a curated collection of classic and contemporary Hindi stories (kahaniyan).\n\nWhether you're looking for moral stories, folk tales, romantic narratives, or thrillers, Kahaniyan has something for everyone. The platform is designed with a focus on readability, featuring elegant typography, comfortable reading modes, and a distraction-free interface.\n\nThe project demonstrates expertise in modern web development with React and TypeScript, creating a responsive and accessible platform that works seamlessly across all devices. The clean UI design puts the focus on the stories while providing intuitive navigation and reading controls.\n\nKey features include curated story collections, elegant reading experience, responsive design for all devices, easy navigation and search, and regular content updates with new stories.",
+      tech: ["React", "TypeScript", "Story Content", "Vercel", "UI/UX Design"],
+      image: "https://i.pinimg.com/1200x/b0/b0/7c/b0b07c44cfb61aa521b01b2dbd8c090a.jpg",
+      video: null,
+      achievements: "Live platform, Hindi literature, Reading experience",
+      features: [
+        "Curated Hindi story collection",
+        "Elegant reading interface",
+        "Responsive design",
+        "Easy navigation",
+        "Regular content updates"
+      ],
+      github: "https://github.com/sagarrai21802/kahaniyan",
+      liveDemo: "https://kahaniyan-swart.vercel.app"
+    },
+    {
       id: 'dobbie',
       title: "Dobbie: AI-Powered LinkedIn Content Platform",
       description: "Built a revolutionary single-platform solution that empowers multiple users simultaneously with one-click LinkedIn posting. Simply share your idea and Dobbie refines it with perfect hooks, professional formatting, and engaging content—then posts directly to LinkedIn.",
@@ -521,7 +540,7 @@ const ProjectDetail = () => {
                     className="flex items-center space-x-2 px-4 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
                   >
                     <ExternalLink className="w-5 h-5" />
-                    <span className="font-medium">Live Demo</span>
+                    <span className="font-medium">Live</span>
                   </a>
                 )}
               </div>

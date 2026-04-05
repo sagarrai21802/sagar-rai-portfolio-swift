@@ -29,6 +29,17 @@ const Projects = () => {
 
   const projects = [
     {
+      id: 'kahaniyan',
+      title: "Kahaniyan: Immersive Hindi Story Platform",
+      description: "A beautiful platform where users can read engaging Hindi stories (kahaniyan). Features a curated collection of classic and contemporary tales with elegant reading experience.",
+      tech: ["React", "TypeScript", "Story Content", "Vercel", "UI/UX Design"],
+      image: "https://i.pinimg.com/1200x/b0/b0/7c/b0b07c44cfb61aa521b01b2dbd8c090a.jpg",
+      video: null,
+      showVideo: false,
+      liveUrl: "https://kahaniyan-swart.vercel.app",
+      achievements: "Live platform, Hindi literature, Reading experience"
+    },
+    {
       id: 'dobbie',
       title: "Dobbie: AI-Powered LinkedIn Content Platform",
       description: "Built a revolutionary single-platform solution that empowers multiple users simultaneously with one-click LinkedIn posting. Simply share your idea and Dobbie refines it with perfect hooks, professional formatting, and engaging content—then posts directly to LinkedIn. Eliminates hours of content brainstorming and writing, transforming raw ideas into polished, viral-ready posts in seconds.",
