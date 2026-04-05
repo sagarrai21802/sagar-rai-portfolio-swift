@@ -175,6 +175,28 @@ const Projects = () => {
       achievements: "95% user retention, Successful deployment"
     },
     {
+      id: 'raidental-clinic',
+      title: "Raidental Dental Clinic Website",
+      description: "A professional dental clinic website featuring appointment booking, services showcase, team introduction, and patient testimonials. Built with modern web technologies for a seamless user experience.",
+      tech: ["React", "TypeScript", "UI/UX Design", "Responsive Design", "Vercel"],
+      image: null,
+      video: null,
+      showVideo: false,
+      liveUrl: "https://raidentalclinic.com/",
+      achievements: "Live platform, Appointment booking, Professional healthcare web design"
+    },
+    {
+      id: 'orbit-ai',
+      title: "Orbit AI: AI Notetaker",
+      description: "An AI-powered meeting assistant that automatically joins meetings and provides comprehensive summaries. Built for enterprise use, it transcribes, analyzes, and extracts key insights from meetings.",
+      tech: ["React", "TypeScript", "AI Integration", "Vercel", "Meeting APIs", "Enterprise"],
+      image: null,
+      video: null,
+      showVideo: false,
+      liveUrl: "https://orbit-ai-orbit.vercel.app/",
+      achievements: "Live platform, Enterprise AI notetaker, Meeting summarization"
+    },
+    {
       id: 'twitter-sentiment',
       title: "Twitter Sentiment Analysis: ML Stock Prediction App",
       description: "Built a machine learning iOS app that scrapes tweets from Twitter (X) and analyzes sentiment for stock market predictions. Utilizes Core ML for on-device processing to determine positive/negative trends. Achieved 85% accuracy in sentiment classification, providing valuable insights for market analysis without external API dependencies.",
@@ -373,6 +395,22 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
+
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
+                  >
+                    View Live
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                      <polyline points="15 3 21 3 21 9"/>
+                      <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                  </a>
+                )}
               </div>
             </div>
           ))}

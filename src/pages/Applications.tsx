@@ -1,8 +1,35 @@
-import { Download, FileText, ArrowRight } from 'lucide-react';
+import { Download, FileText, ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ApplicationsPage = () => {
   const applications = [
+    {
+      id: 'orbit-ai',
+      name: 'Orbit AI: AI Notetaker',
+      description: 'An AI-powered meeting assistant that joins meetings and provides comprehensive summaries. Built for enterprise use, it automatically transcribes, analyzes, and extracts key insights from meetings.',
+      version: '',
+      size: 'Live Website',
+      liveUrl: 'https://orbit-ai-orbit.vercel.app/',
+      icon: null,
+    },
+    {
+      id: 'kahaniyan',
+      name: 'Kahaniyan: Hindi Stories Platform',
+      description: 'A beautiful platform where users can read engaging Hindi stories (kahaniyan). Features a curated collection of classic and contemporary tales with elegant reading experience.',
+      version: '',
+      size: 'Live Website',
+      liveUrl: 'https://kahaniyan-swart.vercel.app',
+      icon: 'https://i.pinimg.com/1200x/b0/b0/7c/b0b07c44cfb61aa521b01b2dbd8c090a.jpg',
+    },
+    {
+      id: 'raidental-clinic',
+      name: 'Raidental Dental Clinic',
+      description: 'A professional dental clinic website featuring appointment booking, services showcase, team introduction, and patient testimonials. Built with modern web technologies for a seamless user experience.',
+      version: '',
+      size: 'Live Website',
+      liveUrl: 'https://raidentalclinic.com/',
+      icon: null,
+    },
     {
       id: 'whatsapp-scraper',
       name: 'WhatsApp Scraper Extension',
@@ -61,7 +88,7 @@ const ApplicationsPage = () => {
                   )}
                   <div>
                     <h3 className="text-xl font-semibold text-foreground">{app.name}</h3>
-                    <p className="text-sm text-muted-foreground">v{app.version}</p>
+                    {app.version && <p className="text-sm text-muted-foreground">v{app.version}</p>}
                   </div>
                 </div>
 
@@ -71,14 +98,26 @@ const ApplicationsPage = () => {
                   <span>{app.size}</span>
                 </div>
 
-                <a
-                  href={app.downloadUrl}
-                  download
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors w-full justify-center"
-                >
-                  <Download className="w-4 h-4" />
-                  Download App
-                </a>
+                {app.liveUrl ? (
+                  <a
+                    href={app.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors w-full justify-center"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    View Live App
+                  </a>
+                ) : (
+                  <a
+                    href={app.downloadUrl}
+                    download
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors w-full justify-center"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download App
+                  </a>
+                )}
               </div>
             ))}
           </div>

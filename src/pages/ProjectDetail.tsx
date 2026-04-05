@@ -306,6 +306,49 @@ const ProjectDetail = () => {
       liveDemo: null
     },
     {
+      id: 'raidental-clinic',
+      title: "Raidental Dental Clinic Website",
+      description: "A professional dental clinic website featuring appointment booking, services showcase, team introduction, and patient testimonials. Built with modern web technologies for a seamless user experience.",
+      longDescription: "Raidental Dental Clinic Website is a professional, modern healthcare web application designed specifically for a dental clinic. The website provides a comprehensive online presence with features that help patients learn about services, meet the team, and book appointments.\n\nThe website features an elegant, clean design that instills trust and professionalism. Key sections include detailed services showcase covering various dental procedures, introduction of the dental team with qualifications and expertise, patient testimonials and reviews, and an appointment booking system for patient convenience.\n\nBuilt with React and TypeScript, the website offers responsive design ensuring optimal viewing on all devices. The site demonstrates expertise in healthcare web development, creating an accessible and user-friendly experience for patients of all ages. Modern UI/UX principles ensure easy navigation and quick access to important information.",
+      tech: ["React", "TypeScript", "UI/UX Design", "Responsive Design", "Vercel"],
+      image: null,
+      video: null,
+      achievements: "Live platform, Appointment booking, Professional healthcare web design",
+      features: [
+        "Appointment booking system",
+        "Services showcase with detailed information",
+        "Team introduction and qualifications",
+        "Patient testimonials section",
+        "Responsive design for all devices",
+        "Contact information and location",
+        "Modern, professional UI/UX"
+      ],
+      github: null,
+      liveDemo: "https://raidentalclinic.com/"
+    },
+    {
+      id: 'orbit-ai',
+      title: "Orbit AI: AI Notetaker",
+      description: "An AI-powered meeting assistant that automatically joins meetings and provides comprehensive summaries. Built for enterprise use, it transcribes, analyzes, and extracts key insights from meetings.",
+      longDescription: "Orbit AI is a powerful enterprise-grade AI notetaker application designed to revolutionize how organizations handle meetings. This innovative platform automatically joins scheduled meetings and provides comprehensive summaries, eliminating the need for manual note-taking.\n\nThe application leverages advanced AI capabilities to transcribe meeting conversations in real-time, analyze the content, and extract key insights including action items, decisions, and important discussion points. Users receive detailed summaries that capture the essence of the meeting without requiring them to attend or take notes.\n\nBuilt with React and TypeScript, Orbit AI features a modern, intuitive interface that makes it easy for enterprise teams to integrate into their workflows. The platform supports various meeting platforms and provides secure, private transcription services.\n\nKey capabilities include automatic meeting joining, real-time transcription, AI-powered summary generation, action item extraction, decision tracking, and easy sharing with team members. The enterprise-focused design ensures data privacy and security while delivering powerful productivity improvements.",
+      tech: ["React", "TypeScript", "AI Integration", "Vercel", "Meeting APIs", "Enterprise"],
+      image: null,
+      video: null,
+      achievements: "Live platform, Enterprise AI notetaker, Meeting summarization",
+      features: [
+        "Automatic meeting joining",
+        "Real-time transcription",
+        "AI-powered summary generation",
+        "Action item extraction",
+        "Decision tracking",
+        "Enterprise security and privacy",
+        "Team collaboration features",
+        "Easy sharing and exports"
+      ],
+      github: null,
+      liveDemo: "https://orbit-ai-orbit.vercel.app/"
+    },
+    {
       id: 'twitter-sentiment',
       title: "Twitter Sentiment Analysis: ML Stock Prediction App",
       description: "Built a machine learning iOS app that scrapes tweets from Twitter (X) and analyzes sentiment for stock market predictions. Utilizes Core ML for on-device processing to determine positive/negative trends. Achieved 85% accuracy in sentiment classification, providing valuable insights for market analysis without external API dependencies.",
