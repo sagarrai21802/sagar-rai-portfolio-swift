@@ -1,54 +1,20 @@
 import { Download, FileText, ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { projects } from '@/data/projects';
 
 const ApplicationsPage = () => {
-  const applications = [
-    {
-      id: 'orbit-ai',
-      name: 'Orbit AI: AI Notetaker',
-      description: 'An AI-powered meeting assistant that joins meetings and provides comprehensive summaries. Built for enterprise use, it automatically transcribes, analyzes, and extracts key insights from meetings.',
-      version: '',
-      size: 'Live Website',
-      liveUrl: 'https://orbit-ai-orbit.vercel.app/',
-      icon: null,
-    },
-    {
-      id: 'kahaniyan',
-      name: 'Kahaniyan: Hindi Stories Platform',
-      description: 'A beautiful platform where users can read engaging Hindi stories (kahaniyan). Features a curated collection of classic and contemporary tales with elegant reading experience.',
-      version: '',
-      size: 'Live Website',
-      liveUrl: 'https://kahaniyan-swart.vercel.app',
-      icon: 'https://i.pinimg.com/1200x/b0/b0/7c/b0b07c44cfb61aa521b01b2dbd8c090a.jpg',
-    },
-    {
-      id: 'raidental-clinic',
-      name: 'Raidental Dental Clinic',
-      description: 'A professional dental clinic website featuring appointment booking, services showcase, team introduction, and patient testimonials. Built with modern web technologies for a seamless user experience.',
-      version: '',
-      size: 'Live Website',
-      liveUrl: 'https://raidentalclinic.com/',
-      icon: null,
-    },
-    {
-      id: 'whatsapp-scraper',
-      name: 'WhatsApp Scraper Extension',
-      description: 'A Chrome extension that helps scrape WhatsApp contacts from WhatsApp Web. Extract contact information efficiently for business and personal use.',
-      version: '1.0.0',
-      size: '2.1 MB',
-      downloadUrl: '/apps/whatsapp-scraper/whatsapp-scraper-v1.0.0.zip',
-      icon: '/apps/whatsapp-scraper/icon128.png',
-    },
-    {
-      id: 'ocr-extension',
-      name: 'OCR AutoFill Extension',
-      description: 'A Chrome extension that extracts structured text from JPG images using Tesseract OCR and automatically fills 16 predefined text fields in ASP.NET WebForms pages.',
-      version: '2.2.0',
-      size: '1.8 MB',
-      downloadUrl: '/apps/ocr-extension/ocr-extension-v2.2.0.zip',
-      icon: '/apps/ocr-extension/icon128.png',
-    },
-  ];
+  const applications = projects
+    .filter(p => p.isApplication)
+    .map(p => ({
+      id: p.id,
+      name: p.title,
+      description: p.description,
+      version: p.version || '',
+      size: p.size || 'Live Website',
+      liveUrl: p.liveUrl || '',
+      downloadUrl: p.downloadUrl || '',
+      icon: p.icon || null,
+    }));
 
   return (
     <div className="min-h-screen pt-20 pb-12">

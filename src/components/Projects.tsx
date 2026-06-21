@@ -2,6 +2,7 @@ import { Github } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LiquidGlassCard from './ui/LiquidGlassCard';
+import { projects as centralizedProjects } from '@/data/projects';
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -10,17 +11,17 @@ const Projects = () => {
   useEffect(() => {
     const timeouts: { [key: string]: NodeJS.Timeout } = {};
 
-    timeouts['Dobbie'] = setTimeout(() => {
-      setShowVideo(prev => ({ ...prev, 'Dobbie': true }));
+    timeouts['dobbie'] = setTimeout(() => {
+      setShowVideo(prev => ({ ...prev, 'dobbie': true }));
     }, 1000);
 
     // Set timeout for specific projects to show video after 1 second
-    timeouts['Todoey'] = setTimeout(() => {
-      setShowVideo(prev => ({ ...prev, 'Todoey': true }));
+    timeouts['todoey'] = setTimeout(() => {
+      setShowVideo(prev => ({ ...prev, 'todoey': true }));
     }, 1000);
 
-    timeouts['HackerNews'] = setTimeout(() => {
-      setShowVideo(prev => ({ ...prev, 'HackerNews': true }));
+    timeouts['hackernews'] = setTimeout(() => {
+      setShowVideo(prev => ({ ...prev, 'hackernews': true }));
     }, 1000);
 
     return () => {
@@ -28,196 +29,14 @@ const Projects = () => {
     };
   }, []);
 
-  const projects = [
-    {
-      id: 'kahaniyan',
-      title: "Kahaniyan: Immersive Hindi Story Platform",
-      description: "A beautiful platform where users can read engaging Hindi stories (kahaniyan). Features a curated collection of classic and contemporary tales with elegant reading experience.",
-      tech: ["React", "TypeScript", "Story Content", "Vercel", "UI/UX Design"],
-      image: "https://i.pinimg.com/1200x/b0/b0/7c/b0b07c44cfb61aa521b01b2dbd8c090a.jpg",
-      video: null,
-      showVideo: false,
-      liveUrl: "https://kahaniyan-swart.vercel.app",
-      achievements: "Live platform, Hindi literature, Reading experience"
-    },
-    {
-      id: 'dobbie',
-      title: "Dobbie: AI-Powered LinkedIn Content Platform",
-      description: "Built a revolutionary single-platform solution that empowers multiple users simultaneously with one-click LinkedIn posting. Simply share your idea and Dobbie refines it with perfect hooks, professional formatting, and engaging content—then posts directly to LinkedIn. Eliminates hours of content brainstorming and writing, transforming raw ideas into polished, viral-ready posts in seconds.",
-      tech: ["SwiftUI", "AI Integration", "REST APIs", "Content Generation", "Social Media Automation"],
-      image: "/dobbie-ios-app-preview.png",
-      video: "https://www.youtube.com/embed/Xlt63G4e5Dw",
-      showVideo: true,
-      isYouTube: true,
-      achievements: "One-click posting, AI content refinement, Multi-user support"
-    },
-    {
-      id: 'visionassist',
-      title: "VisionAssist: AI-Powered Accessibility Extension",
-      description: "Built a browser extension for Kaggle DeepMind Hackathon that empowers visually impaired users by reading web pages aloud and describing all visual content. Acts as a digital assistant that makes the web accessible to everyone, transforming how blind users interact with online content.",
-      tech: ["JavaScript", "Chrome Extension", "AI/ML", "Text-to-Speech", "Accessibility", "DeepMind API"],
-      image: null,
-      video: "https://www.youtube.com/embed/Pup5lBzltIU",
-      showVideo: true,
-      isYouTube: true,
-      achievements: "Kaggle DeepMind Hackathon, Full page description, Accessibility impact"
-    },
-    {
-      id: 'ticket-booking',
-      title: "Ticket Booking System: Full-Stack Java Application",
-      description: "Built an end-to-end ticket booking system featuring a robust Java backend with RESTful APIs, database management, and secure authentication. Implements complete booking workflow with seat selection, payment processing, and ticket generation. Demonstrates mastery in Java backend architecture, Spring Boot, and enterprise-level application development.",
-      tech: ["Java", "Spring Boot", "REST APIs", "MySQL", "JWT Auth", "Maven"],
-      image: null,
-      video: "https://www.youtube.com/embed/eHzD_OHmX7c",
-      showVideo: true,
-      isYouTube: true,
-      achievements: "Full-stack Java, RESTful architecture, Enterprise-grade backend"
-    },
-    {
-      id: 'glasscast',
-      title: "GlassCast: Advanced Weather Application",
-      description: "Created an advanced weather application featuring a beautiful glassmorphism design with real-time weather data. Implemented comprehensive weather tracking with hourly and weekly forecasts, interactive weather maps, and severe weather alerts. The app showcases modern iOS development with SwiftUI and integrates multiple weather APIs for accurate data.",
-      tech: ["Swift", "SwiftUI", "Weather APIs", "Glassmorphism UI", "Core Location", "MVVM"],
-      image: null,
-      video: "https://www.loom.com/embed/d50aa1aa7ae14ce782bc62fc56c8606e",
-      showVideo: true,
-      isLoom: true,
-      achievements: "Glassmorphism design, Real-time weather tracking, Interactive forecasts"
-    },
-    {
-      id: 'ocr-autofill',
-      title: "OCR AutoFill Extension: Automated Data Entry Solution",
-      description: "Built a Chrome extension that automatically extracts structured data from JPG documents using OCR and fills 16 predefined text input fields in ASP.NET WebForms pages. Achieved 80% reduction in manual typing time for data entry operators.",
-      tech: ["Chrome Extension", "JavaScript", "Tesseract OCR", "FastAPI", "Python", "Web Scraping"],
-      image: null,
-      video: null,
-      showVideo: false,
-      achievements: "80% typing time reduction, 16-field extraction, WebForms compatibility"
-    },
-    {
-      id: 'echominutes',
-      title: "EchoMinutes: AI-Powered Meeting Summary Extension",
-      description: "Built a Chrome extension that uploads audio from any meeting and generates structured meeting summaries using AI. Extracts key points, action items, decisions, and participants for efficient meeting documentation.",
-      tech: ["Chrome Extension", "JavaScript", "AI/ML", "Audio Processing", "Speech-to-Text", "REST APIs"],
-      image: null,
-      video: null,
-      showVideo: false,
-      achievements: "Automated meeting documentation, AI-powered summaries, Action item extraction"
-    },
-    {
-      id: 'todoey',
-      title: "Todoey: iOS Task Management App",
-      description: "Built with Swift & UIKit using MVC architecture. Implemented 5+ data persistence methods (Realm, Core Data, SQLite, File Manager, Keychain) ensuring 100% data integrity across sessions. Improved task management efficiency by 30% via optimised UI flows.",
-      tech: ["Swift", "UIKit", "Realm", "Core Data", "SQLite", "MVC"],
-      image: "/todoey-task-app-ui.png",
-      video: "/TodoList.mp4",
-      showVideo: showVideo['Todoey'] || false,
-      achievements: "30% efficiency improvement, 100% data integrity"
-    },
-    {
-      id: 'hackernews',
-      title: "Hacker News: Real-time iOS News Feed App",
-      description: "Built with Swift & SwiftUI using MVVM architecture. Integrated Hacker News API with URLSession & JSONDecoder delivering <200ms data fetch latency. Developed SwiftUI adaptive UI supporting iOS 15–18 with 40% faster data loading.",
-      tech: ["Swift", "SwiftUI", "URLSession", "JSON Decoding", "MVVM"],
-      image: "/hackernews-ios-app-ui.png",
-      video: "/HackerNews.mp4",
-      showVideo: showVideo['HackerNews'] || false,
-      achievements: "<200ms latency, 40% faster loading"
-    },
-    {
-      id: 'bitcoin-monitor',
-      title: "Bitcoin Monitor: Real-time Cryptocurrency Tracker",
-      description: "Built a comprehensive Bitcoin monitoring application that fetches real-time Bitcoin prices across multiple currencies. Utilizes live API integration for accurate price tracking and historical data visualization. Features responsive design with real-time updates and customizable currency conversion.",
-      tech: ["React", "TypeScript", "Crypto APIs", "Real-time Data", "Chart.js"],
-      image: null, // No image for Bitcoin project
-      video: "/Bitcoin.mp4",
-      showVideo: true, // Always show video for Bitcoin project
-      achievements: "Real-time price tracking, Multi-currency support"
-    },
-    {
-      id: 'sira-website',
-      title: "SIRA Website: AI Digital Marketing Agent",
-      description: "Built a comprehensive AI-powered digital marketing platform that serves as your intelligent marketing agent. Automates content creation, campaign management, and marketing strategies using advanced AI integration. Features a modern web interface for seamless marketing automation and real-time analytics.",
-      tech: ["React", "TypeScript", "AI Integration", "Vercel", "REST APIs", "Marketing Automation"],
-      image: null,
-      video: null,
-      showVideo: false,
-      liveUrl: "https://siraaaaaaa.vercel.app",
-      achievements: "Live platform, AI-powered marketing, Full automation"
-    },
-    {
-      id: 'keyboard-extension',
-      title: "AI Keyboard: Grok-Powered iOS Keyboard Extension",
-      description: "Built a custom iOS keyboard extension that enhances user responses using the Grok API. Overcame significant iOS restrictions on API calls from keyboard extensions and the 30MB data transfer limit—challenges that required deep understanding of iOS sandbox limitations and creative architectural solutions.",
-      tech: ["Swift", "iOS Keyboard Extension", "Grok API", "REST APIs", "App Extension", "iOS Sandbox"],
-      image: null,
-      video: null,
-      showVideo: false,
-      achievements: "Grok API integration, iOS restrictions overcome, Real-time AI enhancement"
-    },
-    {
-      id: 'sira',
-      title: "SIRA: AI-Powered Marketing Platform",
-      description: "Converted a complex SaaS web platform into a fully native iOS experience using SwiftUI and REST APIs. Implemented automation and AI integration for real-time content generation. Built modular SwiftUI components for interactive dashboard rendering, improving user engagement by 40% through seamless native performance.",
-      tech: ["SwiftUI", "REST APIs", "Automation", "AI Integration"],
-      image: "/sira-marketing-platform-ui.png",
-      video: null,
-      showVideo: false,
-      achievements: "40% user engagement improvement, Native iOS conversion"
-    },
-    {
-      id: 'inspoquotes',
-      title: "Inspoquotes: Premium Quotes iOS App",
-      description: "Developed a premium quotes app mastering in-app purchases, App Store Connect, and deployment fundamentals. Implemented subscription models and clean UIKit interface for quote discovery. Achieved 95% user retention through optimized onboarding flows and premium content delivery systems.",
-      tech: ["Swift", "UIKit", "In-App Purchase", "App Store Connect", "Deployment"],
-      image: "/inspoquotes-app-ui.png",
-      video: null,
-      showVideo: false,
-      achievements: "95% user retention, Successful deployment"
-    },
-    {
-      id: 'raidental-clinic',
-      title: "Raidental Dental Clinic Website",
-      description: "A professional dental clinic website featuring appointment booking, services showcase, team introduction, and patient testimonials. Built with modern web technologies for a seamless user experience.",
-      tech: ["React", "TypeScript", "UI/UX Design", "Responsive Design", "Vercel"],
-      image: null,
-      video: null,
-      showVideo: false,
-      liveUrl: "https://raidentalclinic.com/",
-      achievements: "Live platform, Appointment booking, Professional healthcare web design"
-    },
-    {
-      id: 'orbit-ai',
-      title: "Orbit AI: AI Notetaker",
-      description: "An AI-powered meeting assistant that automatically joins meetings and provides comprehensive summaries. Built for enterprise use, it transcribes, analyzes, and extracts key insights from meetings.",
-      tech: ["React", "TypeScript", "AI Integration", "Vercel", "Meeting APIs", "Enterprise"],
-      image: null,
-      video: null,
-      showVideo: false,
-      liveUrl: "https://orbit-ai-orbit.vercel.app/",
-      achievements: "Live platform, Enterprise AI notetaker, Meeting summarization"
-    },
-    {
-      id: 'twitter-sentiment',
-      title: "Twitter Sentiment Analysis: ML Stock Prediction App",
-      description: "Built a machine learning iOS app that scrapes tweets from Twitter (X) and analyzes sentiment for stock market predictions. Utilizes Core ML for on-device processing to determine positive/negative trends. Achieved 85% accuracy in sentiment classification, providing valuable insights for market analysis without external API dependencies.",
-      tech: ["Swift", "Core ML", "Twitter API", "Machine Learning", "Natural Language Processing"],
-      image: "/twitter-sentiment-ml-ui.png",
-      video: null,
-      showVideo: false,
-      achievements: "85% accuracy, On-device ML processing"
-    },
-    {
-      id: 'image-recognition',
-      title: "Image Recognition: On-Device Object Detection App",
-      description: "Created an iOS app with built-in image recognition models for identifying objects in photos without hosted services. Implemented custom Core ML models for accurate classification using Vision Framework. Gained deep understanding of model creation and optimization for mobile applications, achieving high recognition accuracy through on-device processing.",
-      tech: ["Swift", "Core ML", "Vision Framework", "Machine Learning", "Image Processing"],
-      image: "/image-recognition-app-ui.png",
-      video: null,
-      showVideo: false,
-      achievements: "High accuracy recognition, On-device processing"
-    }
-  ];
+  const projects = centralizedProjects.map(project => {
+    const needsTimeout = ['todoey', 'hackernews', 'dobbie'].includes(project.id);
+    const isShown = needsTimeout ? (showVideo[project.id] || false) : (project.showVideo ?? false);
+    return {
+      ...project,
+      showVideo: isShown
+    };
+  });
 
   const handleProjectClick = (projectId: string) => {
     navigate(`/projects/${projectId}`);
