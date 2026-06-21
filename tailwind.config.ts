@@ -21,8 +21,9 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
-				display: ['Newsreader', 'Georgia', 'serif'],
+				display: ['copernicus_669e4a', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
 				body: ['Inter', 'system-ui', 'sans-serif'],
+				mono: ['Fira Code', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

@@ -1,0 +1,624 @@
+# Complete Typography System with Fonts & CDN
+## Production-Grade Font Stack for Modern Apps
+
+This guide shows you industry-standard typography used by Vercel, Stripe, Linear, and Anthropic-aligned products.
+
+---
+
+## Part 1: Font Recommendations by Use Case
+
+### Modern Tech Products (Vercel, Stripe, Figma style)
+
+```typescript
+// tokens/typography.ts
+export const fontStack = {
+  // Display: Bold, modern, eye-catching
+  display: {
+    name: "Sohne",
+    fallback: "Inter, system-ui, sans-serif",
+    weight: [600, 700],
+    use: "Large headlines (hero, section titles)",
+  },
+  
+  // Heading: Clean, professional, readable
+  heading: {
+    name: "Inter",
+    fallback: "system-ui, sans-serif",
+    weight: [600, 700],
+    use: "H1-H4, subheadings, card titles",
+  },
+  
+  // Body: Optimized for readability
+  body: {
+    name: "Inter",
+    fallback: "system-ui, sans-serif",
+    weight: [400, 500],
+    use: "Paragraphs, descriptions, main content",
+  },
+  
+  // Mono: Code, data, technical
+  mono: {
+    name: "Fira Code",
+    fallback: "monospace",
+    weight: [400, 500, 600],
+    use: "Code blocks, API docs, data tables",
+  },
+};
+```
+
+---
+
+## Part 2: Recommended Font Combinations
+
+### Option 1: Modern + Clean (Vercel/Stripe style)
+**Display:** Sohne (or Inter Bold)  
+**Heading:** Inter  
+**Body:** Inter  
+**Mono:** Fira Code
+
+```html
+<!-- CDN Links -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Inter (Google Fonts) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Fira Code (Google Fonts) -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+```
+
+**CSS:**
+```css
+:root {
+  --font-display: "Sohne", "Inter", system-ui, sans-serif;
+  --font-heading: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "Fira Code", monospace;
+}
+```
+
+---
+
+### Option 2: Editorial + Modern (Linear/Notion style)
+**Display:** Fraunces (serif, distinctive)  
+**Heading:** Inter  
+**Body:** Inter  
+**Mono:** IBM Plex Mono
+
+```html
+<!-- Fraunces (Google Fonts) - Editorial display -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- IBM Plex Mono -->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+```
+
+---
+
+### Option 3: Premium + Minimal (Apple/GitHub style)
+**Display:** Poppins (geometric, friendly)  
+**Heading:** Rubik (humanist sans)  
+**Body:** Rubik  
+**Mono:** JetBrains Mono
+
+```html
+<!-- Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- Rubik -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- JetBrains Mono (fastest for developers) -->
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+```
+
+---
+
+### Option 4: Bold + Elegant (Dribbble/Design-forward)
+**Display:** Playfair Display (classic serif)  
+**Heading:** DM Sans (modern sans)  
+**Body:** DM Sans  
+**Mono:** Courier Prime
+
+```html
+<!-- Playfair Display -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- DM Sans -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Courier Prime (monospace) -->
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+```
+
+---
+
+### Option 5: Minimal + Scientific (Anthropic/AI-forward style)
+**Display:** Work Sans (geometric, modern)  
+**Heading:** Outfit (tech-forward)  
+**Body:** Outfit  
+**Mono:** Source Code Pro
+
+```html
+<!-- Work Sans -->
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- Outfit -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Source Code Pro -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+```
+
+---
+
+## Part 3: Complete Font Library with CDN Links
+
+### Google Fonts (Recommended - Fast, Free)
+
+| Font | Use Case | CDN Link | Weights |
+|------|----------|----------|---------|
+| **Inter** | Body/Heading/Data | `https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap` | 400, 500, 600, 700 |
+| **Sohne** | Display (Premium) | Not on Google Fonts - Use Vercel's CDN | 600, 700 |
+| **Fraunces** | Editorial Display | `https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap` | 600, 700 |
+| **Poppins** | Friendly Display | `https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap` | 600, 700 |
+| **Playfair Display** | Elegant Display | `https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap` | 600, 700 |
+| **DM Sans** | Modern Body | `https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap` | 400, 500, 600 |
+| **Rubik** | Humanist Body | `https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap` | 400, 500, 600 |
+| **Work Sans** | Tech Display | `https://fonts.googleapis.com/css2?family=Work+Sans:wght@600;700&display=swap` | 600, 700 |
+| **Outfit** | Tech Body | `https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap` | 400, 500, 600 |
+| **Fira Code** | Monospace/Code | `https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap` | 400, 500, 600 |
+| **IBM Plex Mono** | Professional Mono | `https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap` | 400, 500, 600 |
+| **JetBrains Mono** | Developer Mono | `https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap` | 400, 500, 600 |
+| **Source Code Pro** | Adobe Mono | `https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap` | 400, 500, 600 |
+| **Courier Prime** | Typewriter | `https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap` | 400, 700 |
+
+### Premium Fonts (Self-hosted)
+
+```html
+<!-- Sohne - Vercel's proprietary font (or use similar) -->
+<!-- Alternative: Get Sohne from Stripe or use as fallback to Inter Bold -->
+
+<!-- Geist (Vercel's open source) -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net/gh/vercel/geist-font@latest/dist">
+<link href="https://cdn.jsdelivr.net/gh/vercel/geist-font@latest/dist/index.css" rel="stylesheet">
+```
+
+---
+
+## Part 4: Complete Font Stack Setup
+
+### The Best Performing Setup (Recommended)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Preconnect to Google Fonts (faster loading) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Load only the weights you need -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --font-display: "Inter", system-ui, sans-serif;
+      --font-heading: "Inter", system-ui, sans-serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --font-mono: "Fira Code", monospace;
+    }
+  </style>
+</head>
+<body>
+  <!-- Your content -->
+</body>
+</html>
+```
+
+---
+
+## Part 5: Usage Conditions (When to Use Each Font)
+
+### Display Font (h1, hero text, large statements)
+
+```typescript
+// Use: Hero headlines, main titles, brand statements
+export const displayUsage = {
+  condition: "Very Large Text (>32px)",
+  examples: [
+    "Page Hero: 'Build faster with AI'",
+    "Section Title: 'Why Choose Us'",
+    "Call-to-Action: 'Get Started Today'"
+  ],
+  fontWeight: "600-700",
+  letterSpacing: "-0.02em", // Tighten large text
+  lineHeight: "1.2"
+};
+```
+
+**CSS:**
+```css
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+```
+
+### Heading Font (h2-h4, section headers)
+
+```typescript
+export const headingUsage = {
+  h1: { size: "2rem", weight: 600, lineHeight: 1.3 },
+  h2: { size: "1.5rem", weight: 600, lineHeight: 1.4 },
+  h3: { size: "1.25rem", weight: 600, lineHeight: 1.4 },
+  h4: { size: "1rem", weight: 600, lineHeight: 1.5 },
+};
+```
+
+**CSS:**
+```css
+h1 { font-family: var(--font-heading); font-size: 2rem; font-weight: 600; }
+h2 { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600; }
+h3 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; }
+h4 { font-family: var(--font-heading); font-size: 1rem; font-weight: 600; }
+```
+
+### Body Font (paragraphs, descriptions, main content)
+
+```typescript
+export const bodyUsage = {
+  lg: { size: "1.125rem", weight: 400, lineHeight: 1.7 }, // Large body
+  md: { size: "1rem", weight: 400, lineHeight: 1.6 },     // Standard body
+  sm: { size: "0.875rem", weight: 400, lineHeight: 1.5 }, // Small body
+  xs: { size: "0.75rem", weight: 400, lineHeight: 1.5 },  // Caption
+};
+```
+
+**CSS:**
+```css
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #111827; /* dark */
+}
+
+p { line-height: 1.6; margin-bottom: 1em; }
+small { font-size: 0.875rem; color: #6b7280; }
+```
+
+### Monospace Font (code, technical data, commands)
+
+```typescript
+export const monoUsage = {
+  condition: "Code blocks, API examples, terminal output, data",
+  examples: [
+    "Code blocks: `const x = 10`",
+    "Command: `npm install`",
+    "Data tables with numbers/IDs",
+    "Technical documentation"
+  ],
+  fontWeight: "400-500",
+  size: "0.875rem",
+  lineHeight: "1.6"
+};
+```
+
+**CSS:**
+```css
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  background: #f3f4f6;
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  background: #1f2937;
+  color: #f3f4f6;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+```
+
+---
+
+## Part 6: Font Usage Decision Tree
+
+```
+┌─ What are you styling?
+│
+├─ HERO / MAIN TITLE (>32px)
+│  └─ Use: Display Font
+│     └─ Weight: 600-700
+│        └─ Letter spacing: -0.02em
+│           └─ Line height: 1.2
+│
+├─ SECTION HEADING / CARD TITLE (16-32px)
+│  └─ Use: Heading Font
+│     └─ Weight: 600
+│        └─ Letter spacing: -0.01em
+│           └─ Line height: 1.3-1.4
+│
+├─ BODY TEXT / PARAGRAPH (14-16px)
+│  └─ Use: Body Font
+│     └─ Weight: 400-500
+│        └─ Letter spacing: 0
+│           └─ Line height: 1.6
+│
+├─ SMALL TEXT / CAPTION (<14px)
+│  └─ Use: Body Font
+│     └─ Weight: 400
+│        └─ Letter spacing: 0.01em
+│           └─ Line height: 1.5
+│
+└─ CODE / TECHNICAL
+   └─ Use: Monospace Font
+      └─ Weight: 400-500
+         └─ Letter spacing: 0
+            └─ Line height: 1.6
+```
+
+---
+
+## Part 7: Tailwind Config with Custom Fonts
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  theme: {
+    fontFamily: {
+      // Add these to your tailwind config
+      display: ["Inter", "system-ui", "sans-serif"],
+      heading: ["Inter", "system-ui", "sans-serif"],
+      body: ["Inter", "system-ui", "sans-serif"],
+      mono: ["Fira Code", "monospace"],
+    },
+    fontSize: {
+      // Display sizes
+      "display-lg": ["3.5rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+      "display-md": ["2.5rem", { lineHeight: "1.2", letterSpacing: "-0.02em" }],
+      "display-sm": ["1.875rem", { lineHeight: "1.3", letterSpacing: "-0.01em" }],
+      
+      // Heading sizes
+      "h1": ["2rem", { lineHeight: "1.3", fontWeight: "600" }],
+      "h2": ["1.5rem", { lineHeight: "1.4", fontWeight: "600" }],
+      "h3": ["1.25rem", { lineHeight: "1.4", fontWeight: "600" }],
+      "h4": ["1rem", { lineHeight: "1.5", fontWeight: "600" }],
+      
+      // Body sizes
+      "body-lg": ["1.125rem", { lineHeight: "1.7" }],
+      "body-md": ["1rem", { lineHeight: "1.6" }],
+      "body-sm": ["0.875rem", { lineHeight: "1.5" }],
+      "body-xs": ["0.75rem", { lineHeight: "1.5" }],
+      
+      // Code/Mono
+      "code": ["0.875rem", { lineHeight: "1.6" }],
+    },
+  },
+};
+```
+
+**Usage in Tailwind:**
+```html
+<h1 class="font-heading text-h1">Hello World</h1>
+<p class="font-body text-body-md">This is body text</p>
+<code class="font-mono text-code">const x = 10</code>
+```
+
+---
+
+## Part 8: Next.js Font Optimization (Best Performance)
+
+```typescript
+// app/layout.tsx
+import { Inter, Fira_Code } from 'next/font/google';
+
+// Load fonts with next/font (automatic optimization)
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter',
+});
+
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
+});
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className={`${inter.variable} ${firaCode.variable}`}>
+      <body className="font-body">
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+**CSS (with CSS variables):**
+```css
+:root {
+  --font-inter: var(--font-inter); /* Automatically set by Next.js */
+  --font-mono: var(--font-mono);
+}
+
+body {
+  font-family: var(--font-inter);
+}
+
+code {
+  font-family: var(--font-mono);
+}
+```
+
+---
+
+## Part 9: Font Loading Strategies
+
+### 1. Fastest: System Fonts Only (No CDN)
+```css
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+             "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+             sans-serif;
+```
+
+### 2. Fast: Google Fonts with Preconnect
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+```
+
+### 3. Optimal: Next.js Font Optimization
+```typescript
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-inter',
+});
+```
+
+### 4. Custom: Self-hosted fonts
+```css
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/custom.woff2') format('woff2');
+  font-weight: 400;
+}
+
+body {
+  font-family: 'CustomFont', system-ui, sans-serif;
+}
+```
+
+---
+
+## Part 10: Quick Reference Table
+
+| Element | Font | Size | Weight | Line-height | Letter-spacing |
+|---------|------|------|--------|-------------|-----------------|
+| Hero Title | Display | 2.5-4rem | 700 | 1.1-1.2 | -0.02em |
+| H1 | Heading | 2rem | 600 | 1.3 | -0.01em |
+| H2 | Heading | 1.5rem | 600 | 1.4 | -0.01em |
+| H3 | Heading | 1.25rem | 600 | 1.4 | 0 |
+| H4 | Heading | 1rem | 600 | 1.5 | 0 |
+| Body Large | Body | 1.125rem | 400 | 1.7 | 0 |
+| Body (Default) | Body | 1rem | 400 | 1.6 | 0 |
+| Body Small | Body | 0.875rem | 400 | 1.5 | 0 |
+| Caption | Body | 0.75rem | 400 | 1.5 | 0.01em |
+| Code/Mono | Mono | 0.875rem | 400-500 | 1.6 | 0 |
+
+---
+
+## My Recommendation for You (Sagar)
+
+Based on your projects (Shala, FindMySchool, Kahaniyan, DuneShine):
+
+### For Education Apps (Shala, FindMySchool):
+```html
+<!-- Use this combination -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --font-display: "Inter", system-ui, sans-serif;
+    --font-heading: "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-mono: "Fira Code", monospace;
+  }
+  
+  .hero-title { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; }
+  h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; }
+  body, p, span { font-family: var(--font-body); font-weight: 400; line-height: 1.6; }
+  code, pre { font-family: var(--font-mono); }
+</style>
+```
+
+### For Horror/Narrative Apps (Kahaniyan):
+```html
+<!-- Use serif + modern combo -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --font-display: "Playfair Display", serif;
+    --font-heading: "Inter", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+  }
+</style>
+```
+
+### For SaaS/Dashboards (Nudge AI, CRM):
+```html
+<!-- Use tech-forward stack -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --font-display: "Outfit", sans-serif;
+    --font-heading: "Outfit", sans-serif;
+    --font-body: "Outfit", sans-serif;
+    --font-mono: "Source Code Pro", monospace;
+  }
+</style>
+```
+
+---
+
+## Performance Tips
+
+✅ **DO:**
+- Preconnect to Google Fonts
+- Only load weights you need (400, 500, 600, 700)
+- Use `display=swap` to avoid invisible text
+- Use Next.js font optimization when possible
+- Use CSS variables for fallbacks
+
+❌ **DON'T:**
+- Load all Google Fonts weights
+- Use more than 2-3 font families
+- Load fonts from multiple CDNs
+- Use fancy display fonts for body text
+- Forget system font fallbacks
+
+---
+
+## Implementation Checklist
+
+- [ ] Choose your primary font combo (Option 1-5)
+- [ ] Add CDN link to HTML head
+- [ ] Set CSS variables in :root
+- [ ] Create typography component classes
+- [ ] Test on mobile (375px) and desktop
+- [ ] Check lighthouse performance score
+- [ ] Add preconnect links
+- [ ] Update tailwind.config.js
+- [ ] Test dark mode if applicable
+- [ ] Verify letter-spacing and line-height
