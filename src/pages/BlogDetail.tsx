@@ -9,14 +9,14 @@ import SEO from '@/components/SEO';
 const BlogDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  
+
   const blog = blogs.find(b => b.slug === slug);
 
   if (!blog) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <SEO 
-          title="Blog Not Found | Sagar Rai" 
+        <SEO
+          title="Blog Not Found | Sagar Rai"
           description="The blog post you're looking for doesn't exist."
         />
         <div className="text-center">
@@ -36,14 +36,14 @@ const BlogDetail = () => {
 
   return (
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <SEO 
+      <SEO
         title={`${blog.title} | Sagar Rai`}
         description={preview}
         type="article"
         image={blog.image_url}
-        url={`https://sagarrai.dev/blog/${blog.slug}`}
+        url={`https://sagarrai.tech/blog/${blog.slug}`}
       />
-      
+
       <div className="max-w-3xl mx-auto">
         {/* Back Button */}
         <Button
@@ -108,7 +108,7 @@ const BlogDetail = () => {
             const renderParagraph = () => {
               const parts = paragraph.split(/\\*\\*(.*?)\\*\\*/g);
               if (parts.length > 1) {
-                return parts.map((part, i) => 
+                return parts.map((part, i) =>
                   i % 2 === 1 ? <strong key={i}>{part}</strong> : part
                 );
               }

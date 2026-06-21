@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sagarrai.dev/</loc>
+    <loc>https://sagarrai.tech/</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://sagarrai.dev/projects</loc>
+    <loc>https://sagarrai.tech/projects</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sagarrai.dev/experience</loc>
+    <loc>https://sagarrai.tech/experience</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sagarrai.dev/skills</loc>
+    <loc>https://sagarrai.tech/skills</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sagarrai.dev/education</loc>
+    <loc>https://sagarrai.tech/education</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://sagarrai.dev/contact</loc>
+    <loc>https://sagarrai.tech/contact</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sagarrai.dev/open-source</loc>
+    <loc>https://sagarrai.tech/open-source</loc>
     <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sagarrai.dev/blog</loc>
+    <loc>https://sagarrai.tech/blog</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sagarrai.dev/blog/my-ios-development-journey</loc>
+    <loc>https://sagarrai.tech/blog/my-ios-development-journey</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sagarrai.dev/blog/surviving-my-first-hackathon</loc>
+    <loc>https://sagarrai.tech/blog/surviving-my-first-hackathon</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sagarrai.dev/blog/3-years-in-tech-learnings</loc>
+    <loc>https://sagarrai.tech/blog/3-years-in-tech-learnings</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

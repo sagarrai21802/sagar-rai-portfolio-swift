@@ -1,5 +1,5 @@
 # Sagar Rai Portfolio - robots.txt
-# https://sagarrai.dev
+# https://sagarrai.tech
 
 User-agent: Googlebot
 Allow: /
@@ -29,7 +29,7 @@ Allow: /
 Crawl-delay: 2
 
 # Sitemap location
-Sitemap: https://sagarrai.dev/sitemap.xml
+Sitemap: https://sagarrai.tech/sitemap.xml
 
 # LLM Index
-llms.txt: https://sagarrai.dev/llms.txt
+llms.txt: https://sagarrai.tech/llms.txt
