@@ -1,5 +1,7 @@
-
 import type { Config } from "tailwindcss";
+import { colorTokens } from "./src/tokens/colors";
+import { spacingScale } from "./src/tokens/spacing";
+import { shadows } from "./src/tokens/shadows";
 
 export default {
 	darkMode: ["class"],
@@ -33,11 +35,13 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					...colorTokens.primary
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					foreground: 'hsl(var(--secondary-foreground))',
+					...colorTokens.secondary
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -49,7 +53,8 @@ export default {
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					foreground: 'hsl(var(--accent-foreground))',
+					...colorTokens.accent
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -75,12 +80,22 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				glass: {
+					DEFAULT: colorTokens.accent.glass,
+					strong: colorTokens.accent.glassStrong,
+					dark: colorTokens.accent.glassDark,
+					darkStrong: colorTokens.accent.glassDarkStrong,
 				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			spacing: spacingScale,
+			boxShadow: {
+				...shadows
 			},
 			keyframes: {
 				'accordion-down': {

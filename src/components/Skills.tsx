@@ -1,3 +1,5 @@
+import LiquidGlassCard from './ui/LiquidGlassCard';
+
 const Skills = () => {
   const skillCategories = [
     {
@@ -33,7 +35,7 @@ const Skills = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-elegant-gray dark:bg-elegant-gray">
+    <section className="py-24 px-4 bg-background">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 tracking-tight fade-in">
           Technical Skills
@@ -41,9 +43,10 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
           {skillCategories.map((category, index) => (
-            <div
+            <LiquidGlassCard
               key={category.title}
-              className="stagger-item card-lift bg-card border border-border rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-lg transition-all duration-500 backdrop-blur-sm"
+              variant="light"
+              className="stagger-item p-8 md:p-10 shadow-glass border border-white/10 dark:border-white/5"
             >
               <div className="text-center mb-8">
                 <div className="text-4xl mb-4">{category.icon}</div>
@@ -63,7 +66,7 @@ const Skills = () => {
                   </span>
                 ))}
               </div>
-            </div>
+            </LiquidGlassCard>
           ))}
         </div>
       </div>

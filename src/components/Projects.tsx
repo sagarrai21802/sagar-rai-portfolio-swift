@@ -1,6 +1,7 @@
 import { Github } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LiquidGlassCard from './ui/LiquidGlassCard';
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -358,61 +359,66 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
           {projects.map((project, index) => (
-            <div
+            <LiquidGlassCard
               key={project.id}
+              variant="light"
               onClick={() => handleProjectClick(project.id)}
-              className={`stagger-item card-lift bg-card border border-border rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 project-card backdrop-blur-sm cursor-pointer`}
+              className="stagger-item overflow-hidden shadow-lg border border-white/10 dark:border-white/5 cursor-pointer flex flex-col h-full"
             >
-              <div className="h-80 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 image-zoom">
+              <div className="h-80 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-50/20 to-gray-100/10 dark:from-gray-850 dark:to-gray-950 image-zoom">
                 <MediaComponent project={project} />
                 <div className="absolute inset-0 bg-black/5 dark:bg-black/10"></div>
               </div>
 
-              <div className="p-6 md:p-8">
-                <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4">
-                  {project.title}
-                </h3>
+              <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4">
+                    {project.title}
+                  </h3>
 
-                <p className="text-muted-foreground mb-4 leading-relaxed font-body">
-                  {project.description}
-                </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed font-body">
+                    {project.description}
+                  </p>
 
-                {project.achievements && (
-                  <div className="mb-6 p-3 bg-primary/10 rounded-xl border border-primary/20">
-                    <p className="text-primary text-sm font-medium">
-                      🎯 {project.achievements}
-                    </p>
-                  </div>
-                )}
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, techIndex) => (
-                    <span
-                      key={tech}
-                      className="px-4 py-2 bg-elegant-gray dark:bg-elegant-gray text-foreground rounded-full text-sm font-medium hover:scale-105 transition-all duration-300 border border-border/50 hover:bg-primary/5"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {project.achievements && (
+                    <div className="mb-6 p-3 bg-primary/10 rounded-xl border border-primary/20">
+                      <p className="text-primary text-sm font-medium">
+                        🎯 {project.achievements}
+                      </p>
+                    </div>
+                  )}
                 </div>
 
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
-                  >
-                    View Live
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                      <polyline points="15 3 21 3 21 9"/>
-                      <line x1="10" y1="14" x2="21" y2="3"/>
-                    </svg>
-                  </a>
-                )}
+                <div>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech, techIndex) => (
+                      <span
+                        key={tech}
+                        className="px-4 py-2 bg-elegant-gray/50 dark:bg-elegant-gray/10 text-foreground rounded-full text-sm font-medium hover:scale-105 transition-all duration-300 border border-border/50 hover:bg-primary/5"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
+                    >
+                      View Live
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                      </svg>
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
+            </LiquidGlassCard>
           ))}
         </div>
 

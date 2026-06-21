@@ -1,5 +1,6 @@
 import { Briefcase, Calendar, MapPin, Check, TrendingUp, Zap, Building2 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import LiquidGlassCard from '../components/ui/LiquidGlassCard';
 
 const Experience = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
@@ -100,7 +101,7 @@ const Experience = () => {
                   </div>
 
                   <div className={`md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:ml-auto md:pl-8' : 'md:mr-auto md:pr-8'}`}>
-                    <div className="bg-card border border-border rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-500 backdrop-blur-sm group hover:border-primary/30">
+                    <LiquidGlassCard variant="light" hoverLift={true} className="p-6 md:p-8 border border-white/10 dark:border-white/5 shadow-glass group">
                       {/* Current badge */}
                       {experience.isCurrent && (
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full text-green-600 dark:text-green-400 text-sm font-medium mb-4">
@@ -168,7 +169,7 @@ const Experience = () => {
                           </div>
                         ))}
                       </div>
-                    </div>
+                    </LiquidGlassCard>
                   </div>
                 </div>
               ))}
@@ -183,14 +184,15 @@ const Experience = () => {
               { icon: Briefcase, value: '6+', label: 'Months Experience' },
               { icon: Check, value: '100%', label: 'Project Success' }
             ].map((stat, index) => (
-              <div
+              <LiquidGlassCard
                 key={index}
-                className="text-center p-6 bg-card border border-border rounded-2xl hover:shadow-lg transition-all duration-300 hover:border-primary/30"
+                variant="subtle"
+                className="text-center p-6 border border-white/10 dark:border-white/5 shadow-glass"
               >
                 <stat.icon className="w-6 h-6 text-primary mx-auto mb-3" />
                 <div className="text-2xl md:text-3xl font-bold text-foreground">{stat.value}</div>
                 <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
-              </div>
+              </LiquidGlassCard>
             ))}
           </div>
         </div>

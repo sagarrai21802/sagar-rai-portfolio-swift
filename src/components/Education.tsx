@@ -1,3 +1,4 @@
+import LiquidGlassCard from './ui/LiquidGlassCard';
 
 const Education = () => {
   const education = [
@@ -6,19 +7,19 @@ const Education = () => {
       institution: "Bansal College Of Engineering",
       period: "2022 – 2026",
       status: "Final Year",
-      color: "from-blue-500 to-purple-600"
+      color: "bg-blue-500"
     },
     {
       degree: "Secondary Education",
       institution: "Gurukul CBSE School",
       period: "2007 – 2021",
       status: "Completed",
-      color: "from-green-500 to-teal-600"
+      color: "bg-green-500"
     }
   ];
 
   return (
-    <section className="py-24 px-4 bg-elegant-gray dark:bg-elegant-gray">
+    <section className="py-24 px-4 bg-background">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 tracking-tight animate-fade-in">
           Education
@@ -26,14 +27,15 @@ const Education = () => {
         
         <div className="space-y-8 lg:space-y-12">
           {education.map((edu, index) => (
-            <div
+            <LiquidGlassCard
               key={edu.degree}
-              className="bg-card border border-border rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-lg transition-all duration-500 hover-scale backdrop-blur-sm animate-fade-in-up"
+              variant="light"
+              className="p-8 md:p-12 shadow-glass border border-white/10 dark:border-white/5 animate-fade-in-up"
               style={{ animationDelay: `${index * 200}ms` }}
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div className="flex items-start space-x-6">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${edu.color} flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-lg`}>
+                  <div className={`w-16 h-16 rounded-2xl ${edu.color} flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-lg`}>
                     {index + 1}
                   </div>
                   
@@ -60,7 +62,7 @@ const Education = () => {
                   </span>
                 </div>
               </div>
-            </div>
+            </LiquidGlassCard>
           ))}
         </div>
       </div>

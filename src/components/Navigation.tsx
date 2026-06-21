@@ -25,16 +25,16 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 rounded-[20px] border border-white/10 dark:border-white/5 bg-background/80 dark:bg-black/40 backdrop-blur-md shadow-glass transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="inline-flex items-center min-h-11 text-xl font-display font-bold text-foreground hover:text-primary transition-colors">
+          <Link to="/" className="inline-flex items-center min-h-11 text-xl font-display font-bold text-foreground hover:text-primary transition-all duration-300 hover:scale-105">
             SR 
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <div key={item.name} className="relative">
                 <Link
@@ -44,21 +44,19 @@ const Navigation = () => {
                 >
                   {item.name}
                 </Link>
-
-
               </div>
             ))}
           </div>
 
           {/* Desktop Social Links */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-2">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
                 target={href.startsWith('http') ? '_blank' : undefined}
                 rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="inline-flex items-center justify-center min-h-11 min-w-11 text-muted-foreground hover:text-primary transition-colors touch-manipulation"
+                className="inline-flex items-center justify-center min-h-11 min-w-11 text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 touch-manipulation"
                 title={label}
               >
                 <Icon className="w-5 h-5" />
@@ -81,16 +79,16 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden bg-background border-t border-border">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="md:hidden bg-background/95 dark:bg-black/90 border-t border-white/10 dark:border-white/5 rounded-b-[20px] overflow-hidden">
+            <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-3 rounded-md text-base font-medium transition-colors ${location.pathname === item.path
+                  className={`block px-3 py-3 rounded-xl text-base font-medium transition-all ${location.pathname === item.path
                     ? 'text-primary bg-primary/10'
-                    : 'text-muted-foreground hover:text-primary hover:bg-muted'
+                    : 'text-muted-foreground hover:text-primary hover:bg-white/5'
                     }`}
                 >
                   {item.name}
@@ -98,7 +96,7 @@ const Navigation = () => {
               ))}
 
               {/* Mobile Social Links */}
-              <div className="flex items-center space-x-4 px-3 py-2">
+              <div className="flex items-center space-x-4 px-3 py-2 border-t border-white/5 mt-2">
                 {socialLinks.map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}

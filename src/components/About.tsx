@@ -4,6 +4,7 @@ import { TrendingUp, Users, Zap, Award, Building2, ArrowRight } from 'lucide-rea
 import { useNavigate } from 'react-router-dom';
 import TextReveal from './TextReveal';
 import BlurReveal from './BlurReveal';
+import LiquidGlassCard from './ui/LiquidGlassCard';
 
 const About = () => {
   const navigate = useNavigate();
@@ -13,10 +14,10 @@ const About = () => {
   const statsRef = useRef<HTMLDivElement>(null);
 
   const stats = [
-    { icon: Users, value: '1M+', label: 'Users Impacted', color: 'from-blue-500 to-cyan-500' },
-    { icon: TrendingUp, value: '38%', label: 'Throughput Increase', color: 'from-green-500 to-emerald-500' },
-    { icon: Zap, value: '50%', label: 'Server Strain Reduced', color: 'from-orange-500 to-amber-500' },
-    { icon: Award, value: '60k+', label: 'Library Stars Contributed', color: 'from-purple-500 to-pink-500' },
+    { icon: Users, value: '1M+', label: 'Users Impacted', color: 'bg-blue-500' },
+    { icon: TrendingUp, value: '38%', label: 'Throughput Increase', color: 'bg-green-500' },
+    { icon: Zap, value: '50%', label: 'Server Strain Reduced', color: 'bg-gradient-to-br from-orange-500 to-amber-500' },
+    { icon: Award, value: '60k+', label: 'Library Stars Contributed', color: 'bg-gradient-to-br from-purple-500 to-pink-500' },
   ];
 
   useEffect(() => {
@@ -60,13 +61,14 @@ const About = () => {
         {/* Stats Grid */}
         <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {stats.map((stat, index) => (
-            <div
+            <LiquidGlassCard
               key={stat.label}
-              className={`relative bg-card border border-border rounded-2xl p-4 md:p-6 transition-all duration-700 hover:shadow-lg hover:border-primary/30 ${visibleStats.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              variant="light"
+              className={`relative p-4 md:p-6 transition-all duration-700 ${visibleStats.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
             >
               <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center flex-shrink-0`}>
+                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl ${stat.color} flex items-center justify-center flex-shrink-0`}>
                   <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
                 <div className="text-left">
@@ -74,18 +76,19 @@ const About = () => {
                   <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
                 </div>
               </div>
-            </div>
+            </LiquidGlassCard>
           ))}
         </div>
 
         <BlurReveal
-          className="bg-card border border-border rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-xl transition-all duration-500 backdrop-blur-sm"
+          className="rounded-3xl shadow-sm transition-all duration-500"
           blurIntensity={15}
           direction="up"
           delay={0.1}
         >
-          <div className="max-w-4xl mx-auto">
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-body">
+          <LiquidGlassCard variant="strong" hoverLift={false} className="p-8 md:p-12 border border-white/10 dark:border-white/5">
+            <div className="max-w-4xl mx-auto">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-body">
               As a dedicated <span className="text-primary font-semibold">Software Developer Intern</span> at GrowthPurple Tech, I specialize in building globally-targeted, million-user products using SwiftUI, Java, and distributed services. My expertise spans full-stack development with iOS frontend and Java backend, focusing on system design, structured concurrency, and performance optimization.
             </p>
 
@@ -143,7 +146,8 @@ const About = () => {
                 ))}
               </div>
             </div>
-          </div>
+            </div>
+          </LiquidGlassCard>
         </BlurReveal>
       </div>
     </section>

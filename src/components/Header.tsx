@@ -5,6 +5,7 @@ import { useMouseParallax } from '@/hooks/useMouseParallax';
 import { useEffect, useState } from 'react';
 import TextReveal from './TextReveal';
 import BlurReveal from './BlurReveal';
+import LiquidGlassCard from './ui/LiquidGlassCard';
 
 const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
   const navigate = useNavigate();
@@ -65,7 +66,7 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
         className={`header-image-container ${imageSlideComplete ? 'image-slide-complete' : ''}`}
       />
       {/* Dark overlay for readability */}
-      <div className="absolute inset-0 z-0 bg-black/50" />
+      <div className="absolute inset-0 z-0 bg-black/60" />
 
       {/* Rest of the content with relative positioning */}
       <div className="relative z-10 flex-1 flex items-center justify-start pt-8 md:pt-16 pl-0 lg:pl-12">
