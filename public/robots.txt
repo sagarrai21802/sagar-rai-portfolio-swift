@@ -30,3 +30,6 @@ Crawl-delay: 2
 
 # Sitemap location
 Sitemap: https://sagarrai.dev/sitemap.xml
+
+# LLM Index
+llms.txt: https://sagarrai.dev/llms.txt

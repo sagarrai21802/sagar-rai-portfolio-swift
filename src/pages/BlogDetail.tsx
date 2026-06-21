@@ -1,39 +1,24 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, User, Tag, Loader2 } from 'lucide-react';
-import { useBlogBySlug, formatDate, parseTags } from '@/hooks/useBlog';
+import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
+import { formatDate, parseTags } from '@/utils/blogUtils';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { blogs } from '@/data/blogs';
+import SEO from '@/components/SEO';
 
 const BlogDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const { blog, isLoading, error } = useBlogBySlug(slug || '');
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <Loader2 className="w-8 h-8 animate-spin text-primary" />
-          <p className="text-muted-foreground">Loading blog post...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive mb-2">Error loading blog post</h2>
-          <p className="text-muted-foreground">Please try again later.</p>
-        </div>
-      </div>
-    );
-  }
+  
+  const blog = blogs.find(b => b.slug === slug);
 
   if (!blog) {
     return (
       <div className="min-h-screen flex items-center justify-center">
+        <SEO 
+          title="Blog Not Found | Sagar Rai" 
+          description="The blog post you're looking for doesn't exist."
+        />
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-2">Blog Post Not Found</h2>
           <p className="text-muted-foreground mb-4">The blog post you're looking for doesn't exist.</p>
@@ -47,9 +32,18 @@ const BlogDetail = () => {
   }
 
   const tags = parseTags(blog.tags);
+  const preview = blog.content.substring(0, 160).trim() + '...';
 
   return (
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+      <SEO 
+        title={`${blog.title} | Sagar Rai`}
+        description={preview}
+        type="article"
+        image={blog.image_url}
+        url={`https://sagarrai.dev/blog/${blog.slug}`}
+      />
+      
       <div className="max-w-3xl mx-auto">
         {/* Back Button */}
         <Button
@@ -106,13 +100,24 @@ const BlogDetail = () => {
 
         {/* Content */}
         <article className="prose prose-lg dark:prose-invert max-w-none">
-          {blog.content.split('\n').map((paragraph, index) => {
+          {blog.content.split('\\n').map((paragraph, index) => {
             if (paragraph.trim() === '') {
               return <br key={index} />;
             }
+            // Basic markdown support for bold text
+            const renderParagraph = () => {
+              const parts = paragraph.split(/\\*\\*(.*?)\\*\\*/g);
+              if (parts.length > 1) {
+                return parts.map((part, i) => 
+                  i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+                );
+              }
+              return paragraph;
+            };
+
             return (
               <p key={index} className="mb-4 text-foreground/90 leading-relaxed">
-                {paragraph}
+                {renderParagraph()}
               </p>
             );
           })}

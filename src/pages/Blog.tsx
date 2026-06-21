@@ -1,58 +1,23 @@
 import { Link } from 'react-router-dom';
-import { Calendar, User, Tag, Loader2 } from 'lucide-react';
-import { useBlogPosts, getContentPreview, formatDate, parseTags } from '@/hooks/useBlog';
+import { Calendar, User } from 'lucide-react';
+import { getContentPreview, formatDate, parseTags } from '@/utils/blogUtils';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { blogs } from '@/data/blogs';
+import SEO from '@/components/SEO';
 
 const Blog = () => {
-  const { blogs, isLoading, error, isFetching } = useBlogPosts();
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <Loader2 className="w-8 h-8 animate-spin text-primary" />
-          <p className="text-muted-foreground">Loading blog posts...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
-          </div>
-          
-          <div className="max-w-2xl mx-auto p-6 bg-destructive/10 border border-destructive/30 rounded-lg text-center">
-            <h2 className="text-xl font-semibold text-destructive mb-4">Unable to Load Blog Posts</h2>
-            <p className="text-muted-foreground mb-4">
-              The Google Sheet might not be publicly accessible.
-            </p>
-            <div className="text-sm text-left bg-background p-4 rounded border">
-              <p className="font-medium mb-2">To fix this:</p>
-              <ol className="list-decimal list-inside space-y-1 text-muted-foreground">
-                <li>Open your Google Sheet</li>
-                <li>Click the "Share" button</li>
-                <li>Change "General access" to "Anyone with the link"</li>
-                <li>Set role to "Viewer" and click "Done"</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   if (!blogs.length) {
     return (
       <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+        <SEO 
+          title="Blog | Sagar Rai" 
+          description="Read thoughts, tutorials, and insights on iOS development, software engineering, and career growth."
+        />
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
           <p className="text-xl text-muted-foreground">
-            No blog posts found. Add entries to your Google Sheet to see them here.
+            No blog posts found. Check back later!
           </p>
         </div>
       </div>
@@ -61,6 +26,10 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+      <SEO 
+        title="Blog | Sagar Rai" 
+        description="Read thoughts, tutorials, and insights on iOS development, software engineering, and career growth."
+      />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -68,12 +37,6 @@ const Blog = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Insights, tutorials, and thoughts on software development
           </p>
-          {isFetching && (
-            <p className="text-sm text-muted-foreground mt-2 flex items-center justify-center gap-2">
-              <Loader2 className="w-4 h-4 animate-spin" />
-              Updating...
-            </p>
-          )}
         </div>
 
         {/* Blog Grid */}
