@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Github, ExternalLink } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const OpenSourceDetail = () => {
   const { contributionId } = useParams<{ contributionId: string }>();
@@ -49,6 +50,10 @@ const OpenSourceDetail = () => {
   if (!contribution) {
     return (
       <div className="min-h-screen pt-20 flex items-center justify-center">
+        <SEO
+          title="Contribution Not Found | Sagar Rai"
+          description="The open-source contribution you're looking for doesn't exist."
+        />
         <div className="text-center">
           <h1 className="text-4xl font-bold text-foreground mb-4">Contribution Not Found</h1>
           <p className="text-muted-foreground mb-8">The contribution you're looking for doesn't exist.</p>
@@ -65,6 +70,11 @@ const OpenSourceDetail = () => {
 
   return (
     <div className="min-h-screen pt-20 bg-background">
+      <SEO
+        title={`${contribution.title} | Sagar Rai`}
+        description={contribution.description}
+        url={`https://sagarrai.tech/open-source/${contribution.id}`}
+      />
       <div className="max-w-4xl mx-auto px-4 py-12">
         {/* Back Button */}
         <button

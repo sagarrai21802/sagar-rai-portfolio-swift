@@ -1,6 +1,7 @@
 import { Briefcase, Calendar, MapPin, Check, TrendingUp, Zap, Building2 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import LiquidGlassCard from '../components/ui/LiquidGlassCard';
+import SEO from '@/components/SEO';
 
 const Experience = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
@@ -67,6 +68,11 @@ const Experience = () => {
 
   return (
     <div className="min-h-screen pt-20 bg-background">
+      <SEO
+        title="Professional Experience | Sagar Rai | iOS & Software Engineer"
+        description="Check out the professional work experience, achievements, and contributions of Sagar Rai at companies like GrowthPurple Tech and BrandSmashers Tech."
+        url="https://sagarrai.tech/experience"
+      />
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">

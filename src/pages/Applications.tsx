@@ -1,6 +1,7 @@
 import { Download, FileText, ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { projects } from '@/data/projects';
+import SEO from '@/components/SEO';
 
 const ApplicationsPage = () => {
   const applications = projects
@@ -18,6 +19,11 @@ const ApplicationsPage = () => {
 
   return (
     <div className="min-h-screen pt-20 pb-12">
+      <SEO
+        title="Applications & Browser Extensions | Sagar Rai"
+        description="Download and explore the custom macOS apps, tools, and browser extensions built by Sagar Rai."
+        url="https://sagarrai.tech/applications"
+      />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
