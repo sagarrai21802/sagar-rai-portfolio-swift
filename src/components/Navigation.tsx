@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
+import StaggeredMenu from './motion-primitives/StaggeredMenu';
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
@@ -24,8 +24,19 @@ const Navigation = () => {
     { icon: Mail, href: 'mailto:sagarrai9893@gmail.com', label: 'Email' },
   ];
 
+  const staggeredMenuItems = navItems.map(item => ({
+    label: item.name,
+    ariaLabel: `Go to ${item.name}`,
+    link: item.path
+  }));
+
+  const staggeredSocialItems = socialLinks.map(item => ({
+    label: item.label,
+    link: item.href
+  }));
+
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-300">
+    <nav className="fixed top-4 inset-x-0 mx-auto w-[95%] max-w-7xl z-[100] transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -57,71 +68,34 @@ const Navigation = () => {
             })}
           </div>
 
-          {/* Desktop Social Links */}
+          {/* Desktop Contact Button */}
           <div className="hidden md:flex items-center space-x-3">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target={href.startsWith('http') ? '_blank' : undefined}
-                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="inline-flex items-center justify-center min-h-11 min-w-11 rounded-full border border-white/10 dark:border-white/5 bg-background/80 dark:bg-black/40 backdrop-blur-md shadow-glass text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 touch-manipulation"
-                title={label}
-              >
-                <Icon className="w-5 h-5" />
-              </a>
-            ))}
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center min-h-11 min-w-11 text-muted-foreground hover:text-primary transition-colors touch-manipulation"
-              aria-label={isOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isOpen}
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center min-h-11 px-6 rounded-full bg-white text-black font-semibold hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-glass touch-manipulation"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+              Get in Touch
+            </Link>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden bg-background/95 dark:bg-black/90 border-t border-white/10 dark:border-white/5 rounded-b-[20px] overflow-hidden">
-            <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-3 rounded-xl text-base font-medium transition-all ${location.pathname === item.path
-                    ? 'text-primary bg-primary/10'
-                    : 'text-muted-foreground hover:text-primary hover:bg-white/5'
-                    }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-
-              {/* Mobile Social Links */}
-              <div className="flex items-center space-x-4 px-3 py-2 border-t border-white/5 mt-2">
-                {socialLinks.map(({ icon: Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target={href.startsWith('http') ? '_blank' : undefined}
-                    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="inline-flex items-center justify-center min-h-11 min-w-11 text-muted-foreground hover:text-primary transition-colors touch-manipulation"
-                    title={label}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+        <div className="md:hidden">
+          <StaggeredMenu
+            isFixed={true}
+            position="right"
+            items={staggeredMenuItems}
+            socialItems={staggeredSocialItems}
+            displaySocials={true}
+            displayItemNumbering={true}
+            menuButtonColor="#ffffff"
+            openMenuButtonColor="#000000"
+            changeMenuColorOnOpen={true}
+            colors={['#1a1a1a', '#222']}
+            logoUrl=""
+            accentColor="#3b82f6"
+          />
+        </div>
       </div>
     </nav>
   );

@@ -131,13 +131,12 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
                 ref={buttonsReveal.ref as any}
                 className="flex flex-wrap justify-start lg:justify-start gap-3 reveal is-visible"
               >
-                <a
-                  href="mailto:sagarrai9893@gmail.com"
+                <button
+                  onClick={() => navigate('/projects')}
                   className="flex items-center gap-2 min-h-11 px-5 sm:px-6 py-3 bg-white text-black rounded-full font-semibold hover:bg-white/90 transition-all duration-300 hover:scale-105 touch-manipulation"
                 >
-                  <Mail className="w-4 h-4" />
-                  <span>Get in Touch</span>
-                </a>
+                  <span>View My Work</span>
+                </button>
               </div>
 
               {/* Secondary actions */}

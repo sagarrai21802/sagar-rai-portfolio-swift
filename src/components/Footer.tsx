@@ -27,7 +27,7 @@ const Footer = () => {
               fontSize: 'clamp(3rem, 8vw, 7rem)',
             }}
           >
-            Sagar Rai
+            DevPortfolio
           </h2>
         </div>
 
@@ -122,7 +122,7 @@ const Footer = () => {
           <div className="border-t border-[#0a0a0a]/10 pt-3 text-center">
             <p className="text-sm font-medium opacity-60">
               © {currentYear} Sagar Rai. All rights reserved.
-              </p>
+            </p>
           </div>
         </div>
       </div>
