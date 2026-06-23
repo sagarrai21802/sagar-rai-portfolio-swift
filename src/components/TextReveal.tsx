@@ -12,6 +12,7 @@ interface TextRevealProps {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span';
   revealDirection?: 'up' | 'left' | 'fade';
   twoColor?: boolean;
+  startTrigger?: boolean;
 }
 
 const TextReveal: React.FC<TextRevealProps> = ({
@@ -22,6 +23,7 @@ const TextReveal: React.FC<TextRevealProps> = ({
   as: Component = 'p',
   revealDirection = 'up',
   twoColor = false,
+  startTrigger = true,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -50,7 +52,7 @@ const TextReveal: React.FC<TextRevealProps> = ({
   }, []);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || !startTrigger) return;
 
     const container = containerRef.current;
     if (!container) return;
@@ -84,7 +86,7 @@ const TextReveal: React.FC<TextRevealProps> = ({
         delay: delay,
       }
     );
-  }, [isVisible, delay, duration, revealDirection]);
+  }, [isVisible, startTrigger, delay, duration, revealDirection]);
 
   const getTwoColorClass = (index: number) => {
     if (!twoColor) return '';

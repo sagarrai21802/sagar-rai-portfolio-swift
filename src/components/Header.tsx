@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useReveal } from '@/hooks/useReveal';
 import { useMouseParallax } from '@/hooks/useMouseParallax';
 import { useEffect, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import TextReveal from './TextReveal';
 import BlurReveal from './BlurReveal';
 import LiquidGlassCard from './ui/LiquidGlassCard';
@@ -16,14 +17,19 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
   const fullText = "Software Developer Engineer";
   const { parallax } = useMouseParallax(1);
 
+  const { scrollY } = useScroll();
+  const leftX = useTransform(scrollY, [0, 800], [0, -500]);
+  const rightX = useTransform(scrollY, [0, 800], [0, 500]);
+  const elementOpacity = useTransform(scrollY, [0, 600], [1, 0]);
+
   useEffect(() => {
     // Start animation sequence when intro completes
     if (introCompleted) {
       setAnimationStarted(true);
-      // After 200ms, start sliding the image to the right
+      // Give the browser time to paint the initial state before applying the animation class
       const slideTimer = setTimeout(() => {
         setImageSlideComplete(true);
-      }, 10);
+      }, 100);
       
       return () => clearTimeout(slideTimer);
     }
@@ -62,11 +68,13 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
   return (
     <header className="min-h-[100dvh] pt-16 flex flex-col relative overflow-hidden">
       {/* Background image - slides from full screen to centered */}
-      <div 
-        className={`header-image-container ${imageSlideComplete ? 'image-slide-complete' : ''}`}
-      />
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 z-0 bg-black/60" />
+      <motion.div 
+        style={{ x: rightX, opacity: elementOpacity }}
+        className="absolute inset-0 z-0"
+      >
+        <div className={`header-image-container ${imageSlideComplete ? 'image-slide-complete' : ''}`} />
+      </motion.div>
+
 
       {/* Rest of the content with relative positioning */}
       <div className="relative z-10 flex-1 flex items-center justify-start pt-8 md:pt-16 pl-0 lg:pl-12">
@@ -75,7 +83,7 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
           <div className={`flex flex-col lg:flex-row lg:items-center lg:justify-start lg:gap-16 header-content ${imageSlideComplete ? 'content-visible' : ''}`}>
 
             {/* Left side - Text content */}
-            <div className="flex-1 text-left order-2 lg:order-1">
+            <motion.div style={{ x: leftX, opacity: elementOpacity }} className="flex-1 text-left order-2 lg:order-1">
               {/* Name with gradient - using TextReveal */}
               <TextReveal
                 text="Sagar Rai"
@@ -83,6 +91,8 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
                 className="text-[clamp(2.2rem,11vw,4.75rem)] md:text-6xl lg:text-7xl font-display font-bold mb-4 tracking-tight"
                 delay={0.2}
                 duration={1}
+                revealDirection="left"
+                startTrigger={imageSlideComplete}
               />
 
               {/* Subtitle with TextReveal - two color effect */}
@@ -92,6 +102,8 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
                   className="text-[clamp(1rem,4.2vw,1.5rem)] md:text-2xl text-white/90 font-body font-light"
                   delay={0.5}
                   duration={0.8}
+                  revealDirection="left"
+                  startTrigger={imageSlideComplete}
                   twoColor
                 />
               </div>
@@ -101,7 +113,7 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
                 {stats.map((stat, index) => (
                   <div
                     key={stat.label}
-                    className={`transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    className={`transition-all duration-700 ${imageSlideComplete ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-[50px]'}`}
                     style={{ transitionDelay: stat.delay }}
                   >
                     <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1">
@@ -126,30 +138,12 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
                   <Mail className="w-4 h-4" />
                   <span>Get in Touch</span>
                 </a>
-                <a
-                  href="https://linkedin.com/in/sagar-rai-ios"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 min-h-11 px-5 sm:px-6 py-3 bg-white/10 border border-white/20 text-white rounded-full font-semibold hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm touch-manipulation"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  <span>LinkedIn</span>
-                </a>
-                <a
-                  href="https://github.com/sagarrai21802"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 min-h-11 px-5 sm:px-6 py-3 bg-white/10 border border-white/20 text-white rounded-full font-semibold hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm touch-manipulation"
-                >
-                  <Github className="w-4 h-4" />
-                  <span>GitHub</span>
-                </a>
               </div>
 
               {/* Secondary actions */}
               <div className="flex flex-wrap justify-start lg:justify-start gap-4">
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>

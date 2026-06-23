@@ -1,153 +1,44 @@
-import { useReveal } from '@/hooks/useReveal';
-import { useEffect, useRef, useState } from 'react';
-import { TrendingUp, Users, Zap, Award, Building2, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import TextReveal from './TextReveal';
+import ScrollRevealText from './ScrollRevealText';
 import BlurReveal from './BlurReveal';
-import LiquidGlassCard from './ui/LiquidGlassCard';
+import { Quote } from 'lucide-react';
 
 const About = () => {
-  const navigate = useNavigate();
-  const headingReveal = useReveal();
-  const cardReveal = useReveal();
-  const [visibleStats, setVisibleStats] = useState<number[]>([]);
-  const statsRef = useRef<HTMLDivElement>(null);
-
-  const stats = [
-    { icon: Users, value: '1M+', label: 'Users Impacted', color: 'bg-blue-500' },
-    { icon: TrendingUp, value: '38%', label: 'Throughput Increase', color: 'bg-green-500' },
-    { icon: Zap, value: '50%', label: 'Server Strain Reduced', color: 'bg-gradient-to-br from-orange-500 to-amber-500' },
-    { icon: Award, value: '60k+', label: 'Library Stars Contributed', color: 'bg-gradient-to-br from-purple-500 to-pink-500' },
-  ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          stats.forEach((_, index) => {
-            setTimeout(() => {
-              setVisibleStats(prev => [...new Set([...prev, index])]);
-            }, index * 150);
-          });
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (statsRef.current) observer.observe(statsRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section id="about" className="py-24 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <TextReveal
-            text="About Me"
-            as="h2"
-            className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 tracking-tight"
-            delay={0}
-            duration={0.8}
-          />
-          <BlurReveal
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
-            delay={0.2}
-            duration={0.8}
-          >
-            <p>Building scalable iOS applications that impact millions of users worldwide</p>
-          </BlurReveal>
-        </div>
-
-        {/* Stats Grid */}
-        <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          {stats.map((stat, index) => (
-            <LiquidGlassCard
-              key={stat.label}
-              variant="light"
-              className={`relative p-4 md:p-6 transition-all duration-700 ${visibleStats.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}
-            >
-              <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl ${stat.color} flex items-center justify-center flex-shrink-0`}>
-                  <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="text-xl md:text-2xl font-bold text-foreground">{stat.value}</div>
-                  <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
-                </div>
-              </div>
-            </LiquidGlassCard>
-          ))}
-        </div>
-
-        <BlurReveal
-          className="rounded-3xl shadow-sm transition-all duration-500"
-          blurIntensity={15}
-          direction="up"
-          delay={0.1}
-        >
-          <LiquidGlassCard variant="strong" hoverLift={false} className="p-8 md:p-12 border border-white/10 dark:border-white/5">
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-body">
-              As a dedicated <span className="text-primary font-semibold">Software Developer Intern</span> at GrowthPurple Tech, I specialize in building globally-targeted, million-user products using SwiftUI, Java, and distributed services. My expertise spans full-stack development with iOS frontend and Java backend, focusing on system design, structured concurrency, and performance optimization.
-            </p>
-
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-body">
-              I've contributed to major open-source libraries including <span className="text-primary font-semibold">Alamofire</span> (40k+ stars) and <span className="text-primary font-semibold">Kingfisher</span> (22k+ stars), improving error handling and image rendering for millions of developers worldwide. My projects include SYRA (AI-powered marketing platform handling 1.2M+ concurrent sessions) and real-time feed applications with sub-1.4s render latency.
-            </p>
-
-            {/* Current Role Highlight */}
-            <div className="bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-6 mb-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-primary/10 rounded-lg">
-                  <Building2 className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h4 className="font-semibold text-foreground">Currently at GrowthPurple Tech</h4>
-                    <span className="flex items-center gap-1 px-2 py-0.5 bg-green-500/10 text-green-600 dark:text-green-400 text-xs rounded-full">
-                      <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                      Active
-                    </span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Software Developer Intern | Nov 2025 – Present</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground">
-                Engineering system-design driven data flows with Redis-backed caching, supporting 1M+ concurrent sessions through fault-tolerant processing and latency-controlled routing.
-              </p>
-              <button
-                onClick={() => navigate('/experience')}
-                className="mt-4 inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300 font-medium"
-              >
-                View Full Experience
-                <ArrowRight className="w-4 h-4" />
-              </button>
+        <BlurReveal delay={0.2} duration={0.8} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          
+          {/* Left Card: Dark Container */}
+          <div className="relative bg-[#111111] dark:bg-[#0a0a0a] rounded-[2rem] p-10 md:p-14 flex flex-col justify-between min-h-[500px] border border-white/5 shadow-2xl">
+            
+            {/* Quote Badge */}
+            <div className="absolute -top-6 -left-6 md:-top-8 md:-left-8 w-16 h-16 md:w-20 md:h-20 bg-gray-100 rounded-3xl flex items-center justify-center shadow-xl rotate-[-2deg]">
+              <Quote className="w-8 h-8 md:w-10 md:h-10 text-[#111111] fill-[#111111]" />
             </div>
 
             <div>
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">Key Achievements</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  { text: 'Built production apps handling 1M+ concurrent sessions', highlight: '1M+' },
-                  { text: 'Reduced server strain by 50% with Redis caching', highlight: '50%' },
-                  { text: 'Improved CI/CD reliability by 100% at BrandSmashers', highlight: '100%' },
-                  { text: 'Achieved 35% faster API response times', highlight: '35%' },
-                  { text: 'Contributed to libraries with 60k+ combined stars', highlight: '60k+' },
-                  { text: 'Saved ₹4.2L annually through optimization', highlight: '₹4.2L' },
-                ].map((achievement, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-3 p-4 bg-primary/5 rounded-xl border border-primary/10 hover:border-primary/30 transition-colors duration-300"
-                  >
-                    <span className="text-primary text-xl">✓</span>
-                    <span className="text-muted-foreground">{achievement.text}</span>
-                  </div>
-                ))}
-              </div>
+              <span className="text-sm font-medium text-white/50 mb-8 block">About Me</span>
+              <ScrollRevealText
+                text="Solving complex engineering challenges through elegant, scalable, and cross-platform solutions. I bridge the gap between creative design and robust architecture."
+                className="text-3xl md:text-4xl lg:text-[2.8rem] font-display font-bold text-white leading-[1.2] tracking-tight"
+                as="h2"
+              />
             </div>
+
+            <div className="mt-16 flex items-center gap-3 text-sm text-white/50 font-medium">
+              <span>Software Engineer</span>
             </div>
-          </LiquidGlassCard>
+          </div>
+
+          {/* Right Card: Image */}
+          <div className="relative rounded-[2rem] overflow-hidden min-h-[400px] md:min-h-[500px] shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?q=80&w=1200&auto=format&fit=crop" 
+              alt="Developer Profile" 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+
         </BlurReveal>
       </div>
     </section>

@@ -50,10 +50,6 @@ const Contact = () => {
           </a>
         </div>
 
-        <div className="flex items-center justify-center space-x-3 text-muted-foreground animate-fade-in-up animation-delay-600 mb-16">
-          <MapPin className="w-6 h-6" />
-          <span className="font-body text-lg">Open to relocate globally • Ready for new opportunities worldwide 🌍</span>
-        </div>
 
         <div className="pt-8 border-t border-border animate-fade-in-up animation-delay-700">
           <p className="text-muted-foreground font-body">

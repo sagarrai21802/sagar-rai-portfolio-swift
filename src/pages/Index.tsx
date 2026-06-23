@@ -6,7 +6,6 @@ import Projects from '@/components/Projects';
 import OpenSource from '@/components/OpenSource';
 import Achievements from '@/components/Achievements';
 import Certifications from '@/components/Certifications';
-import Education from '@/components/Education';
 import Contact from '@/components/Contact';
 
 const Index = () => {
@@ -114,7 +113,6 @@ const Index = () => {
       </div>
       
       <div className="relative z-1">
-        <Education />
         <Certifications />
         <Contact />
       </div>
