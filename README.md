@@ -1,73 +1,84 @@
-# Welcome to your Lovable project
+<div align="center">
+  <img src="https://sagarrai.tech/80469C0F-FE49-454B-811B-08306F9C73DB_1_105_c.jpeg" alt="Sagar Rai" width="150" style="border-radius:50%">
+  
+  # Hi there, I'm Sagar Rai! 👋
+  
+  ### iOS Developer & Software Engineer
+  
+  [![Website](https://img.shields.io/badge/Website-sagarrai.tech-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sagarrai.tech)
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-sagar--rai--ios-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/sagar-rai-ios)
+  [![GitHub](https://img.shields.io/badge/GitHub-AugustDev-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AugustDev)
+</div>
 
-## Project info
+---
 
-**URL**: https://lovable.dev/projects/71c0fea2-90f1-4090-8778-5c20042c263e
+## 👨‍💻 About Me
 
-## How can I edit this code?
+I am a professional **iOS Developer** and **Software Engineer** specializing in building scalable, high-performance mobile applications and beautiful user interfaces. My passion lies in crafting seamless experiences and leveraging modern technologies to solve real-world problems.
 
-There are several ways of editing your application.
+- 🔭 I’m currently working on advanced iOS applications using **Swift** and **SwiftUI**.
+- 🌱 I’m continually exploring **AI Integration**, **Full-Stack Web Development**, and **Mobile System Architecture**.
+- 💬 Ask me about **iOS Development, SwiftUI, React, or Tech Architecture**.
+- ⚡ Fun fact: I love participating in hackathons (like the Kaggle DeepMind Hackathon) to build innovative, accessibility-focused solutions!
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/71c0fea2-90f1-4090-8778-5c20042c263e) and start prompting.
+## 🛠️ Skills & Technologies
 
-Changes made via Lovable will be committed automatically to this repo.
+<div align="center">
+  
+  **Mobile Development**  
+  ![Swift](https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white)
+  ![SwiftUI](https://img.shields.io/badge/SwiftUI-007AFF?style=for-the-badge&logo=swift&logoColor=white)
+  ![UIKit](https://img.shields.io/badge/UIKit-2396F3?style=for-the-badge&logo=apple&logoColor=white)
+  
+  **Web Technologies**  
+  ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+  ![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+  ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-**Use your preferred IDE**
+  **Backend & Others**  
+  ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+  ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+  ![Firebase](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)
+  ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
+</div>
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🚀 Featured Projects
 
-Follow these steps:
+### [📱 Dobbie: AI-Powered LinkedIn Content Platform](https://github.com/sagarrai21802/dobbie)
+A revolutionary iOS application built with **SwiftUI** and advanced **AI Integrations**.
+- **Features:** One-click LinkedIn posting, multi-user support, perfect hook generation.
+- **Tech Stack:** SwiftUI, REST APIs, LinkedIn API, Social Media Automation.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### [📖 Kahaniyan: Immersive Hindi Story Platform](https://kahaniyan.page)
+A beautiful platform where readers can engage with classic and contemporary Hindi literature. Built from scratch with optimized SSR.
+- **Features:** Curated collections, elegant reading interface, responsive design.
+- **Tech Stack:** Next.js 16, React, Tailwind CSS, FastAPI, Python.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### [👁️ VisionAssist: AI-Powered Accessibility](https://github.com/sagarrai21802/VisionAssist.git)
+A browser extension built for the **Kaggle DeepMind Hackathon** that empowers visually impaired users by reading web pages aloud and describing all visual content.
+- **Features:** Full web page reading, AI-powered image descriptions, text-to-speech.
+- **Tech Stack:** JavaScript, Chrome Extension, DeepMind API, Text-to-Speech.
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 📈 GitHub Stats
 
-**Edit a file directly in GitHub**
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=AugustDev&show_icons=true&theme=radium" alt="GitHub Stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AugustDev&theme=radium" alt="GitHub Streak" />
+</div>
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📬 Get In Touch
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Want to collaborate on a project, or just want to say hi? Feel free to reach out through my [Website](https://sagarrai.tech) or drop me a message on [LinkedIn](https://linkedin.com/in/sagar-rai-ios)!
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/71c0fea2-90f1-4090-8778-5c20042c263e) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+<div align="center">
+  <sub>Built with ❤️ by Sagar Rai</sub>
+</div>
