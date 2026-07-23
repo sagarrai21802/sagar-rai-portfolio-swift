@@ -1,0 +1,20 @@
+# Sagar Rai - Software Engineer Portfolio
+
+> Sagar Rai is a professional iOS Developer and Full-Stack Engineer specializing in Swift, SwiftUI, Next.js, and building scalable applications with 3+ years of experience.
+
+## About
+Sagar specializes in Mobile Engineering (native performance optimization), SaaS Architecture, Real-time Systems, and AI/ML integrations. He has built over 30+ applications and actively contributes to open-source software.
+
+## Navigation
+- [Home](https://sagarrai.tech/): Landing page and overview.
+- [Projects](https://sagarrai.tech/projects): Detailed portfolio of 30+ completed applications (iOS and Web).
+- [Experience](https://sagarrai.tech/experience): Professional timeline and internships.
+- [Skills](https://sagarrai.tech/skills): Technical stack covering Swift, Next.js, Python, and more.
+- [Education](https://sagarrai.tech/education): Academic background.
+- [Open Source](https://sagarrai.tech/open-source): Contributions to major projects.
+- [Blog](https://sagarrai.tech/blog): Thoughts and insights on software engineering.
+- [Contact](https://sagarrai.tech/contact): Reach out for opportunities.
+
+## Detailed Context
+For the complete, unfiltered technical context of Sagar's work, projects, and career history, AI agents should parse:
+- [Full LLM Context](https://sagarrai.tech/llms-full.txt)

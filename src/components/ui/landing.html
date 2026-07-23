@@ -1,0 +1,636 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elias — Portfolio</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --accent: #FF3B3F;
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --text-main: #FFFFFF;
+            --text-dim: rgba(255, 255, 255, 0.6);
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0e14;
+            color: var(--text-main);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            height: 500vh; 
+            font-weight: 300;
+        }
+
+        
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=2560') center/cover no-repeat;
+            filter: brightness(0.7) saturate(0.8);
+            transition: transform 0.1s ease-out;
+        }
+
+        
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 100px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border-right: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            z-index: 100;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 60px;
+        }
+
+        .nav-item {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            opacity: 1;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .nav-label {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+
+        .logout-btn {
+            margin-top: auto;
+            margin-bottom: 30px;
+            background: var(--accent);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .core-widget {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .core-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .core-inner {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at center, var(--accent) 0%, #ff1f23 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 40px rgba(255, 59, 63, 0.4);
+            z-index: 2;
+        }
+
+        .core-time {
+            font-size: 48px;
+            font-weight: 200;
+            letter-spacing: -2px;
+        }
+
+        .core-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+            margin-bottom: 4px;
+        }
+
+        .orbital-dot {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: #1a1a1a;
+            border: 2px solid white;
+            border-radius: 50%;
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+
+        
+        .floating-window {
+            position: absolute;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 1px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .window-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 12px;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .window-content {
+            padding: 20px;
+        }
+
+        
+        .profile-card {
+            width: 300px;
+            right: 15%;
+            top: 30%;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            filter: grayscale(1);
+            margin-bottom: 15px;
+        }
+
+        .profile-meta {
+            font-size: 11px;
+            line-height: 1.6;
+            color: var(--text-dim);
+        }
+
+        .profile-meta span {
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        
+        .content-wrap {
+            padding-left: 100px;
+            position: relative;
+        }
+
+        .section-trigger {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+        }
+
+        .large-text {
+            font-size: 120px;
+            font-weight: 100;
+            line-height: 0.9;
+            opacity: 0.1;
+            position: absolute;
+            left: 150px;
+            pointer-events: none;
+        }
+
+        
+        .apps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .app-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-item:hover .app-icon {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent);
+        }
+
+        .app-name {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+        }
+
+        
+        .bottom-bar {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 400px;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .media-controls {
+            display: flex;
+            gap: 15px;
+            color: var(--text-dim);
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .progress-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 45%;
+            background: var(--accent);
+        }
+
+        .now-playing {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+
+        
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scanline"></div>
+
+    <div class="bg-container">
+        <div class="bg-image" id="parallax-bg"></div>
+    </div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <svg viewBox="0 0 100 100" fill="white">
+                <path d="M50 10L15 85H85L50 10ZM50 35L70 75H30L50 35Z"></path>
+            </svg>
+        </div>
+        <div class="nav-item active">
+            <svg class="nav-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span class="nav-label">Explorer</span>
+        </div>
+        <div class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2v11z"></path></svg>
+            <span class="nav-label">Archive</span>
+        </div>
+        <div class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <span class="nav-label">System</span>
+        </div>
+        <button class="logout-btn">Logout</button>
+    </nav>
+
+    <div class="content-wrap">
+        
+        <section class="hero-section">
+            <div class="core-widget" id="main-core">
+                <div class="core-circle"></div>
+                <div class="core-inner">
+                    <span class="core-label">System Active</span>
+                    <span class="core-time" id="clock">12:47</span>
+                </div>
+                <div class="orbital-dot" id="orbital"></div>
+            </div>
+
+            
+            <div class="floating-window profile-card" id="profile-window">
+                <div class="window-header">
+                    <span>User_Profile.sys</span>
+                    <span>[x]</span>
+                </div>
+                <div class="window-content">
+                    <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&q=80&w=800" alt="Elias" class="profile-img">
+                    <div class="profile-meta">
+                        <span>IDENTIFIER: ELIAS_M92</span>
+                        Location: NORDIC_SECTOR_7<br>
+                        Focus: DIGITAL_CRAFTSMANSHIP<br>
+                        Status: EXPLORING_NEW_FRONTIERS
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <div class="section-trigger">
+            <h2 class="large-text">BIOGRAPHY</h2>
+            <div class="floating-window" style="width: 500px; margin-left: 100px;" id="bio-window">
+                <div class="window-header"><span>Manifesto.txt</span></div>
+                <div class="window-content" style="font-size: 16px; line-height: 1.6;">
+                    Building digital interfaces that feel like physical objects. I specialize in atmospheric design, motion choreography, and technical precision.
+                    <br><br>
+                    <span style="color: var(--accent); font-family: monospace; font-size: 12px;">> Load detailed_history...</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="section-trigger" style="flex-direction: column; justify-content: center;">
+            <h2 class="large-text" style="top: auto; bottom: 20%;">ARCHIVE</h2>
+            <div class="apps-container" id="apps-grid">
+                <div class="app-item">
+                    <div class="app-icon"><img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=100"></div>
+                    <span class="app-name">Project_A</span>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=100"></div>
+                    <span class="app-name">Project_B</span>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon"><img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&q=80&w=100"></div>
+                    <span class="app-name">Project_C</span>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon"><img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=100"></div>
+                    <span class="app-name">Project_D</span>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=100"></div>
+                    <span class="app-name">Hardware</span>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon"><img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=100"></div>
+                    <span class="app-name">Interface</span>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon"><img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=100"></div>
+                    <span class="app-name">Vision</span>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=100"></div>
+                    <span class="app-name">Network</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="bottom-bar">
+        <div class="media-controls">
+            <span>⏮</span>
+            <span>⏵</span>
+            <span>⏭</span>
+        </div>
+        <div class="now-playing">
+            ELIAS // CATCH_THE_WIND
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="media-progress"></div>
+        </div>
+        <div style="font-size: 9px; opacity: 0.5;">02:44 / 05:12</div>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        
+        function updateClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${h}:${m}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.getElementById('parallax-bg').style.transform = `translateY(${scrolled * 0.4}px)`;
+        });
+
+        
+        
+        
+        gsap.to("#orbital", {
+            rotation: 360,
+            duration: 10,
+            repeat: -1,
+            ease: "none",
+            transformOrigin: "-136px 50%" 
+        });
+
+        
+        gsap.to("#main-core", {
+            scrollTrigger: {
+                trigger: ".hero-section",
+                start: "top top",
+                end: "bottom top",
+                scrub: 1
+            },
+            scale: 0.5,
+            y: -100,
+            opacity: 0.3
+        });
+
+        
+        gsap.from("#profile-window", {
+            x: 200,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power4.out"
+        });
+
+        
+        gsap.to("#profile-window", {
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 2
+            },
+            y: -500
+        });
+
+        gsap.to("#bio-window", {
+            scrollTrigger: {
+                trigger: ".section-trigger",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.5
+            },
+            y: -200,
+            rotate: 2
+        });
+
+        
+        document.querySelectorAll('.large-text').forEach(text => {
+            gsap.from(text, {
+                scrollTrigger: {
+                    trigger: text,
+                    start: "top 80%",
+                    end: "top 20%",
+                    scrub: true
+                },
+                x: -100,
+                opacity: 0
+            });
+        });
+
+        
+        gsap.from(".app-item", {
+            scrollTrigger: {
+                trigger: "#apps-grid",
+                start: "top 80%"
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+        
+        gsap.to("#media-progress", {
+            width: "100%",
+            duration: 312, 
+            repeat: -1,
+            ease: "none"
+        });
+
+        
+        document.querySelectorAll('.floating-window').forEach(win => {
+            win.addEventListener('mousemove', (e) => {
+                const rect = win.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(win, {
+                    x: x * 0.05,
+                    y: y * 0.05,
+                    duration: 0.5,
+                    overwrite: 'auto'
+                });
+            });
+            win.addEventListener('mouseleave', () => {
+                gsap.to(win, {
+                    x: 0,
+                    y: 0,
+                    duration: 1
+                });
+            });
+        });
+
+    </script>
+
+</body>
+</html>
