@@ -20,6 +20,9 @@ import SkillsPage from "./pages/Skills";
 import EducationPage from "./pages/Education";
 import ContactPage from "./pages/Contact";
 import ApplicationsPage from "./pages/Applications";
+import IOSDevelopmentPage from "./pages/services/IOSDevelopment";
+import MobileAppDevelopmentPage from "./pages/services/MobileAppDevelopment";
+import WebDevelopmentPage from "./pages/services/WebDevelopment";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +49,9 @@ const AppContent = () => {
           <Route path="/" element={<Home introCompleted={introCompleted} />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:projectId" element={<ProjectDetail />} />
+          <Route path="/services/ios-development" element={<IOSDevelopmentPage />} />
+          <Route path="/services/mobile-app-development" element={<MobileAppDevelopmentPage />} />
+          <Route path="/services/web-development" element={<WebDevelopmentPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/applications" element={<ApplicationsPage />} />
           <Route path="/blog/:slug" element={<BlogDetail />} />

@@ -15,6 +15,9 @@ export interface Project {
   liveUrl?: string | null;
   liveDemo?: string | null; // Keep liveDemo for compatibility with ProjectDetail
   
+  // Category field for filtering
+  category?: 'mobile' | 'web' | 'cross-platform';
+
   // Applications-specific fields
   isApplication?: boolean;
   version?: string;
@@ -24,6 +27,32 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    id: 'duneshine-android',
+    title: "DuneShine: Doorstep Waterless Carwash App",
+    description: "Premium on-demand waterless carwash booking application published on the Google Play Store for users to schedule and manage doorstep car cleaning services.",
+    longDescription: "DuneShine is a comprehensive on-demand waterless carwash booking platform built for customers. The application allows users to schedule, manage, and track car wash services right at their doorstep. By leveraging an environment-friendly waterless cleaning formula, DuneShine offers a premium finish without wasting water.\n\nThis application is published on the Google Play Store, featuring complete booking flows, real-time tracking of assigned washers, customizable subscriptions, secure payment integration, and push notifications for service updates. Developed with a high-fidelity interface, it delivers a native, responsive app experience with smooth navigations and state-of-the-art visual assets.",
+    tech: ["Android", "Kotlin", "React Native", "Firebase", "Google Play Console", "REST APIs", "Mapbox/Google Maps"],
+    image: "https://i.pinimg.com/736x/80/e8/75/80e87573def76cb5c893fbd2ff0f8e1f.jpg",
+    video: null,
+    showVideo: false,
+    liveUrl: "https://play.google.com/store/apps/details?id=ae.duneshine.car&pcampaignid=web_share",
+    liveDemo: "https://play.google.com/store/apps/details?id=ae.duneshine.car&pcampaignid=web_share",
+    achievements: "Published on Google Play Store, 100+ downloads, eco-friendly waterless formula",
+    features: [
+      "Doorstep waterless carwash scheduling",
+      "Real-time tracking of service status",
+      "Subscription and on-demand wash bookings",
+      "Secure payment gateway integration",
+      "Push notifications for washer milestones"
+    ],
+    github: null,
+    isApplication: true,
+    icon: "https://i.pinimg.com/736x/80/e8/75/80e87573def76cb5c893fbd2ff0f8e1f.jpg",
+    size: "Google Play Store",
+    version: "1.2.0",
+    downloadUrl: "https://play.google.com/store/apps/details?id=ae.duneshine.car&pcampaignid=web_share"
+  },
   {
     id: 'kahaniyan',
     title: "Kahaniyan: Immersive Hindi Story Platform",

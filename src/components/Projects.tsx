@@ -7,6 +7,20 @@ import { projects as centralizedProjects } from '@/data/projects';
 const Projects = () => {
   const navigate = useNavigate();
   const [showVideo, setShowVideo] = useState<{ [key: string]: boolean }>({});
+  const [activeCategory, setActiveCategory] = useState<'all' | 'mobile' | 'web' | 'cross-platform'>('all');
+
+  const getCategory = (p: any): 'mobile' | 'web' | 'cross-platform' => {
+    if (p.category) return p.category;
+    const techStr = (p.tech || []).join(' ').toLowerCase();
+    const idStr = (p.id || '').toLowerCase();
+    if (idStr.includes('web-portal') || techStr.includes('flutter') || techStr.includes('react native') || techStr.includes('webview')) {
+      return 'cross-platform';
+    }
+    if (techStr.includes('swift') || techStr.includes('uikit') || techStr.includes('android') || techStr.includes('ios') || techStr.includes('kotlin')) {
+      return 'mobile';
+    }
+    return 'web';
+  };
 
   useEffect(() => {
     const timeouts: { [key: string]: NodeJS.Timeout } = {};
@@ -169,15 +183,45 @@ const Projects = () => {
     );
   };
 
+  const filteredProjects = projects.filter(p => {
+    if (activeCategory === 'all') return true;
+    return getCategory(p) === activeCategory;
+  });
+
   return (
     <section className="py-24 px-4 bg-background">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 fade-in tracking-tight">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-6 fade-in tracking-tight">
           Featured Projects
         </h2>
 
+        {/* Category Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
+          {[
+            { id: 'all', label: 'All Projects' },
+            { id: 'mobile', label: 'iOS & Mobile' },
+            { id: 'web', label: 'Web & Full-Stack' },
+            { id: 'cross-platform', label: 'Cross-Platform' },
+          ].map((tab) => {
+            const isActive = activeCategory === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveCategory(tab.id as any)}
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${
+                  isActive
+                    ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20 scale-105'
+                    : 'bg-white/5 text-muted-foreground border-white/10 hover:border-white/20 hover:text-foreground'
+                }`}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <LiquidGlassCard
               key={project.id}
               variant="light"
