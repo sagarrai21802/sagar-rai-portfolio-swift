@@ -7,20 +7,6 @@ import { projects as centralizedProjects } from '@/data/projects';
 const Projects = () => {
   const navigate = useNavigate();
   const [showVideo, setShowVideo] = useState<{ [key: string]: boolean }>({});
-  const [activeCategory, setActiveCategory] = useState<'all' | 'mobile' | 'web' | 'cross-platform'>('all');
-
-  const getCategory = (p: any): 'mobile' | 'web' | 'cross-platform' => {
-    if (p.category) return p.category;
-    const techStr = (p.tech || []).join(' ').toLowerCase();
-    const idStr = (p.id || '').toLowerCase();
-    if (idStr.includes('web-portal') || techStr.includes('flutter') || techStr.includes('react native') || techStr.includes('webview')) {
-      return 'cross-platform';
-    }
-    if (techStr.includes('swift') || techStr.includes('uikit') || techStr.includes('android') || techStr.includes('ios') || techStr.includes('kotlin')) {
-      return 'mobile';
-    }
-    return 'web';
-  };
 
   useEffect(() => {
     const timeouts: { [key: string]: NodeJS.Timeout } = {};
@@ -175,111 +161,59 @@ const Projects = () => {
       <div className="w-full h-full flex items-center justify-center overflow-hidden">
         <img
           src={project.image}
-          alt={`${project.title} - iOS app UI built with SwiftUI`}
-          className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
+          alt={`${project.title} - app UI`}
+          className="max-w-full max-h-full object-contain"
           loading="lazy"
         />
       </div>
     );
   };
 
-  const filteredProjects = projects.filter(p => {
-    if (activeCategory === 'all') return true;
-    return getCategory(p) === activeCategory;
-  });
-
   return (
     <section className="py-24 px-4 bg-background">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-6 fade-in tracking-tight">
-          Featured Projects
-        </h2>
-
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
-          {[
-            { id: 'all', label: 'All Projects' },
-            { id: 'mobile', label: 'iOS & Mobile' },
-            { id: 'web', label: 'Web & Full-Stack' },
-            { id: 'cross-platform', label: 'Cross-Platform' },
-          ].map((tab) => {
-            const isActive = activeCategory === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveCategory(tab.id as any)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${
-                  isActive
-                    ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20 scale-105'
-                    : 'bg-white/5 text-muted-foreground border-white/10 hover:border-white/20 hover:text-foreground'
-                }`}
-              >
-                {tab.label}
-              </button>
-            );
-          })}
-        </div>
-
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <LiquidGlassCard
               key={project.id}
               variant="light"
+              hoverLift={false}
               onClick={() => handleProjectClick(project.id)}
-              className="stagger-item overflow-hidden shadow-lg border border-white/10 dark:border-white/5 cursor-pointer flex flex-col h-full"
+              className="stagger-item overflow-hidden border border-white/10 dark:border-white/10 hover:border-white/30 transition-colors duration-300 cursor-pointer flex flex-col h-full shadow-md"
             >
-              <div className="h-80 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-50/20 to-gray-100/10 dark:from-gray-850 dark:to-gray-950 image-zoom">
+              <div className="h-80 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-50/20 to-gray-100/10 dark:from-gray-850 dark:to-gray-950">
                 <MediaComponent project={project} />
                 <div className="absolute inset-0 bg-black/5 dark:bg-black/10"></div>
               </div>
 
               <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4">
+                  <h3 className="text-[1.67rem] md:text-[1.85rem] font-display font-bold text-foreground mb-3 leading-tight tracking-tight">
                     {project.title}
                   </h3>
 
-                  <p className="text-muted-foreground mb-4 leading-relaxed font-body">
+                  <p className="text-[1rem] md:text-[1.11rem] text-muted-foreground mb-4 leading-relaxed font-body line-clamp-2">
                     {project.description}
                   </p>
-
-                  {project.achievements && (
-                    <div className="mb-6 p-3 bg-primary/10 rounded-xl border border-primary/20">
-                      <p className="text-primary text-sm font-medium">
-                        🎯 {project.achievements}
-                      </p>
-                    </div>
-                  )}
                 </div>
 
-                <div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={tech}
-                        className="px-4 py-2 bg-elegant-gray/50 dark:bg-elegant-gray/10 text-foreground rounded-full text-sm font-medium hover:scale-105 transition-all duration-300 border border-border/50 hover:bg-primary/5"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {project.liveUrl && (
+                {project.liveUrl && (
+                  <div className="flex justify-end pt-3">
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
+                      className="inline-flex items-center gap-2.5 px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary/90 hover:scale-105 transition-all duration-300 text-base font-bold shadow-md"
                     >
-                      View Live
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <span className="text-white font-bold">View Live</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                         <polyline points="15 3 21 3 21 9"/>
                         <line x1="10" y1="14" x2="21" y2="3"/>
                       </svg>
                     </a>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             </LiquidGlassCard>
           ))}

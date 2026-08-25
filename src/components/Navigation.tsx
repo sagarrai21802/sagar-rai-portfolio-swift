@@ -9,14 +9,10 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services/ios-development' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Blog', path: '/blog' },
     { name: 'Applications', path: '/applications' },
-    { name: 'Open Source', path: '/open-source' },
     { name: 'Experience', path: '/experience' },
-    { name: 'Skills', path: '/skills' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Blog', path: '/blog' },
   ];
 
   const socialLinks = [
@@ -39,10 +35,10 @@ const Navigation = () => {
   return (
     <nav className="fixed top-4 inset-x-0 mx-auto w-[95%] max-w-7xl z-[100] transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="inline-flex items-center min-h-11 text-xl font-display font-bold text-foreground hover:text-primary transition-all duration-300 hover:scale-105">
-            SR 
+          <Link to="/" className="inline-flex items-center min-h-12 text-xl font-display font-bold text-foreground hover:text-primary transition-all duration-300 hover:scale-105">
+            SR
           </Link>
 
           {/* Desktop Navigation */}

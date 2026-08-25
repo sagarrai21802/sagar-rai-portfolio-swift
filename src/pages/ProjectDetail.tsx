@@ -31,7 +31,7 @@ const ProjectDetail = () => {
   }
 
   return (
-    <div className="min-h-screen pt-20 bg-background">
+    <div className="min-h-screen pt-32 bg-background">
       <SEO
         title={`${project.title} | Sagar Rai`}
         description={project.description}
@@ -125,11 +125,9 @@ const ProjectDetail = () => {
                 Project Overview
               </h2>
               <div className="prose prose-lg dark:prose-invert max-w-none">
-                {project.longDescription.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-muted-foreground leading-relaxed mb-4">
-                    {paragraph}
-                  </p>
-                ))}
+                <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+                  {project.longDescription}
+                </p>
               </div>
             </div>
 
@@ -170,20 +168,6 @@ const ProjectDetail = () => {
               </div>
             </div>
 
-            {/* Achievements */}
-            {project.achievements && (
-              <div>
-                <h3 className="text-xl font-display font-bold text-foreground mb-4">
-                  Achievements
-                </h3>
-                <div className="p-4 bg-primary/10 rounded-xl border border-primary/20">
-                  <p className="text-primary font-medium">
-                    🎯 {project.achievements}
-                  </p>
-                </div>
-              </div>
-            )}
-
             {/* Links */}
             <div>
               <h3 className="text-xl font-display font-bold text-foreground mb-4">
@@ -207,10 +191,10 @@ const ProjectDetail = () => {
                     href={project.liveDemo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 px-4 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                    className="flex items-center justify-center space-x-2.5 px-6 py-3.5 bg-primary text-white rounded-xl hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-md font-bold text-base"
                   >
-                    <ExternalLink className="w-5 h-5" />
-                    <span className="font-medium">Live</span>
+                    <ExternalLink className="w-5 h-5 text-white stroke-[2.5]" />
+                    <span className="font-bold text-white text-base">View Live</span>
                   </a>
                 )}
               </div>

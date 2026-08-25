@@ -3,7 +3,7 @@ import SEO from '@/components/SEO';
 
 const ProjectsPage = () => {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-32">
       <SEO
         title="Projects | Sagar Rai"
         description="Explore the portfolio projects, iOS applications, open-source work, and full-stack solutions built by Sagar Rai."

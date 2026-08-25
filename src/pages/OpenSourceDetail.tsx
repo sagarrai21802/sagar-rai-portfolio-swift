@@ -69,7 +69,7 @@ const OpenSourceDetail = () => {
   }
 
   return (
-    <div className="min-h-screen pt-20 bg-background">
+    <div className="min-h-screen pt-32 bg-background">
       <SEO
         title={`${contribution.title} | Sagar Rai`}
         description={contribution.description}

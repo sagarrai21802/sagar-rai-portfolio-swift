@@ -9,7 +9,7 @@ import SEO from '@/components/SEO';
 const Blog = () => {
   if (!blogs.length) {
     return (
-      <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <SEO 
           title="Blog | Sagar Rai" 
           description="Read thoughts, tutorials, and insights on iOS development, software engineering, and career growth."
@@ -25,7 +25,7 @@ const Blog = () => {
   }
 
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8">
       <SEO 
         title="Blog | Sagar Rai" 
         description="Read thoughts, tutorials, and insights on iOS development, software engineering, and career growth."

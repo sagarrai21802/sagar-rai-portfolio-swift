@@ -144,7 +144,7 @@ const OpenSource = () => {
   };
 
   return (
-    <section className="py-24 px-4 bg-background">
+    <section className="pt-32 pb-24 px-4 bg-background">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-foreground mb-16 fade-in tracking-tight">
           Open Source Contributions

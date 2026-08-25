@@ -3,7 +3,7 @@ import SEO from '@/components/SEO';
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-32">
       <SEO
         title="Get in Touch | Sagar Rai"
         description="Get in touch with Sagar Rai for project collaborations, software engineering roles, iOS development queries, or general opportunities."
