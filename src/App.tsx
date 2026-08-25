@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,19 +8,20 @@ import { HelmetProvider } from 'react-helmet-async';
 import Navigation from "./components/Navigation";
 import Layout from "./components/Layout";
 import IntroAnimation from "./components/IntroAnimation";
-import Home from "./pages/Home";
-import ProjectsPage from "./pages/Projects";
-import ProjectDetail from "./pages/ProjectDetail";
-import Blog from "./pages/Blog";
-import BlogDetail from "./pages/BlogDetail";
-import OpenSource from "./components/OpenSource";
-import OpenSourceDetail from "./pages/OpenSourceDetail";
-import Experience from "./pages/Experience";
-import SkillsPage from "./pages/Skills";
-import EducationPage from "./pages/Education";
-import ContactPage from "./pages/Contact";
-import ApplicationsPage from "./pages/Applications";
-import NotFound from "./pages/NotFound";
+
+const Home = lazy(() => import("./pages/Home"));
+const ProjectsPage = lazy(() => import("./pages/Projects"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogDetail = lazy(() => import("./pages/BlogDetail"));
+const OpenSource = lazy(() => import("./components/OpenSource"));
+const OpenSourceDetail = lazy(() => import("./pages/OpenSourceDetail"));
+const Experience = lazy(() => import("./pages/Experience"));
+const SkillsPage = lazy(() => import("./pages/Skills"));
+const EducationPage = lazy(() => import("./pages/Education"));
+const ContactPage = lazy(() => import("./pages/Contact"));
+const ApplicationsPage = lazy(() => import("./pages/Applications"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -42,22 +43,24 @@ const AppContent = () => {
       {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
       <Layout>
         <Navigation />
-        <Routes>
-          <Route path="/" element={<Home introCompleted={introCompleted} />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/projects/:projectId" element={<ProjectDetail />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/applications" element={<ApplicationsPage />} />
-          <Route path="/blog/:slug" element={<BlogDetail />} />
-          <Route path="/open-source" element={<OpenSource />} />
-          <Route path="/open-source/:contributionId" element={<OpenSourceDetail />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/skills" element={<SkillsPage />} />
-          <Route path="/education" element={<EducationPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<div className="flex h-screen w-full items-center justify-center text-foreground">Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home introCompleted={introCompleted} />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/:projectId" element={<ProjectDetail />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/applications" element={<ApplicationsPage />} />
+            <Route path="/blog/:slug" element={<BlogDetail />} />
+            <Route path="/open-source" element={<OpenSource />} />
+            <Route path="/open-source/:contributionId" element={<OpenSourceDetail />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/education" element={<EducationPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </Layout>
     </>
   );
