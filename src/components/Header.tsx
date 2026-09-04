@@ -9,35 +9,27 @@ import LiquidGlassCard from './ui/LiquidGlassCard';
 
 const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
   const navigate = useNavigate();
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [animationStarted, setAnimationStarted] = useState(false);
-  const [imageSlideComplete, setImageSlideComplete] = useState(false);
-  const { parallax } = useMouseParallax(1);
+  const [isFirstVisit] = useState(() => {
+    return !sessionStorage.getItem('hasSeenHeaderAnimation');
+  });
+  const [imageSlideComplete, setImageSlideComplete] = useState(() => {
+    return Boolean(sessionStorage.getItem('hasSeenHeaderAnimation'));
+  });
 
   useEffect(() => {
-    // Start animation sequence when intro completes
-    if (introCompleted) {
-      setAnimationStarted(true);
-      // Give the browser time to paint the initial state before applying the animation class
+    // Start animation sequence when intro completes for the first time
+    if (introCompleted && !sessionStorage.getItem('hasSeenHeaderAnimation')) {
       const slideTimer = setTimeout(() => {
         setImageSlideComplete(true);
+        sessionStorage.setItem('hasSeenHeaderAnimation', 'true');
       }, 100);
 
       return () => clearTimeout(slideTimer);
+    } else if (introCompleted) {
+      setImageSlideComplete(true);
     }
   }, [introCompleted]);
 
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    aboutSection?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const titleReveal = useReveal();
-  const subtitleReveal = useReveal();
   const buttonsReveal = useReveal();
 
   return (
@@ -46,7 +38,6 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
       <div className="absolute inset-0 z-0">
         <div className={`header-image-container ${imageSlideComplete ? 'image-slide-complete' : ''}`} />
       </div>
-
 
       {/* Rest of the content with relative positioning */}
       <div className="relative z-10 flex-1 flex items-center justify-start pt-8 md:pt-16 pl-0 lg:pl-12">
@@ -58,37 +49,56 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
             <div className="flex-1 text-left order-2 lg:order-1">
               {/* Greeting */}
               <div className="mb-4">
-                <TextReveal
-                  text="Hey, I'm Sagar Rai"
-                  as="p"
-                  className="text-[clamp(1.1rem,4.2vw,1.5rem)] md:text-2xl text-white/90 font-body font-light tracking-normal"
-                  delay={0.2}
-                  duration={0.8}
-                  revealDirection="left"
-                  startTrigger={imageSlideComplete}
-                />
+                {isFirstVisit ? (
+                  <TextReveal
+                    text="Hey, I'm Sagar Rai"
+                    as="p"
+                    className="text-[clamp(1.1rem,4.2vw,1.5rem)] md:text-2xl text-white/90 font-body font-light tracking-normal"
+                    delay={0.2}
+                    duration={0.8}
+                    revealDirection="left"
+                    startTrigger={imageSlideComplete}
+                  />
+                ) : (
+                  <p className="text-[clamp(1.1rem,4.2vw,1.5rem)] md:text-2xl text-white/90 font-body font-light tracking-normal">
+                    Hey, I'm Sagar Rai
+                  </p>
+                )}
               </div>
 
-              {/* Main Role Title: 120px, line-height 100px, weight 400, letter-spacing -0.055em */}
+              {/* Main Role Title */}
               <h1 className="mb-8 flex flex-col">
-                <TextReveal
-                  text="Software"
-                  as="span"
-                  className="block text-[clamp(2.75rem,8vw,120px)] lg:text-[120px] leading-[0.95] lg:leading-[100px] font-display font-normal tracking-[-0.055em] text-white"
-                  delay={0.4}
-                  duration={1}
-                  revealDirection="left"
-                  startTrigger={imageSlideComplete}
-                />
-                <TextReveal
-                  text="Engineer"
-                  as="span"
-                  className="block text-[clamp(2.75rem,8vw,120px)] lg:text-[120px] leading-[0.95] lg:leading-[100px] font-display font-normal tracking-[-0.055em] text-white"
-                  delay={0.6}
-                  duration={1}
-                  revealDirection="left"
-                  startTrigger={imageSlideComplete}
-                />
+                {isFirstVisit ? (
+                  <>
+                    <TextReveal
+                      text="Software"
+                      as="span"
+                      className="block text-[clamp(2.75rem,8vw,120px)] lg:text-[120px] leading-[0.95] lg:leading-[100px] font-display font-normal tracking-[-0.055em] text-white"
+                      delay={0.4}
+                      duration={1}
+                      revealDirection="left"
+                      startTrigger={imageSlideComplete}
+                    />
+                    <TextReveal
+                      text="Engineer"
+                      as="span"
+                      className="block text-[clamp(2.75rem,8vw,120px)] lg:text-[120px] leading-[0.95] lg:leading-[100px] font-display font-normal tracking-[-0.055em] text-white"
+                      delay={0.6}
+                      duration={1}
+                      revealDirection="left"
+                      startTrigger={imageSlideComplete}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <span className="block text-[clamp(2.75rem,8vw,120px)] lg:text-[120px] leading-[0.95] lg:leading-[100px] font-display font-normal tracking-[-0.055em] text-white">
+                      Software
+                    </span>
+                    <span className="block text-[clamp(2.75rem,8vw,120px)] lg:text-[120px] leading-[0.95] lg:leading-[100px] font-display font-normal tracking-[-0.055em] text-white">
+                      Engineer
+                    </span>
+                  </>
+                )}
               </h1>
 
               {/* Action buttons - even and professional */}

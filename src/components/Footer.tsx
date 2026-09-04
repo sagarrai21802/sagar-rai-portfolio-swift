@@ -46,15 +46,6 @@ const Footer = () => {
             <div className="flex items-center gap-2 text-base">
               <ChevronRight className="w-4 h-4 text-[#0a0a0a]" strokeWidth={3} />
               <Link
-                to="/skills"
-                className="text-base text-[#0a0a0a] font-semibold hover:opacity-75 transition-opacity cursor-pointer"
-              >
-                Tech Stack
-              </Link>
-            </div>
-            <div className="flex items-center gap-2 text-base">
-              <ChevronRight className="w-4 h-4 text-[#0a0a0a]" strokeWidth={3} />
-              <Link
                 to="/contact"
                 className="text-base text-[#0a0a0a] font-semibold hover:opacity-75 transition-opacity cursor-pointer"
               >
