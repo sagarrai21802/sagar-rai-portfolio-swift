@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
+import { ArrowLeft, Calendar, Tag } from 'lucide-react';
 import { formatDate, parseTags } from '@/utils/blogUtils';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -57,11 +57,16 @@ const BlogDetail = () => {
 
         {/* Hero Image */}
         {blog.image_url && (
-          <div className="relative w-full h-64 md:h-96 rounded-xl overflow-hidden mb-8">
+          <div className="relative w-full h-64 md:h-96 rounded-xl overflow-hidden mb-8 bg-muted">
             <img
               src={blog.image_url}
               alt={blog.title}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.src = '/placeholder.svg';
+              }}
             />
           </div>
         )}
@@ -73,10 +78,6 @@ const BlogDetail = () => {
 
         {/* Meta Info */}
         <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-8">
-          <div className="flex items-center gap-2">
-            <User className="w-4 h-4" />
-            <span>{blog.author}</span>
-          </div>
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4" />
             <span>{formatDate(blog.created_at)}</span>
@@ -100,13 +101,13 @@ const BlogDetail = () => {
 
         {/* Content */}
         <article className="prose prose-lg dark:prose-invert max-w-none">
-          {blog.content.split('\\n').map((paragraph, index) => {
+          {blog.content.split('\n').map((paragraph, index) => {
             if (paragraph.trim() === '') {
               return <br key={index} />;
             }
             // Basic markdown support for bold text
             const renderParagraph = () => {
-              const parts = paragraph.split(/\\*\\*(.*?)\\*\\*/g);
+              const parts = paragraph.split(/\*\*(.*?)\*\*/g);
               if (parts.length > 1) {
                 return parts.map((part, i) =>
                   i % 2 === 1 ? <strong key={i}>{part}</strong> : part
@@ -122,17 +123,6 @@ const BlogDetail = () => {
             );
           })}
         </article>
-
-        {/* Divider */}
-        <div className="border-t border-border mt-12 mb-8" />
-
-        {/* Back to Blog Button */}
-        <div className="text-center">
-          <Button onClick={() => navigate('/blog')} size="lg">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            View All Blog Posts
-          </Button>
-        </div>
       </div>
     </div>
   );

@@ -1,12 +1,8 @@
 import { Briefcase, Calendar, MapPin, Check, TrendingUp, Zap, Building2 } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
 import LiquidGlassCard from '../components/ui/LiquidGlassCard';
 import SEO from '@/components/SEO';
 
 const Experience = () => {
-  const [visibleCards, setVisibleCards] = useState<number[]>([]);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-
   const experiences = [
     {
       position: "Software Developer Intern",
@@ -45,28 +41,6 @@ const Experience = () => {
     }
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = cardRefs.current.indexOf(entry.target as HTMLDivElement);
-          if (entry.isIntersecting && index !== -1) {
-            setTimeout(() => {
-              setVisibleCards((prev) => [...new Set([...prev, index])]);
-            }, index * 150);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    cardRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="min-h-screen pt-32 bg-background">
       <SEO
@@ -77,7 +51,7 @@ const Experience = () => {
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 tracking-tight animate-fade-in">
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 tracking-tight">
               Work Experience
             </h1>
           </div>
@@ -87,12 +61,7 @@ const Experience = () => {
             {experiences.map((experience, index) => (
               <div
                 key={index}
-                ref={(el) => (cardRefs.current[index] = el)}
-                className={`transition-all duration-700 ease-out ${
-                  visibleCards.includes(index)
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-8'
-                }`}
+                className="opacity-100 translate-y-0"
               >
                 <LiquidGlassCard variant="light" hoverLift={true} className="h-full p-6 md:p-8 border border-white/10 dark:border-white/5 shadow-glass group flex flex-col justify-between">
                   <div>
@@ -170,7 +139,7 @@ const Experience = () => {
           </div>
 
           {/* Stats summary */}
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: TrendingUp, value: '2', label: 'Companies' },
               { icon: Zap, value: '$300k+', label: 'Value Saved' },

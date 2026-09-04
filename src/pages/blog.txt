@@ -1,0 +1,234 @@
+Now we are going to add a number of blocks inside our application.
+1.blog  The features are not a thing that sells emotion, speed, and cheap. If you are providing emotion related to the product, or if it is faster than the current one, or if it is cheaper than the other one, then you might think that your product is good.
+
+
+
+2.blog  These are the three things that I learned:
+1. Toughness is the first thing that you need to have for converting that into money.
+2. Always try to solve the hardest problem in the room.
+3. Your parents are always right so listen to them.
+
+
+
+3 blog . That design pattern that you can follow while solving any problem:
+1. Get the source of truth. From where did you get the problem and what do you want to achieve? Find that.
+2. Find the pattern inside it. Humans generally follow a pattern or whatever pattern you can find inside it, or the condition on which you can tap into it and make it break.
+3. Act on the pattern. Now you need to apply the action on that specific pattern so that you can stop it or you can improve it.
+ Now you need to apply this to the problem: Uber drivers were logging out on their drivers' app when an airport flight was landing so that the customer needs to pay more for the drive. The question was: How would you solve this problem? I applied this and I got the answer that we can actually stop it by finding the patterns you can find:
+1. The analytics from where you are getting this information.
+2. What humans follow, meaning what are the ranges of times people can be the reasons people actually log out while using Uber? If they have an emergency, if they want to go somewhere, maybe they have four breaks. Applying this filter: when the user is logging out, make the user log in after a while so he doesn't log out and log in again and again. This would be the action we can follow over that. These are the things I can say about it. Also you can find out who the people are who are doing that in a sync. You can temporarily make them wait more than other ones.
+3. When they log in they might face this issue: they might not get many rights for a period of time even though they have been logged in.
+These are the things that we can follow.
+
+
+
+
+4rth blog . Now the next vlog is to 1)
+take care of yourself, understand your health is necessary, and start earning for yourself. The person who knows how to clean himself, cook himself, and earn for himself can become independent.
+1. Find a way to use less energy so that you can get the most output from it. Output energy means find ways in which you need to give less energy so that you can get more energy out of it or more transition out of it and you will start earning.
+3. Be humble. In defending all the things we always need to be humble.
+
+next blog is 
+Whenever you are facing a client these are the questions that you need to ask:
+- What is their budget?
+- What is the duration they want?
+- What would happen if we don't provide the solution?
+so that you can have a better idea about what we need to get from the client, because problem understanding is the main thing that we want to know.
+
+Next blog is "Everything Is Possible in Engineering." It is about what to take and what to leave because you can either save time or money. As an engineer you can find multiple ways of solving multiple things by creating your own things, software, and whatever other things you need to have. Is that necessary for that specific time? That is the need you need to have. That is the ability you need to have, the critical thinking that you need to have.
+
+You can use AI at a time but is that necessary? Is that even making you convenient or is that making you lazy for future work? That is the thinking that you need to have. What is possible is endless, endless things but what is your understanding of it? That is necessary.
+
+next blog 
+Another thing: people pay for the convenience not for the code. If your next log is that, if you are a person who is a freelancer, then remember that you are selling this convenience because the person who is a client can also do this work. He can also learn the code. He can also do this thing but he wants to save his energy so that he can apply that to other things. That is why he is appointing you to do the work.
+
+You are not a person who is selling the code. You are the person who is providing this convenience and in the transition of this convenience you are getting money out of it. Code is one of the things that you are selling. The more valuable thing is the convenience, the draft, the guarantee, and the expertise that you are giving to them. That is valuable because that person has in mind that this person will handle whatever things I don't need to see inside because I want to focus on my business not on the website. 
+
+Next blog is "Not Every Problem Is Worth Solving." 
+
+next blog 
+Master only one thing. Have knowledge about other industries, other domains, other languages, but only master one. In my case that is iOS development because I have given 4 years of my life to learning that. I know that all in and out and that makes the person stand out from other developers who know many things but don't have expertise in any of them. Make yourself stand out by becoming an expert in something that gives you a whole understanding of that industry and internally the basics of other things are also seen. If you are mastering one thing you are also covering all the things other than that automatically. 
+
+
+next blog 
+There is an issue that I was facing when I was making a real-time application that was getting Clarity. When I was facing this, the application was real-time and the updates were coming in real-time. As I was clicking and doing any action on the application, the DOM was getting recalculated each time because there was a WebSocket going on there. We cannot remove that because we want the real-time data on it.
+There were three conditions that we can follow:
+- Polling
+- Continuous polling
+- Updating the data
+Understand it like you are throwing a rope again and again in the air, waiting for the backend to catch it, and then new data is going back again and again. WebSockets are kind of a bridge in between. The frontend and backend are like a bridge that is changing transport, changing data into each other with the events.
+The other one is SSC, just like you throwing a stone to someone and then that other person is throwing back stones again and again until they are done with the stones over there. This is like that: the frontend will send a notification call and the server will send the response to it until the frontend gets the condition reply it wanted. This is kind of server-side events.
+While I was facing this real-time data streaming, I had to use the principle that I was stopping the WebSockets while the user is doing any action on the screen. There was also silent polling going on in the background every 6 seconds, understanding that if there is a change happening by the user, if there is something the user is doing, then at that time we are just stopping the other things.
+Another analogy for this is also only changing that specific part where the change has come. The data is like a shell and in the shell there are multiple points on it. We are only changing the point where the data has been changed. That can also be a follow-up for this.
+
+next blog 
+I made the Wispr Flow free version and a better version of it as well. While making it the principle they were following was:
+1. They were getting the audio.
+2. Converting it.
+3. Making it into 16 Hz chunks.
+4. Sending it to the server.
+The server was transcribing it. The transcription was coming into Voicet. Jason was waiting. When Jason was getting saved inside the clipboard, it was stimulating that the user has clicked Command-V on the Cuban (wherever your cursor is or Cuban is). It was stimulating in the kernel by making a flag in accessibility that someone has pressed Control-V or Command-V. In that way the saved data that was coming from the backend was getting printed on the stickboard.
+That was the full analogy they were using for making it possible. While I was making this I understood how difficult it is for us as engineers to understand it, but how precise and fast it is for getting the response. When I made the better version of it, I needed to convert that into a response by the clicks. What I did was make it so that when the user clicks on the option, the API will go to the model that will transcribe it. The transcription will not come to the laptop or the client. It will be sent to another AI that will transcribe and read and understand it and make the appropriate response, with the information about which screen or which application was on. That was sent to the AI LLM and then the LLM was giving the response.
+If I am copying something from email and then clicking on the function button and saying that I want to make a reply for this email, then the email text was going into the LLM. Till the transcription is coming, both things are going to the backend. The LLM was making the response and the response was coming on the frontend and getting printed.
+This was the full thing that I made and understood: how much preciseness and attention is needed because I need to break all the things one by one, one fitted at a time. This was the thing that I made and how I was making it.
+
+
+
+The next blog is about the full process of how the API works. Take, as an example, a to-do list application where you need to click Add Title To Do List.
+What actually happens is:
+1. When you type it and click the save button, that converts it, in the iOS context, into a Swift model.
+2. The Swift model has this framework, Codable, that converts it into JSON format.
+3. That JSON format then goes to the backend.
+4. The backend handles it by the routes extracting the payload and converting that into the Swift model again in the backend.
+5. The Swift model is then converted into the model of columns and rows and then it is sent to the backend DB, where it is being saved with the query.
+6. The response comes in rows and columns.
+7. Rows and columns are then converted to the Swift model.
+8. The Swift model converts that into JSON format and then it is sent back to the frontend.
+9. Again the frontend converts that JSON into a Swift model and that Swift model is presented over your frontend.
+This is the ideology that we follow. This is the full theory of how the API runs.
+There is one thing that is also missing over here: the encryption and decryption that is also being done and that is handled by the network layer. This is the full block.
+
+
+
+The next blog is about logic: it will always be in the backend. Whenever you are making an application, the things are always handled by the backend because, in new applications, you can often see that things are changing again and again without you even updating the mobile application. How is that happening?
+1. When they are pushing this application they always have this thing in mind: when they need to release this feature one by one. That was giving the users the ideology: How are these people doing this engineering?
+2. It becomes easier for people to see the new updates without even going to the place for the app store and making the update.
+What they were doing is that the controllables are always in the backend. For each screen that is getting changed, it is in the backend. They are always maintained on CDN. CDN was making the things cached so that it was feeling faster. When they want to make the changes they can totally go inside the packages and make the changes. Now without even you making the update of the application, you can see the change on Instagram or whatever application you are using.
+
+next blog 
+Okay this is the thing that we need to understand: when we are making applications or designing the UI, the whole motive you should have in mind is that users should not be prompted or structured so that he can start using the application.
+
+You might have seen a government website where they appoint a specified person for training to make their users understand how to use this application. That was never even needed if one engineer had given this job. Now imagine this: you are making an application and you are saving time, money, or convenience by not hiring a UI/UX developer and directly making an application and then giving that to people to use. It was a government website so people have to use it. You know that people will use it anyway.
+
+Now they need to go to YouTube videos or they may have a personal trainer that will be appointed to make them understand how these applications work. All this is making trouble for thousands and lakhs of people. All that can be the fault of just a single person, that is, a product designer. If there was a time given to the product designer, he might have thought about all the logic and made the application so that the user doesn't need to understand. The user just can click on the buttons that he can see on the screen and his work is done.
+
+That is what product designing is. Product designing is not about the colours that we use for the frontend, the backend, or the screens. It is about understanding the edge cases, what people will see, what people will understand, the psychology of the person, and what he wants to have. This is the way products are designed. It is not about software engineering. It is about all the things that you can see. 
+
+
+
+Okay this is a blog about how I understand what colours I need to choose. This is simple: the rule of 60/30/10.
+- 60 will be your neutrals.
+- 30 will be your accent colour.
+- 10 will be the primary colour.
+When you are making designs you just need to start using this principle and your designs will automatically be aligned with the things that you need for making UIs or whatever you want to use (poster, whatever).
+
+the next blog is how to choose color pallater 
+You pick one base color, and I derive a 4-color palette from it using this formula:
+
+Base — the color as-is
+Accent — rotate hue by +137.5° (the golden angle), keep same saturation & lightness
+Neutral/Surface — same hue as base, same lightness, but saturation multiplied by 0.4 (much less saturated)
+Typography — take the accent's hue & saturation, switch to HSB mode, and drop brightness to 50%
+
+
+typogrphy if body is 12 then title will be 12 x 1.67 = title font size 
+
+next blog is 
+there is one thing that I got to know that these Is there a bar raiser to observe the interview as well? While you are interviewing with MNC companies, there is a person who might always be looking at you or observing you. If that person, after getting interviewed, is able to defeat the person's IQ that we already have in our company, this is something that they want to look at. They want to hire the person who can teach us and work for us. They want to hire someone who, every single time he is hired, can raise the bar for Amazon or any company, Google.
+
+Taking an example, if you are giving a vlog or an interview, the person who is observing your body language and other things will always be looking at this: Is this person giving answers based on what ideology? What design thinking is he able to go into, critical thinking or not? That is the thing that he looks at so that he can actually increase the bar. What they call it is a bar raiser interview. 
+
+next blog is 
+While making four applications of mine live on the Google Play Store and the App Store, these are the things I faced:
+- They heavily emphasise that users should know where the data is going.
+- Are they able to delete the data?
+- Are they able to see what permissions this application is getting and what they need to do inside the settings?
+- How can they contact the user company of the application?
+- Is every single button working?
+- Is it a vibe-coded application or something that is actually designed so the user is able to do the thing without intervention in between, for which the application was designed?
+- What if the user faces any problem?
+These are the things that I faced while I was making the things live on the Play Store.
+Also you need to always have a user in the production application that has master control over it because you don't want to have to go through your website each time. Developers need to test it. You want that: if I'm testing as user A, I will be seeing the application as normally as the millions of users who are going to use it. If I'm a specified user, user B, then if I log in I will get master control of the application. I can change the states. I can do all the things that an admin can do on the application so that I can see whether the application is working perfectly on each state change or not. That is what we followed for it.
+
+next blog is 
+This is a very good way to lead generate or search engine optimise. When I was looking at the podcast of Tanay Kushwaha, the founder of Wispr Flow, he said that your product always needs to be the best. Now find out at the onboarding time.
+
+When I was looking at the onboarding, I was very curious: why do people want to know in which company I am working, what position I am working in, and how many people there are in the company in which I am working? Then I understood what they are using it for. They were feeding this data: from which company I am. They were getting the data out of it. They were contacting that person, finding out who the VP of that company is and who the decision maker and buyer of that company is that provides tools to the engineers.
+
+They were contacting that person. This was a discovery engine they were making so that it becomes easier for them to onboard them onto their business. This looks very fine because they were just using the simple onboarding form and we don't even care about it. Mesmerising when I heard this 
+
+next blog is 
+Is understanding that I got to know that building an application was never the business. It is about the distribution. The person who will understand as far as he could will understand what he needs to do, because now 20-year, 30-year, and 21-year-old boys and girls are becoming founders by just making an application and starting to make reels of it. This is not a business. I understood it very lately but understood that distribution is the thing that actually makes the business go up. 
+
+
+The next blog is: the other person's pain point should be the first thing we should be talking about while having the call.
+
+These are the things that I follow when I am having a call with a client: I always look at what their pain point is, what they want to solve, or what their pain point is that I can solve for them. Maybe in a 13- to 15-minute call he might be saying something about the wrong pain point and you will understand that. You don't need to. If that is the case, don't sell yourself. Let them buy you because you understand the problem better in your context.
+
+They have discovered you. They are talking to you because they have a problem they want to solve, not because they want to give this problem to anyone in the country or world who can solve this. They wanted this person to make me trust him, to make me believe that he might be able to solve the problem that I am facing. This is the trust you need to gain while having a call with the person. 
+
+
+next blog is 
+This is the thing that I understood very lately: the competitor doesn't even exist. There are 8.5 billion people in the world and you are fighting for the fact that there is someone who copied my idea, brother. There are other search engines; they are earning. There are other companies that are also earning with the same thing.
+
+You also might not know about these because you haven't gone to it. Just go to Codecademy. Code Canyon is the Amazon of applications, where you can find applications, just like GitHub. You don't even need to create an application or start building it. You can find the code on GitHub and start publishing it.
+
+It is about how you sell. It is about the passion that you have when it is different. If the person even copies your idea he won't give his life to that idea. It is you who will give the idea a life. You will provide your efforts to that life. You will die for that. That is the thing that makes a business or the idea more lively.
+
+It is not about whether it will run or not but it is that if you have given your life, 100%, to it, you might get something out of it. Competitors will always exist. They will just copy your idea and may also have 100 customers but the TAM is so big that you can also have 100 customers. They can also have customers and you can live peacefully. 
+
+
+
+And the next blog is very simple: discipline makes you consistent. Consistency makes you marketable. Marketability can give you the pattern for people to recognise your face and that makes you convert people: this person is coming over the screen again and again, which means he might know something. This is the pattern that psychology follows, then that trust can be converted to money. 
+
+
+
+This  next blog is for the new developers. By designing a website for an existing business, you don't need to worry about designing and putting your mind into it. Just go to the competitor, analyse their website, and understand their structure. Just copy their structure and start applying your ideas to it. You will come up with a website that will maybe be better than other competitors because you made something upon their layer not from scratch. You can follow this if you want to get better at understanding and developing applications. This is an 
+
+
+
+next blog (my learnign ()Critical thinking plus hard work should be your muscle memory. This will never go away. Even AI can do the work for you but this is the thing: you need to always have critical thinking and hard work because that is the thing that will make you stand out. There are people who will use AI for the work but when new problems arise that never even existed, what will you do? At that time your critical thinking will come into play. That's why DSA was actually designed in this way: you need to solve it by using your own mind. 
+
+
+
+next blog is 
+Some people may say that you need to have a connection with every single one because you can get help from anyone. Yes but it is not connection; it is your network. There is a difference between your connection and network. Your network is the people that you can connect with, have your work for them, and they can work for you. It is not each person that gives you a view or might see you as a helpful person.
+
+This might be only 10 or 15 people in their life that might be helping. Making your small-time connections network can be bigger. You might see multiple people. You need to meet new people, become an extrovert, and meet new people and help out. To find those 15 people you need to meet 1,000 people. That is the thing so explore.
+
+You don't need to be friends with everyone. Don't become a public pleaser. Just find the people that are the best experts in their domains, and then find out who is good for you, who might help you, and whom you can help without expectations. You will find the people you were searching for. 
+
+
+
+next blog is 
+
+CAP theorem that we follow when we are choosing the best DB. When you want to choose the best DB, use the CAP theorem: the full form of it and the ACID properties. This vlog will be about ACID properties. 
+
+
+
+next blg is 
+Design protocol method: How does the design protocol method work in the mobile application?
+
+Think of two applications and two screens. You want to transfer the data without changing the screens. What will you do when you need to transfer backwards, if you are on the second screen and you want to transfer something to the first screen and you know that these work from the stack? The second screen is above the first one. When you are going back how would you transfer the data? That is where design protocol comes in: you save that data somewhere and wait for that other class to adapt it.
+
+As a second file you are taking the data and saving it somewhere in a design protocol function, calling it, and now the protocol is waiting. The first one will come and it will automatically get the data and do the work for you. That is the way you can understand design protocol. 
+
+
+
+next blog is 
+MasCow Law. This next vlog is about how Math Cos Law works so have the text and content about it. funnel
+
+next blog is 
+not each lead will convert so dont get worried about each lead 
+
+
+next blog is 
+Never come with a compalint , come with two solutions 
+
+
+
+next blog is 
+This is how you can generate modern aesthetics and graphics of your need.
+What you just need to do is:
+1. Go to the ChatGPT interface and find 5 instances that you like. Put that into ChatGPT.
+2. Find out all the patterns that you can recognise. Find all the information.
+3. If I ask you to generate this exact type of image, then what is the general thing I would be saying to you? Or if I need to tell you what design it is, then what words would I say to a real person? Find that out and lift that down.
+4. The DHITP will lift out all the things that he can find out in these 5 things. It will make a mood board.
+5. They give your idea that you want to create something like this only. Get all the common points and understand that mood board and then generate the image for yourself.
+It will give you something that you need. It is a workflow if you want to make high-quality graphics just using Chedi.
+
+
+
+next blog is 
+This is how undetectable Cloudy AI works. It is simply that there is a flag at the kernel level that says whether you want to show this thing while you are sharing your screen or not. If the person disables that using the accessibility settings of your laptop, then it will automatically stop getting shared on the sharing screen. That is the actual flow that makes it possible for you to make it undetectable or Clueless AI. 
+

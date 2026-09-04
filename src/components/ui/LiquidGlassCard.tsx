@@ -21,8 +21,8 @@ export const LiquidGlassCard: React.FC<LiquidGlassCardProps> = ({
   return (
     <motion.div
       {...props}
-      whileHover={hoverLift ? { y: -6, transition: { duration: 0.3, ease: "easeOut" } } : undefined}
-      className={`relative overflow-hidden rounded-[24px] transition-all duration-300 ${className}`}
+      whileHover={hoverLift ? { y: -2, transition: { duration: 0.2, ease: "easeOut" } } : undefined}
+      className={`relative overflow-hidden rounded-[24px] transition-all duration-200 ${className}`}
       style={{
         ...glassStyle,
         WebkitBackdropFilter: glassStyle.backdropFilter,

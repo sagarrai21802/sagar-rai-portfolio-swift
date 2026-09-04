@@ -18,14 +18,15 @@
 
 .staggered-menu-header {
   position: absolute;
-  top: 0;
+  top: 1rem; /* Matches Navigation top-4 */
   left: 0;
   width: 100%;
-  height: 4rem; /* Matches Navigation's h-16 */
+  height: 5rem; /* Matches Navigation h-20 */
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Push button to right since logo is empty */
-  padding: 0; /* Removing the 2em padding so it aligns with the logo */
+  justify-content: flex-end;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
   background: transparent;
   pointer-events: none;
   z-index: 20;

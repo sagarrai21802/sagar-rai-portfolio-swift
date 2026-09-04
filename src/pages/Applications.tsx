@@ -59,10 +59,15 @@ const ApplicationsPage = () => {
                       <img 
                         src={app.icon} 
                         alt={app.name}
-                        className="w-14 h-14 rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform duration-300 border border-white/10"
+                        loading="lazy"
+                        decoding="async"
+                        className="w-14 h-14 rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform duration-200 border border-white/10"
+                        onError={(e) => {
+                          e.currentTarget.src = '/placeholder.svg';
+                        }}
                       />
                     ) : (
-                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 transition-colors duration-300">
+                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 transition-colors duration-200">
                         <FileText className="w-7 h-7 text-primary" />
                       </div>
                     )}
@@ -92,7 +97,7 @@ const ApplicationsPage = () => {
                       href={app.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 bg-primary text-white rounded-xl hover:bg-primary/90 hover:scale-105 transition-all duration-300 w-full text-sm font-bold shadow-md"
+                      className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all duration-200 w-full text-sm font-bold shadow-md"
                     >
                       <ExternalLink className="w-4 h-4 text-white stroke-[2.5]" />
                       <span className="text-white font-bold">View Live App</span>
@@ -101,7 +106,7 @@ const ApplicationsPage = () => {
                     <a
                       href={app.downloadUrl}
                       download
-                      className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 bg-primary text-white rounded-xl hover:bg-primary/90 hover:scale-105 transition-all duration-300 w-full text-sm font-bold shadow-md"
+                      className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all duration-200 w-full text-sm font-bold shadow-md"
                     >
                       <Download className="w-4 h-4 text-white stroke-[2.5]" />
                       <span className="text-white font-bold">Download App</span>
@@ -109,7 +114,7 @@ const ApplicationsPage = () => {
                   ) : (
                     <button
                       onClick={() => navigate(`/projects/${app.id}`)}
-                      className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 bg-primary text-white rounded-xl hover:bg-primary/90 hover:scale-105 transition-all duration-300 w-full text-sm font-bold shadow-md"
+                      className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all duration-200 w-full text-sm font-bold shadow-md"
                     >
                       <ExternalLink className="w-4 h-4 text-white stroke-[2.5]" />
                       <span className="text-white font-bold">View Details</span>

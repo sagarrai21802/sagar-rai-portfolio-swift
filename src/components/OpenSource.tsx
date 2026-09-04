@@ -214,9 +214,9 @@ const OpenSource = () => {
             href="https://github.com/sagarrai21802"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-3 px-8 py-4 bg-primary text-primary-foreground rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 animated-button font-medium"
+            className="inline-flex items-center space-x-3 px-8 py-4 bg-primary text-primary-foreground rounded-full hover:shadow-md transition-all duration-200 hover:bg-primary/90 font-medium"
           >
-            <Github className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
+            <Github className="w-5 h-5 transition-transform duration-200" />
             <span>View More on GitHub</span>
           </a>
         </div>

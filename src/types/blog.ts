@@ -9,5 +9,5 @@ export interface BlogPost {
   image_url?: string;
   author: string;
   created_at: string;
-  tags: string; // comma-separated strings
+  tags?: string;
 }

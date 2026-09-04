@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useReveal } from '@/hooks/useReveal';
 import { useMouseParallax } from '@/hooks/useMouseParallax';
 import { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
 import TextReveal from './TextReveal';
 import BlurReveal from './BlurReveal';
 import LiquidGlassCard from './ui/LiquidGlassCard';
@@ -11,16 +10,9 @@ import LiquidGlassCard from './ui/LiquidGlassCard';
 const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
   const navigate = useNavigate();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [typedText, setTypedText] = useState('');
   const [animationStarted, setAnimationStarted] = useState(false);
   const [imageSlideComplete, setImageSlideComplete] = useState(false);
-  const fullText = "Software Developer Engineer";
   const { parallax } = useMouseParallax(1);
-
-  const { scrollY } = useScroll();
-  const leftX = useTransform(scrollY, [0, 800], [0, -500]);
-  const rightX = useTransform(scrollY, [0, 800], [0, 500]);
-  const elementOpacity = useTransform(scrollY, [0, 600], [1, 0]);
 
   useEffect(() => {
     // Start animation sequence when intro completes
@@ -30,24 +22,13 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
       const slideTimer = setTimeout(() => {
         setImageSlideComplete(true);
       }, 100);
-      
+
       return () => clearTimeout(slideTimer);
     }
   }, [introCompleted]);
 
   useEffect(() => {
     setIsLoaded(true);
-    // Typing animation
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setTypedText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 40);
-    return () => clearInterval(timer);
   }, []);
 
   const scrollToAbout = () => {
@@ -59,21 +40,12 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
   const subtitleReveal = useReveal();
   const buttonsReveal = useReveal();
 
-  const stats = [
-    { value: '1M+', label: 'Users Impacted', delay: '0.3s' },
-    { value: '2', label: 'Companies', delay: '0.4s' },
-    { value: '50+', label: 'GitHub Repos', delay: '0.5s' },
-  ];
-
   return (
     <header className="min-h-[100dvh] pt-16 flex flex-col relative overflow-hidden">
-      {/* Background image - slides from full screen to centered */}
-      <motion.div 
-        style={{ x: rightX, opacity: elementOpacity }}
-        className="absolute inset-0 z-0"
-      >
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
         <div className={`header-image-container ${imageSlideComplete ? 'image-slide-complete' : ''}`} />
-      </motion.div>
+      </div>
 
 
       {/* Rest of the content with relative positioning */}
@@ -83,48 +55,41 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
           <div className={`flex flex-col lg:flex-row lg:items-center lg:justify-start lg:gap-16 header-content ${imageSlideComplete ? 'content-visible' : ''}`}>
 
             {/* Left side - Text content */}
-            <motion.div style={{ x: leftX, opacity: elementOpacity }} className="flex-1 text-left order-2 lg:order-1">
-              {/* Name with gradient - using TextReveal */}
-              <TextReveal
-                text="Sagar Rai"
-                as="h1"
-                className="text-[clamp(2.2rem,11vw,4.75rem)] md:text-6xl lg:text-7xl font-display font-bold mb-4 tracking-tight"
-                delay={0.2}
-                duration={1}
-                revealDirection="left"
-                startTrigger={imageSlideComplete}
-              />
-
-              {/* Subtitle with TextReveal - two color effect */}
-              <div className="min-h-[3rem] md:h-14 mb-8">
+            <div className="flex-1 text-left order-2 lg:order-1">
+              {/* Greeting */}
+              <div className="mb-4">
                 <TextReveal
-                  text={fullText}
-                  className="text-[clamp(1rem,4.2vw,1.5rem)] md:text-2xl text-white/90 font-body font-light"
-                  delay={0.5}
+                  text="Hey, I'm Sagar Rai"
+                  as="p"
+                  className="text-[clamp(1.1rem,4.2vw,1.5rem)] md:text-2xl text-white/90 font-body font-light tracking-normal"
+                  delay={0.2}
                   duration={0.8}
                   revealDirection="left"
                   startTrigger={imageSlideComplete}
-                  twoColor
                 />
               </div>
 
-              {/* Stats - horizontal spread */}
-              <div className="flex flex-wrap justify-start lg:justify-start gap-6 md:gap-12 mb-8">
-                {stats.map((stat, index) => (
-                  <div
-                    key={stat.label}
-                    className={`transition-all duration-700 ${imageSlideComplete ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-[50px]'}`}
-                    style={{ transitionDelay: stat.delay }}
-                  >
-                    <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-white/60 font-medium uppercase tracking-wider">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {/* Main Role Title: 120px, line-height 100px, weight 400, letter-spacing -0.055em */}
+              <h1 className="mb-8 flex flex-col">
+                <TextReveal
+                  text="Software"
+                  as="span"
+                  className="block text-[clamp(2.75rem,8vw,120px)] lg:text-[120px] leading-[0.95] lg:leading-[100px] font-display font-normal tracking-[-0.055em] text-white"
+                  delay={0.4}
+                  duration={1}
+                  revealDirection="left"
+                  startTrigger={imageSlideComplete}
+                />
+                <TextReveal
+                  text="Engineer"
+                  as="span"
+                  className="block text-[clamp(2.75rem,8vw,120px)] lg:text-[120px] leading-[0.95] lg:leading-[100px] font-display font-normal tracking-[-0.055em] text-white"
+                  delay={0.6}
+                  duration={1}
+                  revealDirection="left"
+                  startTrigger={imageSlideComplete}
+                />
+              </h1>
 
               {/* Action buttons - even and professional */}
               <div
@@ -142,13 +107,18 @@ const Header = ({ introCompleted }: { introCompleted?: boolean }) => {
               {/* Secondary actions */}
               <div className="flex flex-wrap justify-start lg:justify-start gap-4">
               </div>
-            </motion.div>
+            </div>
 
           </div>
         </div>
       </div>
 
 
+      {/* Bottom transition: 160px dark gradient & blur overlay blending seamlessly into the next section */}
+      <div
+        className="absolute bottom-0 inset-x-0 h-40 pointer-events-none z-20 bg-gradient-to-b from-transparent via-background/60 to-background backdrop-blur-[2px]"
+        aria-hidden="true"
+      />
     </header>
   );
 };

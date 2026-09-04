@@ -134,6 +134,8 @@ All colors MUST be HSL.
 
   html {
     scroll-behavior: smooth;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
@@ -226,7 +228,8 @@ All colors MUST be HSL.
 }
 
 .hover\:bounce:hover {
-  animation: bounce 1s;
+  transform: translateY(-2px);
+  transition: transform 0.2s ease-out;
 }
 
 /* Prevent animation flickering */
@@ -333,7 +336,7 @@ All colors MUST be HSL.
 @keyframes page-fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(4px);
   }
 
   to {
@@ -343,7 +346,7 @@ All colors MUST be HSL.
 }
 
 .page-transition {
-  animation: page-fade-in 0.5s ease-out forwards;
+  animation: page-fade-in 0.15s ease-out forwards;
 }
 
 /* Staggered card reveal */

@@ -67,6 +67,7 @@ const ProjectDetail = () => {
                 title={project.title}
                 className="w-full h-full"
                 frameBorder="0"
+                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
@@ -76,6 +77,7 @@ const ProjectDetail = () => {
                 title={project.title}
                 className="w-full h-full"
                 frameBorder="0"
+                loading="lazy"
                 allowFullScreen
               />
             ) : project.video ? (
@@ -93,6 +95,7 @@ const ProjectDetail = () => {
               ) : (
                 <video
                   src={project.video}
+                  preload="metadata"
                   autoPlay
                   loop
                   muted
@@ -105,11 +108,20 @@ const ProjectDetail = () => {
               <img
                 src={project.image}
                 alt={project.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain"
+                onError={(e) => {
+                  e.currentTarget.src = '/placeholder.svg';
+                }}
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-6xl">🚀</div>
+              <div className="w-full h-full flex items-center justify-center p-8">
+                <img
+                  src="/placeholder.svg"
+                  alt={project.title}
+                  className="w-32 h-32 opacity-40 object-contain"
+                />
               </div>
             )}
           </div>
@@ -191,7 +203,7 @@ const ProjectDetail = () => {
                     href={project.liveDemo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2.5 px-6 py-3.5 bg-primary text-white rounded-xl hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-md font-bold text-base"
+                    className="flex items-center justify-center space-x-2.5 px-6 py-3.5 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all duration-200 shadow-md font-bold text-base"
                   >
                     <ExternalLink className="w-5 h-5 text-white stroke-[2.5]" />
                     <span className="font-bold text-white text-base">View Live</span>

@@ -17,10 +17,10 @@ const Contact = () => {
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-16">
           <a
             href="mailto:sagarrai9893@gmail.com"
-            className="flex flex-col items-center p-8 md:p-10 bg-card backdrop-blur-sm border border-border rounded-3xl hover:shadow-lg transition-all duration-500 hover:scale-105 hover:-translate-y-2 contact-card animate-fade-in-up animation-delay-300"
+            className="flex flex-col items-center p-8 md:p-10 bg-card backdrop-blur-sm border border-border rounded-3xl hover:shadow-md hover:border-primary/40 transition-all duration-200 hover:-translate-y-1 group"
             title="Send me an email"
           >
-            <Mail className="w-10 h-10 text-primary mb-6 transition-transform duration-200 hover:scale-110 hover:bounce" />
+            <Mail className="w-10 h-10 text-primary mb-6 transition-transform duration-200 group-hover:scale-105" />
             <h3 className="text-xl font-display font-semibold mb-3 text-foreground">Email</h3>
             <p className="text-muted-foreground text-sm font-body">sagarrai9893@gmail.com</p>
           </a>
@@ -29,10 +29,10 @@ const Contact = () => {
             href="https://linkedin.com/in/sagar-rai-ios"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center p-8 md:p-10 bg-card backdrop-blur-sm border border-border rounded-3xl hover:shadow-lg transition-all duration-500 hover:scale-105 hover:-translate-y-2 contact-card animate-fade-in-up animation-delay-400"
+            className="flex flex-col items-center p-8 md:p-10 bg-card backdrop-blur-sm border border-border rounded-3xl hover:shadow-md hover:border-primary/40 transition-all duration-200 hover:-translate-y-1 group"
             title="Connect on LinkedIn"
           >
-            <Linkedin className="w-10 h-10 text-primary mb-6 transition-transform duration-200 hover:scale-110 hover:bounce" />
+            <Linkedin className="w-10 h-10 text-primary mb-6 transition-transform duration-200 group-hover:scale-105" />
             <h3 className="text-xl font-display font-semibold mb-3 text-foreground">LinkedIn</h3>
             <p className="text-muted-foreground text-sm font-body">sagar-rai-ios</p>
           </a>
@@ -41,10 +41,10 @@ const Contact = () => {
             href="https://github.com/sagarrai21802"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center p-8 md:p-10 bg-card backdrop-blur-sm border border-border rounded-3xl hover:shadow-lg transition-all duration-500 hover:scale-105 hover:-translate-y-2 contact-card animate-fade-in-up animation-delay-500"
+            className="flex flex-col items-center p-8 md:p-10 bg-card backdrop-blur-sm border border-border rounded-3xl hover:shadow-md hover:border-primary/40 transition-all duration-200 hover:-translate-y-1 group"
             title="View my GitHub profile"
           >
-            <Github className="w-10 h-10 text-primary mb-6 transition-transform duration-200 hover:scale-110 hover:bounce" />
+            <Github className="w-10 h-10 text-primary mb-6 transition-transform duration-200 group-hover:scale-105" />
             <h3 className="text-xl font-display font-semibold mb-3 text-foreground">GitHub</h3>
             <p className="text-muted-foreground text-sm font-body">sagarrai21802</p>
           </a>

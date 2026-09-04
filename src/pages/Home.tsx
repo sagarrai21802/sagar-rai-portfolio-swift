@@ -1,6 +1,5 @@
 import Header from '@/components/Header';
 import About from '@/components/About';
-import Achievements from '@/components/Achievements';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
@@ -20,7 +19,6 @@ const Home = ({ introCompleted }: HomeProps) => {
       />
       <Header introCompleted={introCompleted} />
       <About />
-      <Achievements />
       <FAQ />
       <CTASection />
       

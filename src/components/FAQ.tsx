@@ -64,54 +64,58 @@ export default function FAQ() {
         </script>
       </Helmet>
 
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-white tracking-tight mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Find answers to common questions about my development workflow, services, technology stacks, and optimization methods.
-          </p>
-        </div>
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Left Heading & Description */}
+          <div className="lg:col-span-4 lg:sticky lg:top-28">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white tracking-tight mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Find answers to common questions about my development workflow, services, technology stacks, and optimization methods.
+            </p>
+          </div>
 
-        <div className="space-y-4">
-          {faqData.map((item, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div 
-                key={index}
-                className="rounded-2xl border border-white/5 bg-[#111111] dark:bg-[#0a0a0a] overflow-hidden transition-all duration-300 hover:border-white/10"
-              >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left gap-4 transition-colors"
+          {/* Right Questions Accordion */}
+          <div className="lg:col-span-8 space-y-4">
+            {faqData.map((item, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div 
+                  key={index}
+                  className="rounded-2xl border border-white/5 bg-[#111111] dark:bg-[#0a0a0a] overflow-hidden transition-all duration-300 hover:border-white/10"
                 >
-                  <span className="font-semibold text-white text-lg md:text-xl font-display leading-snug">
-                    {item.question}
-                  </span>
-                  <div className={`p-2 rounded-full bg-white/5 text-white/70 transition-transform duration-300 ${isOpen ? 'rotate-180 bg-white/10 text-white' : ''}`}>
-                    <ChevronDown className="w-5 h-5" />
-                  </div>
-                </button>
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full px-6 py-5 flex items-center justify-between text-left gap-4 transition-colors"
+                  >
+                    <span className="font-semibold text-white text-lg md:text-xl font-display leading-snug">
+                      {item.question}
+                    </span>
+                    <div className={`p-2 rounded-full bg-white/5 text-white/70 transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180 bg-white/10 text-white' : ''}`}>
+                      <ChevronDown className="w-5 h-5" />
+                    </div>
+                  </button>
 
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-6 pb-6 pt-1 text-muted-foreground text-base md:text-lg leading-relaxed border-t border-white/5">
-                        {item.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-6 pt-1 text-muted-foreground text-base md:text-lg leading-relaxed border-t border-white/5">
+                          {item.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

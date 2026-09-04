@@ -67,6 +67,7 @@ const Projects = () => {
           title={project.title}
           className="w-full h-full"
           frameBorder="0"
+          loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
@@ -81,6 +82,7 @@ const Projects = () => {
           title={project.title}
           className="w-full h-full"
           frameBorder="0"
+          loading="lazy"
           allowFullScreen
         />
       );
@@ -91,6 +93,7 @@ const Projects = () => {
       return (
         <video
           src={project.video}
+          preload="metadata"
           autoPlay
           loop
           muted
@@ -112,11 +115,14 @@ const Projects = () => {
               }`}
           >
             <img
-              src={project.image}
+              src={project.image || '/placeholder.svg'}
               alt={`${project.title} - iOS app UI built with SwiftUI`}
               className="w-full h-full object-contain"
               style={{ objectFit: 'contain' }}
               loading="lazy"
+              onError={(e) => {
+                e.currentTarget.src = '/placeholder.svg';
+              }}
             />
           </div>
           <div
@@ -139,11 +145,12 @@ const Projects = () => {
             ) : (
               <video
                 src={project.video}
+                preload="metadata"
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-full"
+                className="w-full h-full object-cover"
                 style={{
                   objectFit: 'cover',
                   width: '100%',
@@ -156,14 +163,17 @@ const Projects = () => {
       );
     }
 
-    // Default image only
+    // Default image only or placeholder
     return (
       <div className="w-full h-full flex items-center justify-center overflow-hidden">
         <img
-          src={project.image}
+          src={project.image || '/placeholder.svg'}
           alt={`${project.title} - app UI`}
           className="max-w-full max-h-full object-contain"
           loading="lazy"
+          onError={(e) => {
+            e.currentTarget.src = '/placeholder.svg';
+          }}
         />
       </div>
     );
@@ -203,7 +213,7 @@ const Projects = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2.5 px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary/90 hover:scale-105 transition-all duration-300 text-base font-bold shadow-md"
+                      className="inline-flex items-center gap-2.5 px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all duration-200 text-base font-bold shadow-md"
                     >
                       <span className="text-white font-bold">View Live</span>
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -224,9 +234,9 @@ const Projects = () => {
             href="https://github.com/sagarrai21802"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-3 px-8 py-4 bg-primary text-primary-foreground rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 animated-button font-medium"
+            className="inline-flex items-center space-x-3 px-8 py-4 bg-primary text-primary-foreground rounded-full hover:shadow-md transition-all duration-200 hover:bg-primary/90 font-medium"
           >
-            <Github className="w-5 h-5 transition-transform duration-200 hover:scale-110 hover:rotate-6" />
+            <Github className="w-5 h-5 transition-transform duration-200" />
             <span>View More on GitHub</span>
           </a>
         </div>

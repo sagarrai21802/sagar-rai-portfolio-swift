@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 interface LayoutProps {
@@ -6,16 +6,15 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   useEffect(() => {
-    // Reset scroll position and trigger page transition on route change
-    window.scrollTo(0, 0);
+    // Reset scroll position instantly on route change to avoid slide animation glitch
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [location.pathname]);
 
   return (
-    <div ref={containerRef} key={location.pathname} className="min-h-screen page-transition">
+    <div className="min-h-screen">
       {children}
     </div>
   );

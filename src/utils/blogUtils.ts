@@ -26,7 +26,7 @@ export const formatDate = (dateString: string): string => {
 /**
  * Parse tags from comma-separated string to array
  */
-export const parseTags = (tagsString: string): string[] => {
+export const parseTags = (tagsString?: string): string[] => {
   if (!tagsString) return [];
   return tagsString.split(',').map(tag => tag.trim()).filter(Boolean);
 };

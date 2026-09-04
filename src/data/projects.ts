@@ -879,8 +879,8 @@ export const projects: Project[] = [
     isApplication: false,
     version: "1.0.0",
     size: "1.5 MB",
-    downloadUrl: "/apps/image-data-entry-ocr/extension.zip",
-    icon: "/apps/image-data-entry-ocr/icon128.png"
+    downloadUrl: "/apps/ocr-extension/ocr-extension-v2.2.0.zip",
+    icon: "/apps/ocr-extension/icon128.webp"
   },
   {
     id: 'portfolio-website',

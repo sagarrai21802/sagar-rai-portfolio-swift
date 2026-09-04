@@ -9,18 +9,19 @@ import Navigation from "./components/Navigation";
 import Layout from "./components/Layout";
 import IntroAnimation from "./components/IntroAnimation";
 
-const Home = lazy(() => import("./pages/Home"));
-const ProjectsPage = lazy(() => import("./pages/Projects"));
+import Home from "./pages/Home";
+import ProjectsPage from "./pages/Projects";
+import Blog from "./pages/Blog";
+import Experience from "./pages/Experience";
+import ApplicationsPage from "./pages/Applications";
+
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
-const Blog = lazy(() => import("./pages/Blog"));
 const BlogDetail = lazy(() => import("./pages/BlogDetail"));
 const OpenSource = lazy(() => import("./components/OpenSource"));
 const OpenSourceDetail = lazy(() => import("./pages/OpenSourceDetail"));
-const Experience = lazy(() => import("./pages/Experience"));
 const SkillsPage = lazy(() => import("./pages/Skills"));
 const EducationPage = lazy(() => import("./pages/Education"));
 const ContactPage = lazy(() => import("./pages/Contact"));
-const ApplicationsPage = lazy(() => import("./pages/Applications"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -28,12 +29,17 @@ const queryClient = new QueryClient();
 const AppContent = () => {
   const location = useLocation();
   const [showIntro, setShowIntro] = useState(() => {
-    // Show intro on home page every time
-    return location.pathname === '/';
+    if (location.pathname !== '/') return false;
+    const hasSeen = sessionStorage.getItem('hasSeenIntro');
+    return !hasSeen;
   });
-  const [introCompleted, setIntroCompleted] = useState(false);
+  const [introCompleted, setIntroCompleted] = useState(() => {
+    const hasSeen = sessionStorage.getItem('hasSeenIntro');
+    return Boolean(hasSeen) || location.pathname !== '/';
+  });
 
   const handleIntroComplete = () => {
+    sessionStorage.setItem('hasSeenIntro', 'true');
     setShowIntro(false);
     setIntroCompleted(true);
   };
@@ -41,8 +47,8 @@ const AppContent = () => {
   return (
     <>
       {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
+      <Navigation />
       <Layout>
-        <Navigation />
         <Suspense fallback={<div className="flex h-screen w-full items-center justify-center text-foreground">Loading...</div>}>
           <Routes>
             <Route path="/" element={<Home introCompleted={introCompleted} />} />
