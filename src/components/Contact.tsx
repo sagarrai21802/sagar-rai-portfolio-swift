@@ -9,11 +9,6 @@ const Contact = () => {
           Let's Connect
         </h2>
 
-        <p className="text-xl md:text-2xl text-muted-foreground mb-16 max-w-3xl mx-auto animate-fade-in-up animation-delay-200 leading-relaxed font-body font-light">
-          I'm actively seeking iOS development opportunities worldwide.
-          Let's discuss how I can contribute to your team!
-        </p>
-
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-16">
           <a
             href="mailto:sagarrai9893@gmail.com"
