@@ -12,7 +12,6 @@ const ApplicationsPage = () => {
     .map(p => ({
       id: p.id,
       name: p.title,
-      version: p.version || '',
       size: p.size || 'Live Application',
       liveUrl: p.liveUrl || '',
       downloadUrl: p.downloadUrl || '',
@@ -76,48 +75,46 @@ const ApplicationsPage = () => {
                       <h3 className="text-lg font-display font-bold text-foreground truncate group-hover:text-primary transition-colors">
                         {app.name}
                       </h3>
-                      <div className="flex items-center gap-2 mt-1">
-                        {app.version && (
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-semibold border border-primary/20">
-                            v{app.version}
-                          </span>
-                        )}
-                        <span className="text-xs text-muted-foreground font-medium truncate">
-                          {app.size}
-                        </span>
-                      </div>
+                      <span className="text-xs text-muted-foreground font-medium truncate block mt-1">
+                        {app.size}
+                      </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Bottom Action Button */}
-                <div className="pt-4 border-t border-white/10 dark:border-white/5 mt-2" onClick={(e) => e.stopPropagation()}>
-                  {app.liveUrl ? (
+                {/* Bottom Actions */}
+                <div className="pt-4 border-t border-white/10 dark:border-white/5 mt-2 flex items-center justify-end gap-2" onClick={(e) => e.stopPropagation()}>
+                  {app.liveUrl && (
                     <a
                       href={app.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all duration-200 w-full text-sm font-bold shadow-md"
+                      title="View live app"
+                      aria-label="View live app"
+                      className="inline-flex items-center justify-center w-9 h-9 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-200 shadow-sm"
                     >
                       <ExternalLink className="w-4 h-4 text-white stroke-[2.5]" />
-                      <span className="text-white font-bold">View Live App</span>
                     </a>
-                  ) : app.downloadUrl ? (
+                  )}
+                  {app.downloadUrl && (
                     <a
                       href={app.downloadUrl}
                       download
-                      className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all duration-200 w-full text-sm font-bold shadow-md"
+                      title="Download app"
+                      aria-label="Download app"
+                      className="inline-flex items-center justify-center w-9 h-9 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-200 shadow-sm"
                     >
                       <Download className="w-4 h-4 text-white stroke-[2.5]" />
-                      <span className="text-white font-bold">Download App</span>
                     </a>
-                  ) : (
+                  )}
+                  {!app.liveUrl && !app.downloadUrl && (
                     <button
                       onClick={() => navigate(`/projects/${app.id}`)}
-                      className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all duration-200 w-full text-sm font-bold shadow-md"
+                      title="View details"
+                      aria-label="View details"
+                      className="inline-flex items-center justify-center w-9 h-9 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-200 shadow-sm"
                     >
-                      <ExternalLink className="w-4 h-4 text-white stroke-[2.5]" />
-                      <span className="text-white font-bold">View Details</span>
+                      <ArrowRight className="w-4 h-4 text-white stroke-[2.5]" />
                     </button>
                   )}
                 </div>
